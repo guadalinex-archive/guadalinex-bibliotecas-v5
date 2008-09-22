@@ -1,0 +1,13 @@
+Source: gbiblio-desktop
+Section: utils
+Priority: optional
+Build-Depends: debhelper
+Maintainer: Carlos Parra Camargo <cparra@emergya.es> 
+Standards-Version: 3.8.0
+
+Package: gbiblio-desktop
+Architecture: any
+Depends: gdm, openoffice.org-calc, openoffice.org-math, openoffice.org-impress, openoffice.org-writer, openoffice.org-l10n-es, evince, nautilus, eog, gedit, gcalctool, file-roller, gnome-utils, cups-pdf, gnome-screensaver, gnome-volume-manager, gstreamer0.10-plugins-ugly, gstreamer0.10-plugins-good, gstreamer0.10-plugins-farsight, gstreamer0.10-plugins-bad, gstreamer0.10-plugins-base, dhcdbd, nfs-common, ntpdate, smbclient, snmpd, ttf-liberation, xserver-xorg, gnome-panel, gnome-applets, gnome-themes, metacity, gnome-media, x-ttcidfont-conf, sun-java5-jre, sun-java5-plugin, gnome-power-manager, totem, totem-gstreamer, hermeshardware, lemurae, openssh-server, openoffice.org-gnome, openoffice.org-gtk, openoffice.org-style-tango, tango-icon-theme, discover, discover-data, hwdata, totem-mozilla, flashplugin-nonfree, flashplugin-nonfree-extrasound
+Conflicts: guadalinex-desktop
+Description: Guadalinex Bibliotecas V5 desktop package
+ This package includes all software of Guadalinex Bibliotecas V5 distribution.
