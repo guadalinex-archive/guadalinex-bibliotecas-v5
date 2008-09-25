@@ -1,0 +1,7 @@
+#!/bin/bash
+
+MENU_LST="/boot/grub/menu.lst"
+
+test -f $MENU_LST && rm -f $MENU_LST
+test -f /boot/grub/menu.lst.gv5 && rm -f /boot/grub/menu.lst.gv5
+update-grub -y
