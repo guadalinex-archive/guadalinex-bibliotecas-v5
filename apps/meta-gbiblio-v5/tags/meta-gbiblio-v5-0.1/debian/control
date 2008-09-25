@@ -1,0 +1,15 @@
+Source: meta-gbiblio-v5
+Section: metapackages
+Priority: standard
+Maintainer: Juanje Ojeda Croissier <jojeda@emergya.es>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.8.0
+Homepage: http://forja.guadalinex.org/repositorio/projects/gbiblio/
+XS-Vcs-Svn: http://forja.guadalinex.org/gbiblio/apps/meta-gbiblio-v5/trunk/
+
+Package: meta-gbiblio-v5
+Architecture: any
+Depends: guadalinex-standard, guadalinex-minimal, guadalinex-minimal-conf, gbiblio-desktop, gbiblio-artwork 
+Conflicts: meta-guadalinex-v5
+Description: Guadalinex Bibliotecas V5 meta package
+ This package depends on all packages of Guadalinex Bibliotecas V5 distribution.
