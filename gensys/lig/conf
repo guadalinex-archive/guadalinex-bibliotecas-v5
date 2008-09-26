@@ -41,7 +41,7 @@ debug="no"
 pre_base_pkgs="language-pack-es-base sun-java6-jre localepurge" 
 
 # these will be the following (second)
-base_pkgs="linux-image-generic linux-restricted-modules-generic language-pack-gnome-es language-pack-es meta-gbibliotecas-v5 guadalinex-minimal-conf" 
+base_pkgs="linux-image-generic linux-restricted-modules-generic language-pack-gnome-es language-pack-es meta-gbiblio-v5 guadalinex-minimal-conf" 
 
 # and these the last ones
 live_pkgs="gru casper casper-guada ubiquity-frontend-gtk guadalinex-asistente-usb ubiquity-ubuntu-artwork jfsutils gparted ubiquity guada-ubiquity" 
