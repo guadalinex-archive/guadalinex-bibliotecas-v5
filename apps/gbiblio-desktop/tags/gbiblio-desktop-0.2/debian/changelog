@@ -1,0 +1,12 @@
+gbiblio-desktop (0.2) unstable; urgency=low
+  [dteyssiere]
+  * Added ssh dependencie
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 01 Sep 2008 12:30:00 +0200
+gbiblio-desktop (0.1) unstable; urgency=low
+
+  * Initial release
+  * Added first applications selection
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 01 Sep 2008 12:30:00 +0200
+
