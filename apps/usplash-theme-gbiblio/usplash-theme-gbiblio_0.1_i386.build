@@ -1,0 +1,13 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: set CPPFLAGS to default value: 
+dpkg-buildpackage: set CFLAGS to default value: -g -O2
+dpkg-buildpackage: set CXXFLAGS to default value: -g -O2
+dpkg-buildpackage: set FFLAGS to default value: -g -O2
+dpkg-buildpackage: set LDFLAGS to default value: -Wl,-Bsymbolic-functions
+dpkg-buildpackage: Paquete fuente usplash-theme-gbiblio
+dpkg-buildpackage: Versión fuente 0.1
+dpkg-buildpackage: Fuente cambiadas por David Teyssiere <dteyssiere@emergya.es>
+dpkg-buildpackage: arquitectura de anfitrión i386
+dpkg-checkbuilddeps: Dependencias de construcción no alcanzadas: libusplash-dev (>= 0.5.16)
+dpkg-buildpackage: aviso: Contrucción de dependencias/conflictos insatisfecha; abortando.
+dpkg-buildpackage: aviso: (Use la etiqueta -d para sobreescribir.)
