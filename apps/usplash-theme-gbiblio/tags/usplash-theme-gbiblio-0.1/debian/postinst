@@ -1,0 +1,13 @@
+#!/bin/sh
+
+set -e
+
+#DEBHELPER#
+
+case "$1" in
+    configure)
+        update-alternatives --install /usr/lib/usplash/usplash-artwork.so usplash-artwork.so /usr/lib/usplash/usplash-theme-gbiblio.so 10
+	update-alternatives --set usplash-artwork.so /usr/lib/usplash/usplash-theme-gbiblio.so
+        update-initramfs -u
+        ;;
+esac
