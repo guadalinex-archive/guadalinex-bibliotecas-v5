@@ -1,0 +1,11 @@
+Source: medusa-client
+Section: misc 
+Priority: optional
+Maintainer: Junta de andalucia <packmaster@guadalinex.org>
+Build-Depends: qt3-apps-dev, qt3-designer, qt3-dev-tools, xlibs-dev, libxml2-dev, debhelper
+Standards-Version: 3.7.2
+
+Package: medusa-client
+Architecture: any
+Description: medusa for clients
+ client size of medusa
