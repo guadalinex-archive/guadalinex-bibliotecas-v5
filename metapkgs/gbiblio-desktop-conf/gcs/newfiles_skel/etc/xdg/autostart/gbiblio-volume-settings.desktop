@@ -1,0 +1,11 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Guadalinex Biblary volume settings
+Name[es]=Guadalinex Bibliotecas preferencias de volumen
+Comment=Sets 'Master' mixer to 20% of vol.
+Comment[es]=Pone al 20% el volumen maestro de la tarjeta de sonido.
+Icon=
+Exec=amixer sset Master 20%
+Terminal=false
+Type=Application
+Categories=
