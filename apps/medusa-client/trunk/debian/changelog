@@ -1,3 +1,10 @@
+medusa-client (1.15) hardy; urgency=low
+
+  * Actualizado artwork
+  * Actualizadas dependencias de construccion del paquete
+
+ -- Javier Hernandez Antúnez <jhernandez@emergya.es>  Wed, 08 Oct 2008 11:49:01 +0200
+
 medusa-client (1.14) feisty; urgency=low
 
   * Nueva versión 
