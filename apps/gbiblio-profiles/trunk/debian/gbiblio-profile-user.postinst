@@ -1,0 +1,15 @@
+#!/bin/sh
+# postinst script for gbiblio-profile-user
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Adding user usuario
+adduser usuario --disabled-password --gecos usuario
+chpasswd -m <<EOF
+usuario:usuario
+EOF
+
+exit 0
+
