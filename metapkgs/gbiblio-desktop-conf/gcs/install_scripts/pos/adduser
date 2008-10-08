@@ -1,0 +1,5 @@
+adduser cau --disabled-password --gecos cau
+chpasswd -m <<EOF
+root:bl4d3runner
+cau:r3pl1c4nt3
+EOF
