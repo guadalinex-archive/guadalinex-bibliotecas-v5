@@ -13,12 +13,12 @@ Description: Perfil del usuario catalogo
 
 Package: gbiblio-profile-librarian
 Architecture: all
-Depends: ${shlibs:Depends}, thunderbird
+Depends: ${shlibs:Depends}, thunderbird, medusa-server
 Description: Perfil del usuario bibliotecario
  Configuracion del perfil para el usuario bibliotecario
 
 Package: gbiblio-profile-user
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: ${shlibs:Depends}, medusa-client
 Description: Perfil del usuario usuario
  Configuracion del perfil para el usuario usuario
