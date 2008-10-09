@@ -1,3 +1,9 @@
+gbiblio-desktop (0.7) unstable; urgency=low
+
+  * Added and removed some dependencies
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 09 Oct 2008 15:39:47 +0200
+
 gbiblio-desktop (0.6) unstable; urgency=low
 
   * Removed gnome-phone-manager
