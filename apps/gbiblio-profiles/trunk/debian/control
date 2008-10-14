@@ -7,18 +7,18 @@ Standards-Version: 3.7.2
 
 Package: gbiblio-profile-catalog
 Architecture: all
-Depends: ${shlibs:Depends}, ${misc:Depends}
+Depends: 
 Description: Perfil del usuario catalogo
  Configuracion del perfil para el usuario catalogo
 
 Package: gbiblio-profile-librarian
 Architecture: all
-Depends: ${shlibs:Depends}, thunderbird, seamonkey-browser, medusa-server
+Depends: thunderbird, seamonkey-browser, liferea, pan, system-config-printer-gnome
 Description: Perfil del usuario bibliotecario
  Configuracion del perfil para el usuario bibliotecario
 
 Package: gbiblio-profile-user
 Architecture: all
-Depends: ${shlibs:Depends}, medusa-client
+Depends: 
 Description: Perfil del usuario usuario
  Configuracion del perfil para el usuario usuario

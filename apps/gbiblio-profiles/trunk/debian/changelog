@@ -1,3 +1,10 @@
+gbiblio-profiles (0.4) unstable; urgency=low
+
+  * Added system-config-printer, liferea, pan to librarian profile
+  * Removed medusa as dependency
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 10 Oct 2008 15:20:33 +0200
+
 gbiblio-profiles (0.3) unstable; urgency=low
 
   * Added seamonkey browser to librarian profile
