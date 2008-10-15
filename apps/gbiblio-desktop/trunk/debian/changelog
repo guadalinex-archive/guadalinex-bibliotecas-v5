@@ -1,3 +1,10 @@
+gbiblio-desktop (0.8) unstable; urgency=low
+
+  * Removed system-printer-config 
+  * Added gocr-gtk
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 10 Oct 2008 15:23:56 +0200
+
 gbiblio-desktop (0.7) unstable; urgency=low
 
   * Added and removed some dependencies
