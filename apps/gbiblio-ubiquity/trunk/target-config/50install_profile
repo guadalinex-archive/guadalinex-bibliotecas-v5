@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#set -e
+
+# variables
+logs=/target/var/log/gbiblio-extra-pkgs.log
+unset profile
+unset package
+
+exec >$logs 2>&1
+
+for x in $(cat /proc/cmdline); do
+	case $x in
+	gbiblio=*)
+		profile=${x#gbiblio=}
+		echo "profile: $profile"
+		;;
+	*)
+		;;
+	esac
+done
+
+case $profile in
+	server|client)
+		package="gbiblio-${profile}"
+                echo "package: $package"
+		;;
+	*)
+		echo "No profile selected"
+		exit 0
+esac
+
+export LC_ALL=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 LANG=es_ES.UTF-8 DEBIAN_FRONTEND=noninteractive
+chroot /target apt-get -f -y -qq --force-yes update || echo "Fails on apt-get update"
+chroot /target apt-get -f -y -qq --force-yes install $package || echo "Fails on apt-get install $package" 
+chroot /target apt-get -f -y -qq --force-yes install || echo "Fails on apt-get -f install"
+chroot /target apt-get -f -y -qq --force-yes clean || echo "Fails on apt-get clean"
+
+exit 0

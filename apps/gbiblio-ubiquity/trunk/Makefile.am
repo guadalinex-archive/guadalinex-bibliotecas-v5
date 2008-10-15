@@ -1,4 +1,4 @@
-SUBDIRS = src data
+SUBDIRS = src data target-config
 
 CLEANFILES = \
 	configure.in config.h.in
