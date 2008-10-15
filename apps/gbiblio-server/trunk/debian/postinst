@@ -1,0 +1,13 @@
+#!/bin/sh
+# postinst script for gbiblio-client
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Change owner of id_rsa
+chown cau:cau /home/cau/.ssh/id_rsa
+
+exit 0
+
+
