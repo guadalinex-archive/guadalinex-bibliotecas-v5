@@ -1,0 +1,24 @@
+gbiblio-profiles (0.4) unstable; urgency=low
+
+  * Added liferea and pan to librarian profile
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 10 Oct 2008 15:20:33 +0200
+
+gbiblio-profiles (0.3) unstable; urgency=low
+
+  * Added seamonkey browser to librarian profile
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 09 Oct 2008 15:50:45 +0200
+
+gbiblio-profiles (0.2) unstable; urgency=low
+
+  * Adding users to profiles
+  * Adding medusa-server to depends
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 09 Oct 2008 14:19:41 +0200
+
+gbiblio-profiles (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 07 Oct 2008 16:04:32 +0200
