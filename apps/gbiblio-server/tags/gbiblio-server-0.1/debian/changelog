@@ -1,0 +1,8 @@
+gbiblio-server (0.1) unstable; urgency=low
+
+  * Initial Release.
+  * Added private rsa key
+  * Added some dependencies
+  * Added servidor at hostname and hosts to /etc
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 14 Oct 2008 17:16:17 +0200
