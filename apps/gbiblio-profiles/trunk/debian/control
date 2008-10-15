@@ -13,7 +13,7 @@ Description: Perfil del usuario catalogo
 
 Package: gbiblio-profile-librarian
 Architecture: all
-Depends: thunderbird, seamonkey-browser, liferea, pan, system-config-printer-gnome
+Depends: thunderbird, seamonkey-browser, liferea, pan 
 Description: Perfil del usuario bibliotecario
  Configuracion del perfil para el usuario bibliotecario
 
