@@ -7,6 +7,6 @@ Standards-Version: 3.7.2
 
 Package: gbiblio-client
 Architecture: any
-Depends: medusa-client 
+Depends: medusa-client, gbiblio-profile-catalog, gbiblio-profile-user
 Description: Guadalinex Bibliotecas V5 client meta package
  This package provides Guadalinex Bibliotecas V5 client's applications.

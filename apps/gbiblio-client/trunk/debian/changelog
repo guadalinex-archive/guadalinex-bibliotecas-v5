@@ -1,6 +1,7 @@
 gbiblio-client (0.1) unstable; urgency=low
 
   * Initial Release.
-  * Added user biblio
+  * Added public rsa key
+  * Added some dependecies
 
  -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 14 Oct 2008 17:16:17 +0200
