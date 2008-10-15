@@ -44,7 +44,7 @@ pre_base_pkgs="language-pack-es-base sun-java6-jre localepurge"
 base_pkgs="linux-image-generic linux-restricted-modules-generic language-pack-gnome-es language-pack-es meta-gbiblio-v5 guadalinex-minimal-conf" 
 
 # and these the last ones
-live_pkgs="gru casper casper-guada ubiquity-frontend-gtk guadalinex-asistente-usb ubiquity-ubuntu-artwork jfsutils gparted ubiquity guada-ubiquity" 
+live_pkgs="gru casper casper-guada ubiquity-frontend-gtk guadalinex-asistente-usb ubiquity-ubuntu-artwork jfsutils gparted ubiquity gbiblio-ubiquity" 
 
 # packages (if any) that will be installed on "lig --update" 
 update_pkgs="" 
