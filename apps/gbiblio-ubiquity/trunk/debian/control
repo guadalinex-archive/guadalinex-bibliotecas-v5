@@ -10,7 +10,8 @@ XB-Python-Version: ${python:Versions}
 Package: gbiblio-ubiquity
 Architecture: all
 Provides: ${python:Provides}
-Depends: ubiquity-frontend-gtk, python-gnome2, python-dbus
+Pre-Depends: ubiquity-frontend-gtk
+Depends: python-gnome2, python-dbus
 Description: Custom installer of guadalinex for Bibliotecas 
  This is the new installer of guadalinex V5. It integrate the diskpreview
  and other wonderful features.
