@@ -1,3 +1,9 @@
+gbiblio-client (0.2) unstable; urgency=low
+
+  * Commented chown in postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 17 Oct 2008 14:24:15 +0200
+
 gbiblio-client (0.1) unstable; urgency=low
 
   * Initial Release.

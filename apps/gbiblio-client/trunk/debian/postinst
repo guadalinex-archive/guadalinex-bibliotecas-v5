@@ -12,7 +12,7 @@ biblio:biblio
 EOF
 
 # Change owner of authorized_keys
-chown cau:cau /home/cau/.ssh/authorized_keys
+#chown cau:cau /home/cau/.ssh/authorized_keys
 
 exit 0
 
