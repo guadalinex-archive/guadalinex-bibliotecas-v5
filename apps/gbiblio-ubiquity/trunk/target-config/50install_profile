@@ -32,7 +32,15 @@ esac
 
 #TODO: Doit nicer
 mv -v /target/etc/apt/sources.list /target/etc/apt/sources.list.orig
-cp -v /etc/apt/sources.list /target/etc/apt/sources.list
+echo "deb file:///cdrom/ lobo main restricted" > /target/etc/apt/sources.list
+
+test -f /cdrom/.disk/info || echo "There is no cdrom mounted on /cdrom"
+
+# just in case
+if [ ! -f /proc/mounts ]; then
+    umounted="yes"
+    mount -t proc none /proc
+fi
 
 export LC_ALL=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 LANG=es_ES.UTF-8 DEBIAN_FRONTEND=noninteractive
 chroot /target apt-get -f -y -qq --force-yes update || echo "Fails on apt-get update"
@@ -43,5 +51,9 @@ chroot /target apt-get -f -y -qq --force-yes clean || echo "Fails on apt-get cle
 #TODO: Doit nicer
 rm -fv /target/etc/apt/sources.list
 mv -v /target/etc/apt/sources.list.orig /target/etc/apt/sources.list
+
+if [ "$unmonted" = "yes" ]; then
+    umount /proc
+fi
 
 exit 0
