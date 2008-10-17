@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio3) stable; urgency=low
+
+  * Added source.list line for the CDROM. Other way.
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 17 Oct 2008 14:37:25 +0200
+
 gbiblio-ubiquity (0.9guada3gbiblio2) stable; urgency=low
 
   * Added source.list line for the CDROM.
