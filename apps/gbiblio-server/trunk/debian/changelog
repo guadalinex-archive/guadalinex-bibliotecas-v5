@@ -2,7 +2,7 @@ gbiblio-server (0.2) unstable; urgency=low
 
   * Commented chown in postinst
 
- -- Javier Hernández <jhernandez@emergya.es>  Fri, 17 Oct 2008 14:13:36 +0200
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 17 Oct 2008 14:13:36 +0200
 
 gbiblio-server (0.1) unstable; urgency=low
 
