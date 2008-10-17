@@ -1,0 +1,19 @@
+#!/bin/sh
+# postinst script for gbiblio-client
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Adding user biblio
+adduser biblio --disabled-password --gecos biblio
+chpasswd -m <<EOF
+biblio:biblio
+EOF
+
+# Change owner of authorized_keys
+#chown cau:cau /home/cau/.ssh/authorized_keys
+
+exit 0
+
+
