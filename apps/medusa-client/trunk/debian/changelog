@@ -1,3 +1,9 @@
+medusa-client (1.16) hardy; urgency=low
+
+  * Cambiando la ip del servidor en medusa.conf
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 17:10:09 +0200
+
 medusa-client (1.15) hardy; urgency=low
 
   * Actualizado artwork
