@@ -1,0 +1,154 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>AddHostDialogBase</class>
+<comment>A dialog to add hosts to the app.</comment>
+<author>Junta de Andalucia &lt;medusa@juntadeandalucia.es&gt;</author>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>AddHostDialogBase</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>360</width>
+            <height>133</height>
+        </rect>
+    </property>
+    <property name="caption">
+        <string>dialog</string>
+    </property>
+    <grid>
+        <property name="name">
+            <cstring>unnamed</cstring>
+        </property>
+        <spacer row="3" column="0" rowspan="1" colspan="2">
+            <property name="name">
+                <cstring>spacer1</cstring>
+            </property>
+            <property name="orientation">
+                <enum>Horizontal</enum>
+            </property>
+            <property name="sizeType">
+                <enum>Expanding</enum>
+            </property>
+            <property name="sizeHint">
+                <size>
+                    <width>217</width>
+                    <height>20</height>
+                </size>
+            </property>
+        </spacer>
+        <widget class="QPushButton" row="3" column="2">
+            <property name="name">
+                <cstring>okButton</cstring>
+            </property>
+            <property name="enabled">
+                <bool>false</bool>
+            </property>
+            <property name="text">
+                <string>OK</string>
+            </property>
+        </widget>
+        <widget class="QPushButton" row="3" column="3">
+            <property name="name">
+                <cstring>cancelButton</cstring>
+            </property>
+            <property name="text">
+                <string>Cancel</string>
+            </property>
+        </widget>
+        <widget class="QLineEdit" row="0" column="1" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>addressEdit</cstring>
+            </property>
+            <property name="toolTip" stdset="0">
+                <string>Ip address in decimal format</string>
+            </property>
+        </widget>
+        <widget class="QLineEdit" row="1" column="1" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>hostEdit</cstring>
+            </property>
+        </widget>
+        <widget class="QLineEdit" row="2" column="1" rowspan="1" colspan="3">
+            <property name="name">
+                <cstring>macEdit</cstring>
+            </property>
+        </widget>
+        <widget class="QLabel" row="2" column="0">
+            <property name="name">
+                <cstring>macLabel</cstring>
+            </property>
+            <property name="text">
+                <string>MAC</string>
+            </property>
+            <property name="buddy" stdset="0">
+                <cstring>userNameEdit</cstring>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Insert the MAC Address of this workstation</string>
+            </property>
+        </widget>
+        <widget class="QLabel" row="0" column="0">
+            <property name="name">
+                <cstring>addressLabel</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Address (IP)</string>
+            </property>
+            <property name="buddy" stdset="0">
+                <cstring>hostEdit</cstring>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Insert the IP address of the workstation</string>
+            </property>
+        </widget>
+        <widget class="QLabel" row="1" column="0">
+            <property name="name">
+                <cstring>nameLabel</cstring>
+            </property>
+            <property name="text">
+                <string>&amp;Host Name</string>
+            </property>
+            <property name="buddy" stdset="0">
+                <cstring>hostEdit</cstring>
+            </property>
+            <property name="whatsThis" stdset="0">
+                <string>Insert the preferred name for this workstation</string>
+            </property>
+        </widget>
+    </grid>
+</widget>
+<connections>
+    <connection>
+        <sender>okButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddHostDialogBase</receiver>
+        <slot>accept()</slot>
+    </connection>
+    <connection>
+        <sender>cancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>AddHostDialogBase</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>addressEdit</sender>
+        <signal>textChanged(const QString&amp;)</signal>
+        <receiver>AddHostDialogBase</receiver>
+        <slot>enableOkButton()</slot>
+    </connection>
+</connections>
+<tabstops>
+    <tabstop>addressEdit</tabstop>
+    <tabstop>hostEdit</tabstop>
+    <tabstop>macEdit</tabstop>
+    <tabstop>okButton</tabstop>
+    <tabstop>cancelButton</tabstop>
+</tabstops>
+<slots>
+    <slot>clearItems()</slot>
+    <slot>enableOkButton()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
