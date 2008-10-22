@@ -115,57 +115,57 @@ MainWindow::MainWindow(QWidget * parent, const char *name)
 	system("/usr/sbin/generate-medusa-conf");
 	loadFile("/etc/medusa.conf");
 //	// loading last configurationdialog
-//	if ( (int) recentFiles.size() > 0 ){
-//		qDebug ("recentfiles: %d", (int) recentFiles.size() );
-//		qDebug (recentFiles[0]);
-//		//loadFile(recentFiles[0]);
-//		openRecentFile(0);
-//		//wsGroup.statusAll();
-//	}
+	if ( (int) recentFiles.size() > 0 ){
+		qDebug ("recentfiles: %d", (int) recentFiles.size() );
+		qDebug (recentFiles[0]);
+		//loadFile(recentFiles[0]);
+		openRecentFile(0);
+		//wsGroup.statusAll();
+	}
 	
 }
 
 
 void MainWindow::createActions()
 {
-//	newAct = new QAction(tr("&New Configuration"), tr("Ctrl+N"), this);
-//	newAct->setIconSet(QPixmap::fromMimeSource("new.png"));
-//	newAct->setStatusTip(tr("Create a new configuration"));
-//	connect(newAct, SIGNAL(activated()), this, SLOT(newFile()));
+	newAct = new QAction(tr("&New Configuration"), tr("Ctrl+N"), this);
+	newAct->setIconSet(QPixmap::fromMimeSource("new.png"));
+	newAct->setStatusTip(tr("Create a new configuration"));
+	connect(newAct, SIGNAL(activated()), this, SLOT(newFile()));
 
-//	openAct = new QAction(tr("&Open Configuration..."), tr("Ctrl+O"), this);
-//	openAct->setIconSet(QPixmap::fromMimeSource("open.png"));
-//	openAct->setStatusTip(tr("Open an existing configuration"));
-//	connect(openAct, SIGNAL(activated()), this, SLOT(open()));
+	openAct = new QAction(tr("&Open Configuration..."), tr("Ctrl+O"), this);
+	openAct->setIconSet(QPixmap::fromMimeSource("open.png"));
+	openAct->setStatusTip(tr("Open an existing configuration"));
+	connect(openAct, SIGNAL(activated()), this, SLOT(open()));
 
-//	saveAct = new QAction(tr("&Save Configuration"), tr("Ctrl+S"), this);
-//	saveAct->setIconSet(QPixmap::fromMimeSource("save.png"));
-//	saveAct->setStatusTip(tr("Save the configuration to disk"));
-//	connect(saveAct, SIGNAL(activated()), this, SLOT(save()));
+	saveAct = new QAction(tr("&Save Configuration"), tr("Ctrl+S"), this);
+	saveAct->setIconSet(QPixmap::fromMimeSource("save.png"));
+	saveAct->setStatusTip(tr("Save the configuration to disk"));
+	connect(saveAct, SIGNAL(activated()), this, SLOT(save()));
 
-//	saveAsAct = new QAction(tr("Save Configuration &As..."), 0, this);
-//	saveAsAct->setStatusTip(tr("Save the actual configuration under a new "
-//				   "name"));
-//	connect(saveAsAct, SIGNAL(activated()), this, SLOT(saveAs()));
+	saveAsAct = new QAction(tr("Save Configuration &As..."), 0, this);
+	saveAsAct->setStatusTip(tr("Save the actual configuration under a new "
+				   "name"));
+	connect(saveAsAct, SIGNAL(activated()), this, SLOT(saveAs()));
 
 	exitAct = new QAction(tr("E&xit"), tr("Ctrl+Q"), this);
 	exitAct->setStatusTip(tr("Exit the application"));
 	connect(exitAct, SIGNAL(activated()), this, SLOT(close()));
 	
-//	addHostAct = new QAction(tr("&Add Host"), tr("Ctrl+A"), this);
-//	addHostAct->setStatusTip(tr("Add a host"));
-//	addHostAct->setIconSet(QPixmap::fromMimeSource("address_next_move_add_insert.png"));
-//	connect(addHostAct, SIGNAL(activated()), this, SLOT(addHost()));
+	addHostAct = new QAction(tr("&Add Host"), tr("Ctrl+A"), this);
+	addHostAct->setStatusTip(tr("Add a host"));
+	addHostAct->setIconSet(QPixmap::fromMimeSource("address_next_move_add_insert.png"));
+	connect(addHostAct, SIGNAL(activated()), this, SLOT(addHost()));
 	
-//	editHostAct = new QAction(tr("&Edit Host"), tr("Ctrl+E"), this);
-//	editHostAct->setStatusTip(tr("Edit selected host"));
-//	editHostAct->setIconSet(QPixmap::fromMimeSource("address_edit.png"));
-//	connect(editHostAct, SIGNAL(activated()), this, SLOT(editHost()) );
+	editHostAct = new QAction(tr("&Edit Host"), tr("Ctrl+E"), this);
+	editHostAct->setStatusTip(tr("Edit selected host"));
+	editHostAct->setIconSet(QPixmap::fromMimeSource("address_edit.png"));
+	connect(editHostAct, SIGNAL(activated()), this, SLOT(editHost()) );
 	
-//	deleteHostAct = new QAction(tr("&Delete Host"), tr("Ctrl+D"), this);
-//	deleteHostAct->setStatusTip(tr("Delete selected host"));
-//	deleteHostAct->setIconSet(QPixmap::fromMimeSource("address_delete.png"));
-//	connect(deleteHostAct, SIGNAL(activated()), this, SLOT(deleteHost()) );
+	deleteHostAct = new QAction(tr("&Delete Host"), tr("Ctrl+D"), this);
+	deleteHostAct->setStatusTip(tr("Delete selected host"));
+	deleteHostAct->setIconSet(QPixmap::fromMimeSource("address_delete.png"));
+	connect(deleteHostAct, SIGNAL(activated()), this, SLOT(deleteHost()) );
 	
 	
 	blockAllAct = new QAction(tr("&Block All Hosts"), tr("Ctrl+B"), this);
@@ -209,15 +209,15 @@ void MainWindow::createActions()
 	connect( getUserAct, SIGNAL(activated()), this, SLOT(getLoginUser()) );
 	*/
 	
-//	autoDisAct = new QAction(tr("&Auto discovery"), tr("Ctrl+V"), this);
-//	autoDisAct->setStatusTip(tr("Try to discover all possible clients on the network")); 
-//	autoDisAct->setIconSet(QPixmap::fromMimeSource("light_bulb.png"));
-//	connect ( autoDisAct, SIGNAL(activated()), this, SLOT(autoDiscovery() ) );
-//	
-//	editSetAct = new QAction(tr("&Edit Settings"), tr("Ctrl+P"), this);
-//	editSetAct->setStatusTip(tr("Edit current settings for this list of workstations"));
-//	editSetAct->setIconSet(QPixmap::fromMimeSource("tabs.png"));
-//	connect(editSetAct, SIGNAL(activated()), this, SLOT(editSettings()) );
+	autoDisAct = new QAction(tr("&Auto discovery"), tr("Ctrl+V"), this);
+	autoDisAct->setStatusTip(tr("Try to discover all possible clients on the network")); 
+	autoDisAct->setIconSet(QPixmap::fromMimeSource("light_bulb.png"));
+	connect ( autoDisAct, SIGNAL(activated()), this, SLOT(autoDiscovery() ) );
+	
+	editSetAct = new QAction(tr("&Edit Settings"), tr("Ctrl+P"), this);
+	editSetAct->setStatusTip(tr("Edit current settings for this list of workstations"));
+	editSetAct->setIconSet(QPixmap::fromMimeSource("tabs.png"));
+	connect(editSetAct, SIGNAL(activated()), this, SLOT(editSettings()) );
 		
 
 	/*
@@ -241,20 +241,20 @@ void MainWindow::createActions()
 void MainWindow::createMenus()
 {
 	fileMenu = new QPopupMenu(this);
-//	newAct->addTo(fileMenu);
-//	openAct->addTo(fileMenu);
-//	saveAct->addTo(fileMenu);
-//	saveAsAct->addTo(fileMenu);
-//	fileMenu->insertSeparator();
+	newAct->addTo(fileMenu);
+	openAct->addTo(fileMenu);
+	saveAct->addTo(fileMenu);
+	saveAsAct->addTo(fileMenu);
+	fileMenu->insertSeparator();
 	exitAct->addTo(fileMenu);
 
-//	for (int i = 0; i < MaxRecentFiles; ++i)
-//		recentFileIds[i] = -1;
+	for (int i = 0; i < MaxRecentFiles; ++i)
+		recentFileIds[i] = -1;
 	
 	hostsMenu = new QPopupMenu(this);
-//	addHostAct->addTo(hostsMenu); // 4 remve ADRIAN
-//	editHostAct->addTo(hostsMenu);
-//	deleteHostAct->addTo(hostsMenu);	
+	addHostAct->addTo(hostsMenu); // 4 remve ADRIAN
+	editHostAct->addTo(hostsMenu);
+	deleteHostAct->addTo(hostsMenu);	
 	
 	
 	actionsMenu = new QPopupMenu(this);
@@ -269,8 +269,8 @@ void MainWindow::createMenus()
 	
 
 	optionsMenu = new QPopupMenu(this);
-//	autoDisAct->addTo(optionsMenu);
-//	editSetAct->addTo(optionsMenu);
+	autoDisAct->addTo(optionsMenu);
+	editSetAct->addTo(optionsMenu);
 	
 	helpMenu = new QPopupMenu(this);
 	aboutAct->addTo(helpMenu);
@@ -278,9 +278,9 @@ void MainWindow::createMenus()
 
 	menuBar()->insertItem(tr("&File"), fileMenu);
 	//menuBar()->insertItem(tr("&Edit"), editMenu);
-//	menuBar()->insertItem(tr("&Hosts"), hostsMenu);
+	menuBar()->insertItem(tr("&Hosts"), hostsMenu);
 	menuBar()->insertItem(tr("&Actions"), actionsMenu);
-//	menuBar()->insertItem(tr("&Options"), optionsMenu);
+	menuBar()->insertItem(tr("&Options"), optionsMenu);
 	menuBar()->insertSeparator();
 	menuBar()->insertItem(tr("&Help"), helpMenu);
 }
@@ -295,8 +295,8 @@ void MainWindow::contextMenuEvent(QContextMenuEvent * event)
 	unblockSelectedAct->addTo(&contextMenu);
 	shutdownSelectedAct->addTo(&contextMenu);
 	contextMenu.insertSeparator();
-//	editHostAct->addTo(&contextMenu);
-//	deleteHostAct->addTo(&contextMenu);	
+	editHostAct->addTo(&contextMenu);
+	deleteHostAct->addTo(&contextMenu);	
 	
 
 	contextMenu.exec(event->globalPos());
@@ -304,15 +304,15 @@ void MainWindow::contextMenuEvent(QContextMenuEvent * event)
 
 void MainWindow::createToolBars()
 {
-//	fileToolBar = new QToolBar(tr("File"), this);
-//	newAct->addTo(fileToolBar);
-//	openAct->addTo(fileToolBar);
-//	saveAct->addTo(fileToolBar);
+	fileToolBar = new QToolBar(tr("File"), this);
+	newAct->addTo(fileToolBar);
+	openAct->addTo(fileToolBar);
+	saveAct->addTo(fileToolBar);
 	
-//	hostToolBar = new QToolBar(tr("Hosts"), this);
-//	addHostAct->addTo(hostToolBar);
-//	editHostAct->addTo(hostToolBar);
-//	deleteHostAct->addTo(hostToolBar);
+	hostToolBar = new QToolBar(tr("Hosts"), this);
+	addHostAct->addTo(hostToolBar);
+	editHostAct->addTo(hostToolBar);
+	deleteHostAct->addTo(hostToolBar);
 	
 	actionToolBar = new QToolBar(tr("Actions"), this);
 	setTimerAct->addTo(actionToolBar);
