@@ -1,3 +1,9 @@
+medusa-server (1.13) hardy; urgency=low
+
+  * Arreglado problema Makefile
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 18:34:42 +0200
+
 medusa-server (1.12) hardy; urgency=low
 
   * Descomentando codigo para añadir todas las funcionalidades
