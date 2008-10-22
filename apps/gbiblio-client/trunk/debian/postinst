@@ -5,14 +5,50 @@
 
 set -e
 
-# Adding user biblio
-adduser biblio --disabled-password --gecos biblio
-chpasswd -m <<EOF
-biblio:biblio
+# Change owner of authorized_keys
+chown cau:cau /home/cau/.ssh/authorized_keys
+
+# Adding /etc/sudoers
+cat << EOF > /etc/sudoers
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer
+
+Cmnd_Alias  BIBLIOADMINNOPW = /sbin/halt, /etc/init.d/cupsys
+
+# User privilege specification
+root    ALL=(ALL) ALL
+
+# Uncomment to allow members of group sudo to not need a password
+# (Note that later entries override this, so you might need to move
+# it further down)
+# %sudo ALL=NOPASSWD: ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Permisos de biblio
+biblio ALL = NOPASSWD: BIBLIOADMINNOPW, PASSWD: BIBLIOADMIN
 EOF
 
-# Change owner of authorized_keys
-#chown cau:cau /home/cau/.ssh/authorized_keys
+
+# Permissions in /etc/sudoers
+
+chown root.root /etc/sudoers
+chmod 440 /etc/sudoers
 
 exit 0
 

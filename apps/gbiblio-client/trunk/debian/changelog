@@ -1,3 +1,12 @@
+gbiblio-client (0.3) unstable; urgency=low
+
+  * Uncommented chown in postinst
+  * Added preinst tasks
+  * Added /etc/sudoers
+  * Added fping as dependence
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 15:56:42 +0200
+
 gbiblio-client (0.2) unstable; urgency=low
 
   * Commented chown in postinst
