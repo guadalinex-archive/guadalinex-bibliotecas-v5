@@ -5,11 +5,8 @@
 
 set -e
 
-# Adding user catalogo
-adduser catalogo --disabled-password --gecos catalogo
-chpasswd -m <<EOF
-catalogo:catalogo
-EOF
+chown catalogo:catalogo /home/catalogo/.xsession
+chown catalogo:catalogo /home/catalogo/.mozilla -R
 
 exit 0
 

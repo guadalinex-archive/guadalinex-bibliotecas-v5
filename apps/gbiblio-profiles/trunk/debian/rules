@@ -49,7 +49,7 @@ install: build
 
 	# Add here commands to install the package into debian/gbiblio-profiles.
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/gbiblio-profiles install
-
+	dh_install --sourcedir=$(CURDIR)/skel
 
 # Build architecture-independent files here.
 binary-indep: build install

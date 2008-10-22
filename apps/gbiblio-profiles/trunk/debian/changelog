@@ -1,3 +1,9 @@
+gbiblio-profiles (0.5) unstable; urgency=low
+
+  * Customized catalog's session
+
+ -- jhernandez <jhernandez@jhernandez-laptop>  Fri, 17 Oct 2008 11:32:34 +0200
+
 gbiblio-profiles (0.4) unstable; urgency=low
 
   * Added liferea and pan to librarian profile

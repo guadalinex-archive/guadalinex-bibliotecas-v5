@@ -5,11 +5,6 @@
 
 set -e
 
-# Adding user usuario
-adduser usuario --disabled-password --gecos usuario
-chpasswd -m <<EOF
-usuario:usuario
-EOF
 
 exit 0
 
