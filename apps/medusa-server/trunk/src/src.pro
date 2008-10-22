@@ -8,7 +8,8 @@ FORMS += addhostdialogbase.ui \
          runningwarningbase.ui \
          counterdialogbase.ui \
          autodiscoverydialogbase.ui \
-         waitingdialogbase.ui 
+         waitingdialogbase.ui \
+         prueba.ui
 TRANSLATIONS += mdserver_es.ts 
 IMAGES += images/icon.png \
           images/new.png \

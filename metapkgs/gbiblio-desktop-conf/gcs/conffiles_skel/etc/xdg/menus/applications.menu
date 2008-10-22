@@ -100,15 +100,6 @@
         <Category>Network</Category>
       </And>
     </Include>
-     <Menu>
-      <Name>3G conectivity</Name>
-      <Directory>3g.directory</Directory>
-      <Include>
-        <And>
-          <Category>G3g</Category>
-        </And>
-      </Include>
-     </Menu>
   </Menu>   <!-- End Internet -->
 
   <!-- Multimedia -->
