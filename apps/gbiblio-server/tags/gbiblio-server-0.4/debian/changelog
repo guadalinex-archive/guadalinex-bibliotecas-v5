@@ -1,0 +1,30 @@
+gbiblio-server (0.4) unstable; urgency=low
+
+  [dteyssiere]
+  * Added nfs-kernel-server dependencie
+  * Added /etc/exports with compartido directory export
+  * Added diverts and /var/nfs/compartido creation in postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 23 Oct 2008 11:25:43 +0200
+gbiblio-server (0.3) unstable; urgency=low
+
+  * Uncommented chown in posinst
+  * Added preinst
+  * Added /etc/sudoers
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 16:02:43 +0200
+
+gbiblio-server (0.2) unstable; urgency=low
+
+  * Commented chown in postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 17 Oct 2008 14:13:36 +0200
+
+gbiblio-server (0.1) unstable; urgency=low
+
+  * Initial Release.
+  * Added private rsa key
+  * Added some dependencies
+  * Added servidor at hostname and hosts to /etc
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 14 Oct 2008 17:16:17 +0200
