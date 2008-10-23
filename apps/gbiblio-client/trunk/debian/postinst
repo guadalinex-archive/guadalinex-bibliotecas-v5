@@ -5,6 +5,15 @@
 
 set -e
 
+# Mount point creation
+
+[ ! -d /var/compartido ] && mkdir -p /var/compartido
+
+# Mount export directory
+
+[ "$(cat /etc/fstab  | grep "servidor:/var/nfs/compartido")" == "" ] && \
+                echo "servidor:/var/nfs/compartido /var/compartido  nfs        rw,hard,intr,auto,user      0 0" >> /etc/fstab
+
 # Change owner of authorized_keys
 chown cau:cau /home/cau/.ssh/authorized_keys
 
