@@ -1,9 +1,17 @@
 #!/bin/sh
-# postinst script for gbiblio-client
+# postinst script for gbiblio-server
 #
 # see: dh_installdeb(1)
 
 set -e
+
+# Diverts
+
+dpkg-divert --package gbiblio-server --rename --quiet --add /etc/exports
+ln -fs /etc/exports.gbv5 /etc/exports
+
+# Exports directories creation
+[ ! -d /var/nfs/compartido ] && mkdir -p /var/nfs/compartido
 
 # Change owner of id_rsa
 chown cau:cau /home/cau/.ssh/id_rsa

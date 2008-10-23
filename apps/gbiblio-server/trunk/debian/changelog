@@ -1,3 +1,11 @@
+gbiblio-server (0.4) unstable; urgency=low
+
+  [dteyssiere]
+  * Added nfs-kernel-server dependencie
+  * Added /etc/exports with compartido directory export
+  * Added diverts and /var/nfs/compartido creation in postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 23 Oct 2008 11:25:43 +0200
 gbiblio-server (0.3) unstable; urgency=low
 
   * Uncommented chown in posinst
