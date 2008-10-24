@@ -59,6 +59,11 @@ EOF
 chown root.root /etc/sudoers
 chmod 440 /etc/sudoers
 
+# Added biblio_arranque.sh to runlevels 2 3 4 5
+
+chmod 755 /etc/init.d/biblio_arranque.sh
+update-rc.d biblio_arranque.sh start 98 2 3 4 5 .
+
 exit 0
 
 

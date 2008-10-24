@@ -1,3 +1,9 @@
+gbiblio-server (0.5) unstable; urgency=low
+
+  * Added biblio_arranque.sh 
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 24 Oct 2008 12:36:47 +0200
+
 gbiblio-server (0.4) unstable; urgency=low
 
   [dteyssiere]
