@@ -122,6 +122,18 @@
         <Category>Office</Category>
       </And>
     </Include>
+    <Layout>
+      <Filename>ooo-writer.desktop</Filename>
+      <Filename>ooo-impress.desktop</Filename>
+      <Filename>ooo-calc.desktop</Filename>
+      <Filename>ooo-base.desktop</Filename>
+      <Separator/>
+      <Filename>abiword.desktop</Filename>
+      <Filename>evolution.desktop</Filename>
+      <Filename>planner.desktop</Filename>
+      <Filename>scribus.desktop</Filename>
+      <Filename>gnumeric.desktop</Filename>
+    </Layout>
   </Menu> <!-- End Office -->
 
   <!-- System Tools-->
