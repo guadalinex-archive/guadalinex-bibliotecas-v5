@@ -82,9 +82,8 @@ PATH = '/usr/share/ubiquity'
 BREADCRUMB_STEPS = {
     "stepPartAuto": 1,
     "stepPartAdvanced": 1,
-    "stepUserInfo": 2,
-    "stepMigrationAssistant": 3,
-    "stepReady": 4
+    "stepMigrationAssistant": 2,
+    "stepReady": 3
 }
 BREADCRUMB_MAX_STEP = 4
 
@@ -92,7 +91,6 @@ BREADCRUMB_MAX_STEP = 4
 # Define what pages of the UI we want to load.  Note that most of these pages
 # are required for the install to complete successfully.
 SUBPAGES = [
-    "stepGuadaWelcome",
     "stepGuadaPrePartition",
     "stepLanguage",
     "stepLocation",
@@ -134,6 +132,9 @@ PRESEED = ["debconf debconf/language string es",
 "ubiquity localechooser/supported-locales multiselect es_ES.UTF-8",
 "ubiquity tzconfig/gmt boolean false",
 "ubiquity time/zone select Europe/Madrid",
+"ubiquity passwd/make-user boolean false",
+"ubiquity ubiquity/install/hostname string cliente-",
+"d-i netcfg/get_hostname string cliente-",
 "console-setup console-setup/variant select Spain",
 "console-setup console-setup/layout select Spain"
 ]
@@ -181,12 +182,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         os.system("echo -e '%s' | debconf-set-selections" % seed)
 
     def show_intro(self):
-        ## self.intro_label.set_markup("Bienvenido a Guadalinex")
         self.welcome_image.set_from_file("/usr/share/gbiblio-ubiquity/pics/photo_1024.jpg")
         return True
 
     def prepartition_intro(self):
-        #self.prepartition_image.set_from_file("/usr/share/gbiblio-ubiquity/pics/photo_1024.jpg")
         return True
 
     def launch_hermes(self):
@@ -211,7 +210,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.disable_volume_manager()
 
         # show interface
-        got_intro = self.show_intro()
+        got_intro = False
         self.allow_change_step(True)
 
         # Guada prepartition page
@@ -236,16 +235,11 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 
         if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
             self.pages = [GuadaPrePartition, partman.Partman,
-                usersetup.UserSetup, migrationassistant.MigrationAssistant,
+                migrationassistant.MigrationAssistant,
                 summary.Summary]
-            ## self.pages = [console_setup.ConsoleSetup, partman.Partman,
-            ##     usersetup.UserSetup, migrationassistant.MigrationAssistant,
-            ##     summary.Summary]
         else:
             self.pages = [GuadaPrePartition, partman.Partman,
-                          usersetup.UserSetup, summary.Summary]
-            ## self.pages = [console_setup.ConsoleSetup, partman.Partman,
-            ##               usersetup.UserSetup, summary.Summary]
+                          summary.Summary]
             
         self.pagesindex = 0
         pageslen = len(self.pages)
@@ -261,16 +255,15 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         for step in BREADCRUMB_STEPS:
-            BREADCRUMB_STEPS[step] += 2
-        BREADCRUMB_STEPS["stepGuadaWelcome"] = 1
-        BREADCRUMB_STEPS["stepGuadaPrePartition"] = 2
-        BREADCRUMB_MAX_STEP += 2
+            BREADCRUMB_STEPS[step] += 1
+        BREADCRUMB_STEPS["stepGuadaPrePartition"] = 1
+        BREADCRUMB_MAX_STEP += 1
         ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
         ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
 
         syslog.syslog ("%s %s" % (BREADCRUMB_STEPS,BREADCRUMB_MAX_STEP) )
         
-        first_step = self.stepGuadaWelcome
+        first_step = self.stepGuadaPrePartition
         
         self.set_current_page(self.steps.page_num(first_step))
         if got_intro:
@@ -363,7 +356,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         elif n == 'GuadaPrePartition':
             cur = self.stepGuadaPrePartition
         elif n == 'UserSetup':
-            cur = self.stepUserInfo
+            cur = self.stepReady
         elif n == 'Summary':
             cur = self.stepReady
             self.next.set_label(self.get_string('install_button'))
