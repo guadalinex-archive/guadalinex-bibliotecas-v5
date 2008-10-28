@@ -1,4 +1,4 @@
-SUBDIRS = 60biblio 70reuse 
+SUBDIRS = 70reuse 
 
 CLEANFILES = Makefile.in
 
