@@ -57,6 +57,7 @@ src/frontend/Makefile
 src/DiskPreview/Makefile
 src/scripts/Makefile
 src/ubiquity-init/Makefile
+src/recipes/Makefile
 target-config/Makefile
 ])
 AC_OUTPUT
