@@ -1,0 +1,41 @@
+gbiblio-client (0.6) unstable; urgency=low
+
+  * Added group 'admin'
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 29 Oct 2008 19:46:00 +0100
+
+gbiblio-client (0.5) unstable; urgency=low
+
+  * Added cau to admin's group
+  * Added permissions for network-admin in user 'biblio'
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 29 Oct 2008 11:42:50 +0100
+
+gbiblio-client (0.4) unstable; urgency=low
+
+  * Added biblio_arranque.sh
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 24 Oct 2008 12:34:59 +0200
+
+gbiblio-client (0.3) unstable; urgency=low
+
+  * Uncommented chown in postinst
+  * Added preinst tasks
+  * Added /etc/sudoers
+  * Added fping as dependence
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 15:56:42 +0200
+
+gbiblio-client (0.2) unstable; urgency=low
+
+  * Commented chown in postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 17 Oct 2008 14:24:15 +0200
+
+gbiblio-client (0.1) unstable; urgency=low
+
+  * Initial Release.
+  * Added public rsa key
+  * Added some dependecies
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 14 Oct 2008 17:16:17 +0200
