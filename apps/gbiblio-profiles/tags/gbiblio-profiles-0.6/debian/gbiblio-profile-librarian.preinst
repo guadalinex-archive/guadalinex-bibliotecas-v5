@@ -1,0 +1,15 @@
+#!/bin/sh
+# preinst script for gbiblio-profile-librarian
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Adding user biblio
+adduser biblio --disabled-password --gecos biblio
+chpasswd -m <<EOF
+biblio:biblio
+EOF
+
+exit 0
+
