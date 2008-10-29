@@ -59,6 +59,10 @@ EOF
 chown root.root /etc/sudoers
 chmod 440 /etc/sudoers
 
+# Adding cau to admin's group
+
+usermod -G admin cau
+
 # Added biblio_arranque.sh to runlevels 2 3 4 5
 
 chmod 755 /etc/init.d/biblio_arranque.sh

@@ -1,8 +1,9 @@
 gbiblio-server (0.5) unstable; urgency=low
 
-  * Added biblio_arranque.sh 
+  * Added biblio_arranque.sh
+  * Added cau to admin's group
 
- -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 24 Oct 2008 12:36:47 +0200
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 29 Oct 2008 12:08:48 +0100
 
 gbiblio-server (0.4) unstable; urgency=low
 
