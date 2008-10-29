@@ -1,0 +1,16 @@
+#!/bin/sh
+
+set -e
+
+#DEBHELPER#
+
+if [ install = "$1"  ]; then
+    dpkg-divert --package gbiblio-ubiquity --add --rename \
+             --divert /usr/lib/ubiquity/ubiquity/frontend/__init__.py.real /usr/lib/ubiquity/ubiquity/frontend/__init__.py
+    ln -s /usr/lib/gbiblio-ubiquity/ubiquity/frontend/__init__.py /usr/lib/ubiquity/ubiquity/frontend/__init__.py
+
+    dpkg-divert --package gbiblio-ubiquity --add --rename \
+             --divert /lib/partman/recipes/20guadalinex.py.real /lib/partman/recipes/20guadalinex
+    ln -s /usr/lib/gbiblio-ubiquity/partman/recipes/20guadalinex /lib/partman/recipes/20guadalinex
+fi
+
