@@ -11,7 +11,7 @@ set -e
 
 # Mount export directory
 
-[ "$(cat /etc/fstab  | grep "servidor:/var/nfs/compartido")" == "" ] && \
+[ -z "$(cat /etc/fstab  | grep "servidor:/var/nfs/compartido")" ] && \
                 echo "servidor:/var/nfs/compartido /var/compartido  nfs        rw,hard,intr,auto,user      0 0" >> /etc/fstab
 
 # Change owner of authorized_keys
@@ -34,7 +34,7 @@ Defaults        env_reset
 
 # Cmnd alias specification
 
-Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer
+Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer, /usr/bin/network-admin
 
 Cmnd_Alias  BIBLIOADMINNOPW = /sbin/halt, /etc/init.d/cupsys
 
@@ -58,6 +58,10 @@ EOF
 
 chown root.root /etc/sudoers
 chmod 440 /etc/sudoers
+
+# Adding cau to admin's group
+
+usermod -G admin cau
 
 # Añadimos biblio_arranque.sh a los correpondientes niveles de ejecucion
 
