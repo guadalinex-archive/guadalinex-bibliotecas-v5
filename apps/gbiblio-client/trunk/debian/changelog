@@ -1,3 +1,9 @@
+gbiblio-client (0.6) unstable; urgency=low
+
+  * Added group 'admin'
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 29 Oct 2008 19:46:00 +0100
+
 gbiblio-client (0.5) unstable; urgency=low
 
   * Added cau to admin's group
