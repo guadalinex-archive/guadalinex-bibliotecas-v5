@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio6) stable; urgency=low
+
+  * Fixing some issues with divert
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 29 Oct 2008 12:12:25 +0200
+
 gbiblio-ubiquity (0.9guada3gbiblio5) stable; urgency=low
 
   * Fixed path for the /cdrom and /proc checking. We must check the ones from /target
