@@ -1,0 +1,19 @@
+#!/bin/sh
+# preinst script for gbiblio-client
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Adding users: biblio, cau
+adduser biblio --disabled-password --gecos biblio
+adduser cau --disabled-password --gecos cau
+chpasswd -m <<EOF
+biblio:biblio
+cau:bl4d3runner
+EOF
+
+
+exit 0
+
+
