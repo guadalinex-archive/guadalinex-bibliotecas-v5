@@ -213,18 +213,8 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         got_intro = False
         self.allow_change_step(True)
 
-        # Guada prepartition page
-        self.prepartition_intro()
-        
         # Declare SignalHandler
         self.glade.signal_autoconnect(self)
-
-        syslog.syslog("init diskpreview")
-        self.diskpreview = DiskPreview()
-        syslog.syslog("end init diskpreview")
-
-        self.disk_preview_area.add(self.diskpreview)
-        self.diskpreview.show_all()
 
         # Some signals need to be connected by hand so that we have the
         # handler ids.
@@ -234,12 +224,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             'changed', self.on_hostname_changed)
 
         if 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
-            self.pages = [GuadaPrePartition, partman.Partman,
-                migrationassistant.MigrationAssistant,
-                summary.Summary]
+            self.pages = [partman.Partman,
+                migrationassistant.MigrationAssistant]
         else:
-            self.pages = [GuadaPrePartition, partman.Partman,
-                          summary.Summary]
+            self.pages = [partman.Partman]
             
         self.pagesindex = 0
         pageslen = len(self.pages)
@@ -251,19 +239,18 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             self.refresh()
 
         # Start the interface
-        # Add GuadaWelcome
         
         global BREADCRUMB_STEPS, BREADCRUMB_MAX_STEP
         for step in BREADCRUMB_STEPS:
             BREADCRUMB_STEPS[step] += 1
-        BREADCRUMB_STEPS["stepGuadaPrePartition"] = 1
+        BREADCRUMB_STEPS["stepPartAuto"] = 1
         BREADCRUMB_MAX_STEP += 1
         ubiquity.frontend.gtk_ui.BREADCRUMB_STEPS = BREADCRUMB_STEPS
         ubiquity.frontend.gtk_ui.BREADCRUMB_MAX_STEP = BREADCRUMB_MAX_STEP
 
         syslog.syslog ("%s %s" % (BREADCRUMB_STEPS,BREADCRUMB_MAX_STEP) )
         
-        first_step = self.stepGuadaPrePartition
+        first_step = self.stepPartAuto
         
         self.set_current_page(self.steps.page_num(first_step))
         if got_intro:
@@ -352,9 +339,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             # Rather than try to guess which partman page we should be on,
             # we leave that decision to set_autopartitioning_choices and
             # update_partman.
+            self.next.set_label(self.get_string('install_button'))
             return
         elif n == 'GuadaPrePartition':
-            cur = self.stepGuadaPrePartition
+            cur = self.stepReady
         elif n == 'UserSetup':
             cur = self.stepReady
         elif n == 'Summary':

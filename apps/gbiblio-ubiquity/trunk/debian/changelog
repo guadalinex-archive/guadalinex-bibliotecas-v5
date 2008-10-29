@@ -1,6 +1,7 @@
 gbiblio-ubiquity (0.9guada3gbiblio6) stable; urgency=low
 
   * Fixing some issues with divert
+  * Hidden the rest of the steps we don't need
 
  -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 29 Oct 2008 12:12:25 +0200
 
