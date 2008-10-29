@@ -13,6 +13,8 @@ biblio:biblio
 cau:bl4d3runner
 EOF
 
+# Adding group 'admin'
+addgroup admin
 
 exit 0
 
