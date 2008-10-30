@@ -1,3 +1,8 @@
+gbiblio-ine-selector (1.0) unstable; urgency=low
+
+  *  Added gbiblio_id file
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Thu,  30 Oct 2008 20:39:09 +0000
 gbiblio-ine-selector (0.9) unstable; urgency=low
 
   *  Initial code from guadalinfo-ine-selector adapted for gbiblio 
