@@ -1,3 +1,10 @@
+gbiblio-server (0.9) unstable; urgency=low
+
+  * Changed cau's password
+  * Added biblio to lpadmin's group
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 20:55:39 +0100
+
 gbiblio-server (0.8) unstable; urgency=low
 
   * Added exim config to send mails for stats
