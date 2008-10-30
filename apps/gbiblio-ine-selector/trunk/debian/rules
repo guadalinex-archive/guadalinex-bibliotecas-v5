@@ -22,6 +22,7 @@ install: build
 	dh_install gbiblio-ine-selector_first.desktop /etc/xdg/autostart
 	dh_install centros.list /usr/share/gbiblio-ine-selector
 	dh_install gbiblio-ine-selector.png /usr/share/pixmaps
+	dh_install gbiblio_id.conf /etc
 	touch install-stamp
 
 binary: build install
