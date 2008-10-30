@@ -52,3 +52,4 @@ StartupNotify=true
 Categories=System;GNOME;Network;Settings;
 X-GNOME-Bugzilla-Bugzilla=GNOME
 X-GNOME-Bugzilla-Product=firestarter
+NoDisplay=true
