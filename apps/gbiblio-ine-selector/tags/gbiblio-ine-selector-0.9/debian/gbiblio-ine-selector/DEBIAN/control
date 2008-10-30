@@ -1,0 +1,9 @@
+Package: gbiblio-ine-selector
+Version: 0.9
+Architecture: i386
+Maintainer: Junta de andalucia <packmaster@guadalinex.org>
+Installed-Size: 104
+Section: admin
+Priority: optional
+Description: Gbiblio interface to setup the ine code of a gbiblio center
+ This tool it's useful for a Gbiblio center to select his INE code.

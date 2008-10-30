@@ -1,0 +1,11 @@
+Source: gbiblio-ine-selector
+Section: admin
+Priority: optional
+Maintainer: Junta de andalucia <packmaster@guadalinex.org>
+Build-Depends: debhelper (>= 4.1.0)
+Standards-Version: 3.6.2
+
+Package: gbiblio-ine-selector
+Architecture: any
+Description: Gbiblio interface to setup the ine code of a gbiblio center
+ This tool it's useful for a Gbiblio center to select his INE code.

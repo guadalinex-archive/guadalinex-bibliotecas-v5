@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Identificación de centro
+Comment=Herramienta para identificar al centro
+Exec=gksudo gbiblio-ine-selector
+Icon=/usr/share/pixmaps/gbiblio-ine-selector.png
+Terminal=false
+Type=Application
+Categories=Application;System;Settings
+Encoding=UTF-8
