@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 Junta de Andalucía                                 *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 Daniel Carrión                                     *
+ *   daniel@yacoi.com                                                      *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *

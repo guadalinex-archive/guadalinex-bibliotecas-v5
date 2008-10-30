@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucï¿½                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,7 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
  
- // $Id: protocol.h 216 2005-11-08 20:23:55Z rmartin $
+ // $Id: protocol.h 209 2004-11-18 14:13:05Z rmartin $
  // $Author: rmartin $
  
 #ifndef PROTOCOL_H
@@ -35,7 +35,7 @@ Basic usage:
 Now it is a class which return a QString, but the idea is that it could be expanded
 in the future to check for XML, etc
 
-@author Jess Roncero
+@author Jesús Roncero
 */
 class Protocol{
 public:
@@ -48,13 +48,7 @@ public:
 		StopCommand,
 		StatusCommand,
 		UserCommand,
-		EndSessionCommand,
-		ShutdownCommand,
-		timeCommand,
-		halfTimeCommand,
-		quarterTimeCommand,
-		twoMinutesCommand,
-		oneMinuteCommand,
+		EndSessionCommand
 	};
 	
 	QString getCommand(int cmd);
@@ -68,12 +62,6 @@ public:
 	QString status;	
 	QString user;
 	QString endSession;
-	QString shutdown;
-	QString halfTime;
-	QString	quarterTime;
-	QString twoMinutes;
-	QString oneMinute;
-	QString time;
 	
 };
 

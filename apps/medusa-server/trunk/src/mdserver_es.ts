@@ -350,7 +350,7 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
     </message>
     <message>
         <source>User code</source>
-        <translation type="obsolete">Código de usuario</translation>
+        <translation>Código de usuario</translation>
     </message>
     <message>
         <source>Close last user session</source>
@@ -378,6 +378,10 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
     <message>
         <source>&amp;Cancel</source>
         <translation>&amp;Cancelar</translation>
+    </message>
+    <message>
+        <source>Nombre de Usuario</source>
+        <translation></translation>
     </message>
     <message>
         <source>textLabel4</source>
@@ -433,12 +437,24 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
         <translation type="obsolete">&amp;Nuevo</translation>
     </message>
     <message>
+        <source>Ctrl+N</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>&amp;Open...</source>
         <translation type="obsolete">&amp;Abrir...</translation>
     </message>
     <message>
+        <source>Ctrl+O</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>&amp;Save</source>
         <translation type="obsolete">&amp;Guardar</translation>
+    </message>
+    <message>
+        <source>Ctrl+S</source>
+        <translation></translation>
     </message>
     <message>
         <source>Save &amp;As...</source>
@@ -457,8 +473,12 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
         <translation>Salir de la aplicación</translation>
     </message>
     <message>
+        <source>Ctrl+A</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>&amp;Add Host</source>
-        <translation type="obsolete">&amp;Añadir equipo</translation>
+        <translation>&amp;Añadir equipo</translation>
     </message>
     <message>
         <source>Ctrl+H</source>
@@ -466,7 +486,7 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
     </message>
     <message>
         <source>Add a host</source>
-        <translation type="obsolete">Añadir un equipo</translation>
+        <translation>Añadir un equipo</translation>
     </message>
     <message>
         <source>&amp;Find...</source>
@@ -474,7 +494,7 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
     </message>
     <message>
         <source>Ctrl+F</source>
-        <translation type="unfinished">Ctrl+F</translation>
+        <translation type="obsolete">Ctrl+F</translation>
     </message>
     <message>
         <source>Find</source>
@@ -498,11 +518,11 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
     </message>
     <message>
         <source>&amp;Hosts</source>
-        <translation type="obsolete">&amp;Equipos</translation>
+        <translation>&amp;Equipos</translation>
     </message>
     <message>
         <source>&amp;Options</source>
-        <translation type="obsolete">&amp;Opciones</translation>
+        <translation>&amp;Opciones</translation>
     </message>
     <message>
         <source>&amp;Help</source>
@@ -510,7 +530,7 @@ que incluso se cuelgue. ¿Está seguro que quiere continuar?</translation>
     </message>
     <message>
         <source>File</source>
-        <translation type="obsolete">Fichero</translation>
+        <translation>Fichero</translation>
     </message>
     <message>
         <source>Loading canceled</source>
@@ -547,35 +567,43 @@ Do you want to overwrite it?</source>
     </message>
     <message>
         <source>Create a new configuration</source>
-        <translation type="obsolete">Crear una nueva configuración</translation>
+        <translation>Crear una nueva configuración</translation>
     </message>
     <message>
         <source>Open an existing configuration</source>
-        <translation type="obsolete">Abrir una configuración existente</translation>
+        <translation>Abrir una configuración existente</translation>
     </message>
     <message>
         <source>Save the configuration to disk</source>
-        <translation type="obsolete">Guardar la configuración en el disco</translation>
+        <translation>Guardar la configuración en el disco</translation>
     </message>
     <message>
         <source>Save the actual configuration under a new name</source>
-        <translation type="obsolete">Guardar la configuración actual con un nuevo nombre</translation>
+        <translation>Guardar la configuración actual con un nuevo nombre</translation>
     </message>
     <message>
         <source>&amp;Edit Host</source>
-        <translation type="obsolete">&amp;Editar equipo</translation>
+        <translation>&amp;Editar equipo</translation>
+    </message>
+    <message>
+        <source>Ctrl+E</source>
+        <translation></translation>
     </message>
     <message>
         <source>Edit selected host</source>
-        <translation type="obsolete">Editar el equipo seleccionado</translation>
+        <translation>Editar el equipo seleccionado</translation>
     </message>
     <message>
         <source>&amp;Delete Host</source>
-        <translation type="obsolete">&amp;Borrar equipo</translation>
+        <translation>&amp;Borrar equipo</translation>
+    </message>
+    <message>
+        <source>Ctrl+D</source>
+        <translation></translation>
     </message>
     <message>
         <source>Delete selected host</source>
-        <translation type="obsolete">Borrar equipo seleccionado</translation>
+        <translation>Borrar equipo seleccionado</translation>
     </message>
     <message>
         <source>&amp;Block All Hosts</source>
@@ -627,19 +655,19 @@ Do you want to overwrite it?</source>
     </message>
     <message>
         <source>&amp;Auto discovery</source>
-        <translation type="obsolete">&amp;Auto descubrimiento</translation>
+        <translation>&amp;Auto descubrimiento</translation>
     </message>
     <message>
         <source>Try to discover all possible clients on the network</source>
-        <translation type="obsolete">Intentar descubrir todos los clientes posibles en la red</translation>
+        <translation>Intentar descubrir todos los clientes posibles en la red</translation>
     </message>
     <message>
         <source>&amp;Edit Settings</source>
-        <translation type="obsolete">&amp;Editar opciones</translation>
+        <translation>&amp;Editar opciones</translation>
     </message>
     <message>
         <source>Edit current settings for this list of workstations</source>
-        <translation type="obsolete">Editar las opciones actuales para esta lista de equipos</translation>
+        <translation>Editar las opciones actuales para esta lista de equipos</translation>
     </message>
     <message>
         <source>&amp;About Medusa</source>
@@ -705,19 +733,19 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <source>&amp;New Configuration</source>
-        <translation type="obsolete">&amp;Nueva Configuración</translation>
+        <translation>&amp;Nueva Configuración</translation>
     </message>
     <message>
         <source>&amp;Open Configuration...</source>
-        <translation type="obsolete">&amp;Abrir Configuración...</translation>
+        <translation>&amp;Abrir Configuración...</translation>
     </message>
     <message>
         <source>&amp;Save Configuration</source>
-        <translation type="obsolete">&amp;Guardar Configuración</translation>
+        <translation>&amp;Guardar Configuración</translation>
     </message>
     <message>
         <source>Save Configuration &amp;As...</source>
-        <translation type="obsolete">Guardar Configuración &amp;Como...</translation>
+        <translation>Guardar Configuración &amp;Como...</translation>
     </message>
     <message>
         <source>&amp;Configuration</source>
@@ -725,7 +753,7 @@ Do you want to save your changes?</source>
     </message>
     <message>
         <source>Hosts</source>
-        <translation type="obsolete">Equipos</translation>
+        <translation>Equipos</translation>
     </message>
     <message>
         <source>Actions</source>
@@ -780,6 +808,14 @@ Asegúrate de que existe o carga otro diferente</translation>
         <translation></translation>
     </message>
     <message>
+        <source>Ctrl+V</source>
+        <translation></translation>
+    </message>
+    <message>
+        <source>Ctrl+P</source>
+        <translation></translation>
+    </message>
+    <message>
         <source>finished</source>
         <translation>terminado</translation>
     </message>
@@ -803,35 +839,7 @@ bien refrescando su estado o bien mediante contacto visual</translation>
     </message>
     <message>
         <source>&lt;h2&gt;Medusa&lt;/h2&gt;&lt;p&gt;Copyright &amp;copy; 2004 Emergya, S.C.A.&lt;p&gt; Jes&#xfa;s Roncero Franco &lt;br&gt; Daniel Carri&#xf3;n Reinoso&lt;p&gt;Medusa is a small application to remotely block/unblock computers. Its primary use is in a library or a internet cafe. Medusa is based on Zeiberbude by Christian T&#xf6;pp&lt;br&gt;                             &lt;p&gt;Icons by &lt;a href=&quot;http://phoenity.com&quot;&gt;http://phoenity.com&lt;/a&gt; - License Creative Commons. </source>
-        <translation type="obsolete">&lt;h2&gt;Medusa&lt;/h2&gt;&lt;p&gt;Copyright &amp;copy; 2004 Emergya, S.C.A.&lt;p&gt; Jesús Roncero Franco &lt;br&gt; Daniel Carrión Reinoso&lt;p&gt;Medusa es una aplicación para bloquear/desbloquear ordenadores remotamente. Su uso principal es para una biblioteca o ciber café. Medusa está basado en Zeiberbude, de Christian Töpp&lt;br&gt;(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)&lt;p&gt;Icons by &lt;a href=&quot;http://phoenity.com&quot;&gt;http://phoenity.com&lt;/a&gt; - License Creative Commons. </translation>
-    </message>
-    <message>
-        <source>&lt;h2&gt;Medusa&lt;/h2&gt;&lt;p&gt;Copyright &amp;copy; 2004 Junta de Andalucia&lt;p&gt; Jes&#xfa;s Roncero Franco &lt;br&gt; Daniel Carri&#xf3;n Reinoso&lt;p&gt;Medusa is a small application to remotely block/unblock computers. Its primary use is in a library or a internet cafe. Medusa is based on Zeiberbude by Christian T&#xf6;pp&lt;br&gt;                             &lt;p&gt;Icons by &lt;a href=&quot;http://phoenity.com&quot;&gt;http://phoenity.com&lt;/a&gt; - License Creative Commons. </source>
-        <translation type="obsolete">&lt;h2&gt;Medusa&lt;/h2&gt;&lt;p&gt;Copyright &amp;copy; 2004 Junta de Andalucía&lt;p&gt;Jesús Roncero Franco &lt;br&gt; Daniel Carrión Reinoso &lt;br&gt; Rafael Martín de Agar Tirado &lt;p&gt;Medusa es una pequeña aplicación para bloquear/desbloquear remotamente estaciones de trabajo. Su uso principal es en una biblioteca o ciber café. Medusa está basado en Zeiberbude, de Christian Töpp&lt;br&gt; &lt;p&gt;Iconos por &lt;a href=&quot;http://phoenity.com&quot;&gt;http://phoenity.com&lt;/a&gt;. Usados gracias a la licencia &lt;i&gt;Creative Commons&lt;/i&gt;.</translation>
-    </message>
-    <message>
-        <source>&lt;h2&gt;Medusa&lt;/h2&gt;&lt;p&gt;Copyright &amp;copy; 2004 Junta de Andalucia&lt;p&gt; Jes&#xfa;s Roncero Franco &lt;br&gt; Daniel Carri&#xf3;n Reinoso &lt;br&gt; Coordination: Rafael Mart&#xed;n de Agar Tirado&lt;p&gt;Medusa is a small application to remotely block/unblock computers. Its primary use is in a library or a internet cafe. Medusa is based on Zeiberbude by Christian T&#xf6;pp&lt;br&gt;                             &lt;p&gt;Icons by &lt;a href=&quot;http://phoenity.com&quot;&gt;http://phoenity.com&lt;/a&gt; - License Creative Commons. </source>
-        <translation>&lt;h2&gt;Medusa&lt;/h2&gt;&lt;p&gt;Copyright &amp;copy; 2004 Junta de Andalucía&lt;p&gt;Jesús Roncero Franco &lt;br&gt; Daniel Carrión Reinoso &lt;br&gt; Coordinación: Rafael Martín de Agar Tirado &lt;p&gt;Medusa es una pequeña aplicación para bloquear/desbloquear remotamente estaciones de trabajo. Su uso principal es en una biblioteca o ciber café. Medusa está basado en Zeiberbude, de Christian Töpp&lt;br&gt; &lt;p&gt;Iconos por &lt;a href=&quot;http://phoenity.com&quot;&gt;http://phoenity.com&lt;/a&gt;. Usados gracias a la licencia &lt;i&gt;Creative Commons&lt;/i&gt;.</translation>
-    </message>
-    <message>
-        <source>&amp;Shutdown All Hosts</source>
-        <translation>&amp;Apagar todos los equipos</translation>
-    </message>
-    <message>
-        <source>Shutdown all the workstations at once</source>
-        <translation>Apagar todos los equipos a la vez</translation>
-    </message>
-    <message>
-        <source>&amp;Shutdown selected Host</source>
-        <translation>A&amp;pagar equipo seleccionado</translation>
-    </message>
-    <message>
-        <source>Shutdown just selected workstations</source>
-        <translation>Apaga sólo el equipo seleccionado</translation>
-    </message>
-    <message>
-        <source>Ctrl+G</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;h2&gt;Medusa&lt;/h2&gt;&lt;p&gt;Copyright &amp;copy; 2004 Emergya, S.C.A.&lt;p&gt; Jesús Roncero Franco &lt;br&gt; Daniel Carrión Reinoso&lt;p&gt;Medusa es una aplicación para bloquear/desbloquear ordenadores remotamente. Su uso principal es para una biblioteca o ciber café. Medusa está basado en Zeiberbude, de Christian Töpp&lt;br&gt;(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)(sp)&lt;p&gt;Icons by &lt;a href=&quot;http://phoenity.com&quot;&gt;http://phoenity.com&lt;/a&gt; - License Creative Commons. </translation>
     </message>
 </context>
 <context>

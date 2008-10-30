@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucï¿½                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.				   *
+ *   info@emergya.info							   *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -35,8 +35,6 @@
 #include <qfont.h>
 #include <qcolor.h>
 #include <qslider.h>
-#include <stdlib.h>
-#include <iostream>
 
 #include "addhostdialog.h"
 #include "edithostdialog.h"
@@ -52,7 +50,6 @@
 #include "mlog/output.h"
 
 using namespace mlog;
-using namespace std;
 
 
 // Constructor
@@ -69,8 +66,6 @@ MainWindow::MainWindow(QWidget * parent, const char *name)
 	configDialog = 0;
 	controlPort = 10000;
 	notifyPort = 10001;
-	initialSessionSeconds = 3600; 
-
 	//listFont.fromString( "" );
 	
 	askClosing = true;
@@ -112,9 +107,8 @@ MainWindow::MainWindow(QWidget * parent, const char *name)
 	osd->setBackgroundColor(a);
 	osd->setTextColor(b);
 	
-	system("/usr/sbin/generate-medusa-conf");
-	loadFile("/etc/medusa.conf");
-//	// loading last configurationdialog
+	
+	// loading last configurationdialog
 	if ( (int) recentFiles.size() > 0 ){
 		qDebug ("recentfiles: %d", (int) recentFiles.size() );
 		qDebug (recentFiles[0]);
@@ -183,20 +177,10 @@ void MainWindow::createActions()
 	unblockAllAct->setIconSet(QPixmap::fromMimeSource("circle_green.png"));
 	connect(unblockAllAct, SIGNAL(activated()), this, SLOT(unblockAll()) );
 	
-	shutdownAllAct = new QAction(tr("&Shutdown All Hosts"), tr("Ctrl+G"), this);
-	shutdownAllAct->setStatusTip(tr("Shutdown all the workstations at once"));
-	shutdownAllAct->setIconSet(QPixmap::fromMimeSource("system-log-out.png"));
-	connect(shutdownAllAct, SIGNAL(activated()), this, SLOT(shutdownAll()) );
-
 	unblockSelectedAct = new QAction(tr("&Unblock selected Host"), tr("Ctrl+L"), this);
 	unblockSelectedAct->setStatusTip(tr("Unblock all the workstations at once"));
 	unblockSelectedAct->setIconSet(QPixmap::fromMimeSource("circle_blue.png"));
 	connect(unblockSelectedAct, SIGNAL(activated()), this, SLOT(unblockSelectedSlot()) );
-
-	shutdownSelectedAct = new QAction(tr("&Shutdown selected Host"), tr("Ctrl+F"), this);
-	shutdownSelectedAct->setStatusTip(tr("Shutdown just selected workstations"));
-	shutdownSelectedAct->setIconSet(QPixmap::fromMimeSource("xscreensaver.png"));
-	connect(shutdownSelectedAct, SIGNAL(activated()), this, SLOT(shutdownSelectedSlot()) );
 	
 	setTimerAct  = new QAction(tr("&Start new session on selected Host"), tr("Ctrl+T"), this);
 	setTimerAct->setStatusTip(tr("Start a session for a new user"));
@@ -252,7 +236,7 @@ void MainWindow::createMenus()
 		recentFileIds[i] = -1;
 	
 	hostsMenu = new QPopupMenu(this);
-	addHostAct->addTo(hostsMenu); // 4 remve ADRIAN
+	addHostAct->addTo(hostsMenu);
 	editHostAct->addTo(hostsMenu);
 	deleteHostAct->addTo(hostsMenu);	
 	
@@ -263,8 +247,6 @@ void MainWindow::createMenus()
 	unblockAllAct->addTo(actionsMenu);
 	blockSelectedAct->addTo(actionsMenu);
 	unblockSelectedAct->addTo(actionsMenu);
-	shutdownSelectedAct->addTo(actionsMenu);
-	shutdownAllAct->addTo(actionsMenu);
 	//getUserAct->addTo(actionsMenu);
 	
 
@@ -292,8 +274,7 @@ void MainWindow::contextMenuEvent(QContextMenuEvent * event)
 
 	setTimerAct->addTo(&contextMenu);	
 	blockSelectedAct->addTo(&contextMenu);
-	unblockSelectedAct->addTo(&contextMenu);
-	shutdownSelectedAct->addTo(&contextMenu);
+	unblockSelectedAct->addTo(&contextMenu);	
 	contextMenu.insertSeparator();
 	editHostAct->addTo(&contextMenu);
 	deleteHostAct->addTo(&contextMenu);	
@@ -320,8 +301,6 @@ void MainWindow::createToolBars()
 	unblockAllAct->addTo(actionToolBar);
 	blockSelectedAct->addTo(actionToolBar);
 	unblockSelectedAct->addTo(actionToolBar);
-	shutdownSelectedAct->addTo(actionToolBar);
-	shutdownAllAct->addTo(actionToolBar);
 	
 }
 
@@ -355,7 +334,7 @@ void MainWindow::open()
 void MainWindow::loadFile(const QString & fileName)
 {
 	qDebug ("Trying to load file : " + fileName);
-	if (wsGroup.load(fileName, stationlist, initialSessionSeconds)) {
+	if (wsGroup.load(fileName, stationlist)) {
 		setCurrentFile(fileName);
 		statusBar()->message(tr("Config loaded"), 2000);
 		//wsGroup.statusAll();
@@ -380,7 +359,7 @@ bool MainWindow::save()
 
 void MainWindow::saveFile(const QString & fileName)
 {
-	if (wsGroup.save(fileName, initialSessionSeconds)) {
+	if (wsGroup.save(fileName)) {
 		setCurrentFile(fileName);
 		statusBar()->message(tr("Config saved"), 2000);
 	} else {
@@ -820,9 +799,9 @@ void MainWindow::blockSelected()
 void MainWindow::activateSelectedHost()
 {
 	QString host;
-	CounterDialog dialog (this, (char *) NULL, initialSessionSeconds);
+	CounterDialog dialog (this);
 	QString user;
-	//long seconds;
+	long seconds;
 
 	host = stationlist->findSelected();
 	if (host != QString::null){
@@ -835,23 +814,17 @@ void MainWindow::activateSelectedHost()
 		}
 		// Setting the last user
 		QString user = wsGroup.getUserFromHost(host);
-//		dialog.userEdit->setText(user);
-//		dialog.userEdit->selectAll();
+		dialog.userEdit->setText(user);
+		dialog.userEdit->selectAll();
 		
 		qDebug("MainWindow::blockSelected() -- activating Timer on  " + host );
 		//wsGroup.blockStation(host);
 		if (dialog.exec()){
 			// Really start
-			//seconds = dialog.getSeconds();	
-			if (initialSessionSeconds != dialog.getSeconds()) {
-				initialSessionSeconds = dialog.getSeconds();
-				configModified();
-			}	
-			//user = dialog.userEdit->text();
-			user = "";
+			seconds = dialog.getSeconds();	
+			user = dialog.userEdit->text();
 			//qDebug("segundos: %ld", seconds);
-			//wsGroup.startTimerSession(host, seconds, user, dialog.resetSessionCheck->isChecked());
-			wsGroup.startTimerSession(host, initialSessionSeconds, user, dialog.resetSessionCheck->isChecked());
+			wsGroup.startTimerSession(host, seconds, user, dialog.resetSessionCheck->isChecked());
 			
 		}
 		else{
@@ -931,22 +904,6 @@ void MainWindow::unblockSelectedSlot()
 	}
 }
 
-void MainWindow::shutdownSelectedSlot()
-{// We have to find out what is selected. Then
-	// act apropiately
-	QString host;
-	
-	host = stationlist->findSelected();
-	if (host != QString::null){
-		qDebug("MainWindow::shutdownSelected() -- shutting down " + host );
-		wsGroup.shutdownStation(host);
-	}
-	else{
-		showSimpleWarningBox(tr("You need to select a workstation first"));
-		//statusBar()->message(tr("Host %1 seems not to be on our list - BUG").
-		//		arg(host), 2000);
-	}
-}
 
 void MainWindow::unblockAll()
 {
@@ -955,23 +912,16 @@ void MainWindow::unblockAll()
 }
 	
 
-void MainWindow::shutdownAll()
-{
-	wsGroup.shutdownAll();
-	
-}
-
 void MainWindow::about()
 {
 	QMessageBox::about(this, tr("About Medusa"),
 			tr("<h2>Medusa</h2>"
-			"<p>Copyright &copy; 2004 Junta de Andalucia"
-			"<p> Jess Roncero Franco <br>"
-			" Daniel Carriï¿½ Reinoso <br>"
-			" Coordination: Rafael Martï¿½ de Agar Tirado"
+			"<p>Copyright &copy; 2004 Emergya, S.C.A."
+			"<p> Jesús Roncero Franco <br>"
+			" Daniel Carrión Reinoso"
 			"<p>Medusa is a small application to remotely block/unblock computers. "
 			"Its primary use is in a library or a internet cafe. "
-			"Medusa is based on Zeiberbude by Christian Tï¿½p<br> " 
+			"Medusa is based on Zeiberbude by Christian Töpp<br> " 
  			"                            "
 			"<p>Icons by <a href=\"http://phoenity.com\">http://phoenity.com</a> - License Creative Commons. "));
 }

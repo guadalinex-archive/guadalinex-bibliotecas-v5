@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucía                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -18,7 +18,7 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 /*
- * $Id: main.cpp 211 2005-01-21 16:02:38Z rmartin $
+ * $Id: main.cpp 209 2004-11-18 14:13:05Z rmartin $
  * $Author: rmartin $
  */
  

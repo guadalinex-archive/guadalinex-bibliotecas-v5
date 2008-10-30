@@ -1,7 +1,7 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucía                              *
- *   medusa@juntadeandalucia.es                                            *
- *									   *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
+ *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
  *   the Free Software Foundation; either version 2 of the License, or     *
@@ -179,14 +179,6 @@ void WorkStationGroup::unblockAll()
 	}
 }
 
-void WorkStationGroup::shutdownAll()
-{
-	WorkStationListIterator itr(computers);
-	for (itr.toFirst(); itr.current(); ++itr){
-		shutdownStation(itr.current()->getHostIP());
-	}
-}
-
 
 void WorkStationGroup::blockAll()
 {
@@ -200,18 +192,15 @@ void WorkStationGroup::blockAll()
 	
 }
 
-bool WorkStationGroup::save(const QString & fileName, long seconds)
+bool WorkStationGroup::save(const QString & fileName)
 {
 	QDomDocument xmlDoc("Test");
-
-	QDomElement root = xmlDoc.createElement("configuration");
+	QDomElement root = xmlDoc.createElement("workstation_list");
 	xmlDoc.appendChild(root);
-	
-	QDomElement workstationList = xmlDoc.createElement("workstation_list");
-	root.appendChild(workstationList);
 
 	WorkStationListIterator itr(computers);
 	for (itr.toFirst(); itr.current(); ++itr) {
+		printf("hola");
 		QDomElement workstation = xmlDoc.createElement("workstation");
 		workstation.setAttribute("ip", itr.current()->getHostIP());
     
@@ -224,47 +213,8 @@ bool WorkStationGroup::save(const QString & fileName, long seconds)
 		workstation.appendChild(hostName);
 		workstation.appendChild(mac);
     
-		workstationList.appendChild(workstation);
+		root.appendChild(workstation);
 	}
-	
-	QDomElement session = xmlDoc.createElement("session");
-	root.appendChild(session);
-	
-	QDomElement initialTime = xmlDoc.createElement("initial_time");
-	initialTime.setAttribute("seconds", seconds);
-	session.appendChild(initialTime);
-
-	// Save initial session time
-//	QDomElement timeRoot = xmlDoc.createElement("initial_time");
-//	xmlDoc.appendChild(timeRoot);
-//	QDomElement initialTime = xmlDoc.createElement("seconds");
-//	initialTime.setAttribute("number", 1000);
-//	timeRoot.appendChild(initialTime);
-
-//	QDomElement root = xmlDoc.createElement("workstation_list");
-//	xmlDoc.appendChild(root);
-
-//	WorkStationListIterator itr(computers);
-//	for (itr.toFirst(); itr.current(); ++itr) {
-//		printf("hola");
-//		QDomElement workstation = xmlDoc.createElement("workstation");
-//		workstation.setAttribute("ip", itr.current()->getHostIP());
-//    
-//		QDomElement hostName = xmlDoc.createElement("hostname");
-//		hostName.appendChild(xmlDoc.createTextNode(itr.current()->getHostName()));
-//
-//		QDomElement mac = xmlDoc.createElement("mac");
-//		mac.appendChild(xmlDoc.createTextNode(itr.current()->getMac()));
-//    
-//		workstation.appendChild(hostName);
-//		workstation.appendChild(mac);
-//    
-//		root.appendChild(workstation);
-//	}
-
-
-	//xmlDoc.appendChild(root);
-	// QDomElement time = xmlDoc.createElement("
 
 	QFile f(fileName);
 	if(!f.open(IO_WriteOnly)) {
@@ -280,7 +230,7 @@ bool WorkStationGroup::save(const QString & fileName, long seconds)
 }
 
 
-bool WorkStationGroup::load(const QString & fileName, StationList *stationList, long &seconds)
+bool WorkStationGroup::load(const QString & fileName, StationList *stationList)
 {
 	QDomDocument xmlDoc;
 	QString ip;
@@ -297,10 +247,8 @@ bool WorkStationGroup::load(const QString & fileName, StationList *stationList, 
  	
 	
 	QDomElement root = xmlDoc.documentElement();
-
-	QDomElement workstationList = root.firstChild().toElement();
-	QDomElement workstation = workstationList.firstChild().toElement();
-	//QDomElement workstation = root.nextSibling().toElement();
+ 
+	QDomElement workstation = root.firstChild().toElement();
 	while(!workstation.isNull()) {
 		QDomElement workstationChild = workstation.firstChild().toElement();
 		ip = workstation.attribute("ip");    
@@ -321,14 +269,7 @@ bool WorkStationGroup::load(const QString & fileName, StationList *stationList, 
 		workstation = workstation.nextSibling().toElement();
 		//QListViewItem *element = new QListViewItem(stationList, "", ip, hostname);
 		stationList->addHostView(ip, hostname);
-	}	
-
-	QDomElement session = workstationList.nextSibling().toElement();
-	QDomElement initialTime = session.firstChild().toElement();
-	QString secondsString = initialTime.attribute("seconds");
-	seconds = secondsString.toInt();
-	qDebug("seconds: %d", seconds);	
-
+	}
 	return true;
 }
 
@@ -394,22 +335,6 @@ void WorkStationGroup::unblockStation(QString host)
 		qDebug("WorkStationGroup::unblockStation(). findHost did not find anything");
 	}
 }
-
-/// shuts down the station id
-void WorkStationGroup::shutdownStation(QString host)
-{
-	WorkStation *temp;
-	
-	temp = findHost(host);
-	if (temp != 0){
-		temp->shutdownStation();
-		emit updateView(host, -2);
-	}
-	else{
-		qDebug("WorkStationGroup::shutdownStation(). findHost did not find anything");
-	}
-}
-
 
 bool WorkStationGroup::getLoginUser(QString host)
 {

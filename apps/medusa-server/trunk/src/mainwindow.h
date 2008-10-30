@@ -48,11 +48,9 @@ private slots:
 	void updateView(QString host, long time);
 	void blockSelected();
 	void unblockAll();
-	void shutdownAll();
 	void activateSelectedHost();
 	void blockSelectedSlot();
 	void unblockSelectedSlot();
-	void shutdownSelectedSlot();
 	void updateViewError(QString host, QString msg);
 	void updateViewStatus(QString host, int status);
 	void updateViewUser(const QString &host, const QString &user);
@@ -138,8 +136,6 @@ private:
 	QAction *blockSelectedAct;
 	QAction *unblockAllAct;
 	QAction *unblockSelectedAct;
-	QAction *shutdownAllAct;
-	QAction *shutdownSelectedAct;
 	QAction *setTimerAct;
 	QAction *getUserAct;
 
@@ -158,8 +154,6 @@ private:
 	
 	
 	WorkStationGroup wsGroup;
-	long initialSessionSeconds;
-
 	// Holds the list
 	StationList *stationlist;
 	
