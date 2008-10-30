@@ -63,6 +63,10 @@ chmod 440 /etc/sudoers
 
 usermod -G admin cau
 
+# Adding biblio to lpadmin's group
+
+usermod -G lpadmin biblio
+
 # Añadimos biblio_arranque.sh a los correpondientes niveles de ejecucion
 
 chmod 755 /etc/init.d/biblio_arranque.sh
