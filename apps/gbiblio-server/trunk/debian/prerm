@@ -2,3 +2,6 @@
 
 rm -f /etc/exports
 dpkg-divert --package gbiblio-server --rename --quiet --remove /etc/exports
+
+rm -f /etc/update-exim4.conf.conf
+dpkg-divert --package gbiblio-server --rename --quiet --remove /etc/update-exim4.conf.conf
