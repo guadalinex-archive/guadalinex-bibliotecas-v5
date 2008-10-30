@@ -1,3 +1,8 @@
+gbiblio-server (0.8) unstable; urgency=low
+
+  * Added exim config to send mails for stats
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 20:25:32 +0100
 gbiblio-server (0.7) unstable; urgency=low
 
   * Added client hosts and gbiblio-ine-selector exec privilege to biblio.
