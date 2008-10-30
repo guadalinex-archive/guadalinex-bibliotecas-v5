@@ -1,0 +1,80 @@
+#!/bin/sh
+# postinst script for gbiblio-server
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Diverts
+
+dpkg-divert --package gbiblio-server --rename --quiet --add /etc/exports
+ln -fs /etc/exports.gbv5 /etc/exports
+
+dpkg-divert --package gbiblio-server --rename --quiet --add /etc/update-exim4.conf.conf
+ln -fs /etc/update-exim4.conf.conf.gbv5 /etc/update-exim4.conf.conf
+
+# Exports directories creation
+[ ! -d /var/nfs/compartido ] && mkdir -p /var/nfs/compartido
+[ -d /var/nfs/compartido ] && chmod 1777 /var/nfs/compartido
+
+# Change owner of id_rsa
+chown cau:cau /home/cau/.ssh/id_rsa
+
+# Adding /etc/sudoers
+cat << EOF > /etc/sudoers
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer, /usr/sbin/gbiblio-ine-selector
+
+Cmnd_Alias  BIBLIOADMINNOPW = /sbin/halt, /etc/init.d/cupsys
+
+# User privilege specification
+root    ALL=(ALL) ALL
+
+# Uncomment to allow members of group sudo to not need a password
+# (Note that later entries override this, so you might need to move
+# it further down)
+# %sudo ALL=NOPASSWD: ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Permisos de biblio
+biblio ALL = NOPASSWD: BIBLIOADMINNOPW, PASSWD: BIBLIOADMIN
+EOF
+
+
+# Permissions in /etc/sudoers
+
+chown root.root /etc/sudoers
+chmod 440 /etc/sudoers
+
+# Adding cau to admin's group
+
+usermod -G admin cau
+
+# Adding biblio to lpadmin's group
+
+usermod -G lpadmin biblio
+
+# Added biblio_arranque.sh to runlevels 2 3 4 5
+
+chmod 755 /etc/init.d/biblio_arranque.sh
+update-rc.d biblio_arranque.sh start 98 2 3 4 5 .
+
+exit 0
+
+
