@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio7) stable; urgency=low
+
+  * Changed the target-config script to point to local scanpackages directory  
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 30 Oct 2008 20:36:25 +0200
+
 gbiblio-ubiquity (0.9guada3gbiblio6) stable; urgency=low
 
   * Fixing some issues with divert
