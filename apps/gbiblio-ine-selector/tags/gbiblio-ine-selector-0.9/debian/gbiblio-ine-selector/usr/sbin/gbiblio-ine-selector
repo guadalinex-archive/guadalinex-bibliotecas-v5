@@ -1,0 +1,138 @@
+#!/bin/bash
+
+CENTROS='/usr/share/gbiblio-ine-selector/centros.list'
+CONF_FILE='/etc/gbiblio_id.conf'
+
+seleccionar_provincia ()
+{
+        tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
+        trap "rm -f $tempfile" 0 1 2 5 15
+
+	choice=$(zenity --height 310 --title "Identificación del centro" --text "Seleccione una provincia" --column "Provincias" --list "Almería" "Cádiz" "Córdoba" "Granada" "Huelva" "Jaen" "Málaga" "Sevilla")
+        retval=$?
+}
+
+seleccionar_municipio ()
+{
+        tempfile=`tempfile 2>/dev/null` || tempfile=/tmp/test$$
+        trap "rm -f $tempfile" 0 1 2 5 15
+
+        LIST_MUN=""
+        IFS=$'\n'
+        for municipio in $(listar_municipios $1)
+        do
+                LIST_MUN="$LIST_MUN \"$municipio\""
+        done
+
+	echo $LIST_MUN
+	choice=$(eval zenity --height 310 --title "\"Identificación del centro\"" --text "\"Seleccione un municipio\"" --column "\"Municipios\"" --list $LIST_MUN)
+        retval=$?
+#        choice=`cat $tempfile`
+}
+
+#cod_provincia ()
+#{
+#        PROVINCIA=$1
+#        RET=$(cat $CENTROS | grep $PROVINCIA | head -1 | awk 'BEGIN { FS = ";" } {print $1}')
+#}
+
+cod_municipio ()
+{
+        MUNICIPIO=$1
+	echo $MUNICIPIO
+        RET=$(cat $CENTROS | grep \;$MUNICIPIO$ | head -1 | awk 'BEGIN { FS = ";" } {print $2}')
+}
+
+cod_provincia()
+{
+	case "$1" in
+		Almería)
+			COD_PROVINCIA="04"
+			;;
+		Cádiz)
+			COD_PROVINCIA="11"
+			;;
+		Córdoba)
+			COD_PROVINCIA="14"
+			;;
+		Granada)
+			COD_PROVINCIA="18"
+			;;
+		Huelva)
+			COD_PROVINCIA="21"
+			;;
+		Jaen)
+			COD_PROVINCIA="23"
+			;;
+		Málaga)
+			COD_PROVINCIA="29"
+			;;
+		Sevilla)
+			COD_PROVINCIA="41"
+			;;
+		*)
+			return 1
+			;;
+	esac
+	return 0
+}
+
+listar_municipios ()
+{
+        PROVINCIA=$1
+        TMP_FILE=/tmp/lista_municipios_$(date +%Y%m%d%H%M%S)
+
+        IFS=$'\n'
+
+	cod_provincia $PROVINCIA
+
+        for x in $(cat $CENTROS | grep ^$COD_PROVINCIA;)
+        do
+                echo -e $x | awk 'BEGIN { FS = ";" } {print $3}' >> $TMP_FILE
+        done
+        cat $TMP_FILE | sort | uniq
+}
+
+menu()
+{
+	seleccionar_provincia
+	NOMBRE_PROVINCIA=$choice
+	[ "$retval" != "0" ] && return 1
+
+	seleccionar_municipio $NOMBRE_PROVINCIA
+	NOMBRE_LOCALIDAD=$choice
+	[ "$retval" != "0" ] && return 1
+
+	cod_provincia $NOMBRE_PROVINCIA
+	ID_PROVINCIA=$COD_PROVINCIA
+	cod_municipio $NOMBRE_LOCALIDAD
+	ID_LOCALIDAD=$RET
+
+	# Volcamos los datos en el fichero de configuración
+	echo "NOMBRE_LOCALIDAD=\"$NOMBRE_LOCALIDAD\"" > $CONF_FILE
+	echo "ID_LOCALIDAD=\"$ID_LOCALIDAD\"" >> $CONF_FILE
+	echo "NOMBRE_PROVINCIA=\"$NOMBRE_PROVINCIA\"" >> $CONF_FILE
+	echo "ID_PROVINCIA=\"$ID_PROVINCIA\"" >> $CONF_FILE
+
+	# Mostramos un resumen con los valores introducidos
+	#  $DIALOG --left --title "Identificacion del centro" \
+	#          --msgbox " \
+	#Nombre de la localidad:         $NOMBRE_LOCALIDAD \n \
+	#Identificador de la localidad:  $ID_LOCALIDAD \n \
+	#Nombre de la provincia:         $NOMBRE_PROVINCIA \n \
+	#Identificador de la provincia:  $ID_PROVINCIA" 0 0 10000
+
+	zenity --info --title "Identificación del centro" --text "Configuración actualizada:"'		'"$NOMBRE_LOCALIDAD"'
+'"Identificador de la localidad:"'	'"$ID_LOCALIDAD"'
+'"Nombre de la provincia:"'		'"$NOMBRE_PROVINCIA"'
+'"Identificador de la provincia:"'	'"$ID_PROVINCIA"
+
+	return 0
+}
+
+if [ "$(whoami)" != "root" ]; then
+        zenity --error --title Error --text "No tiene permisos para ejecutar esta aplicación"
+        exit 1
+fi
+
+menu
