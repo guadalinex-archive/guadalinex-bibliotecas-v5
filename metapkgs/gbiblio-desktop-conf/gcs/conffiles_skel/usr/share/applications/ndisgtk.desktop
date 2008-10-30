@@ -34,3 +34,4 @@ Icon=ndisgtk.png
 Terminal=false
 Type=Application
 Categories=System;Settings;
+NoDisplay=true
