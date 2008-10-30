@@ -1,3 +1,8 @@
+gbiblio-server (1.0) unstable; urgency=low
+
+  * Added dependencies needed (gbiblio-ine-selector, gbiblio-stats)
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 21:16:39 +0100
 gbiblio-server (0.9) unstable; urgency=low
 
   * Changed cau's password
