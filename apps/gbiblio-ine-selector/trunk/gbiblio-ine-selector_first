@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ ! -e /home/biblio/.gbiblio-ine-selector ];then
+   zenity --info --text "Se va a abrir la ventana de configuración de datos de su biblioteca, pulse Aceptar" && gksudo /usr/sbin/gbiblio-ine-selector
+   touch /home/biblio/.gbiblio-ine-selector
+fi
+
+exit 0
