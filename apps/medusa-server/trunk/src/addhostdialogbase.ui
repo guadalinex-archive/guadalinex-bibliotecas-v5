@@ -1,7 +1,7 @@
 <!DOCTYPE UI><UI version="3.3" stdsetdef="1">
 <class>AddHostDialogBase</class>
 <comment>A dialog to add hosts to the app.</comment>
-<author>Junta de Andalucia &lt;medusa@juntadeandalucia.es&gt;</author>
+<author>Jesús Roncero &lt;info@emergya.info&gt;</author>
 <widget class="QDialog">
     <property name="name">
         <cstring>AddHostDialogBase</cstring>

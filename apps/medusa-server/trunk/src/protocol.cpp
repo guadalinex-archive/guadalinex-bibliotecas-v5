@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andaluc�                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -19,7 +19,7 @@
  ***************************************************************************/
  
  //
- // $Id: protocol.cpp 218 2005-11-08 21:17:25Z rmartin $
+ // $Id: protocol.cpp 209 2004-11-18 14:13:05Z rmartin $
  // $Author: rmartin $
 #include <qstring.h>
 
@@ -35,12 +35,6 @@ Protocol::Protocol()
 	status = "<MD><STATUS/></MD>";
 	user = "<MD><USER/></MD>";
 	endSession = "<MD><ENDSESSION/></MD>";
-	shutdown = "<MD><SHUTDOWN/></MD>";
-	halfTime= "<MD><HALFTIME/></MD>";
-	quarterTime= "<MD><QUARTERTIME/></MD>";
-	twoMinutes= "<MD><TWOMINUTES/></MD>";
-	oneMinute= "<MD><ONEMINUTE/></MD>";
-	time="<MD><TIME/></MD>";
 	
 }
 
@@ -62,24 +56,6 @@ QString Protocol::getCommand(int cmd)
 			break;
 		case Protocol::EndSessionCommand:
 			return endSession;
-			break;
-		case Protocol::ShutdownCommand:
-			return shutdown;
-			break;
-		case Protocol::halfTimeCommand:
-			return halfTime;
-			break;
-		case Protocol::quarterTimeCommand:
-			return quarterTime;
-			break;
-		case Protocol::twoMinutesCommand:
-			return twoMinutes;
-			break;
-		case Protocol::oneMinuteCommand:
-			return oneMinute;
-			break;
-		case Protocol::timeCommand:
-			return time;
 			break;
 		default:
 			return stop;

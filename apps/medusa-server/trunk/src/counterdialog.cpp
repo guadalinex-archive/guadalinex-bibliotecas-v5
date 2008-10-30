@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucía                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -29,27 +29,23 @@
 
 #include "counterdialog.h"
 
-CounterDialog::CounterDialog(QWidget *parent, const char *name, long seconds)
+CounterDialog::CounterDialog(QWidget *parent, const char *name )
 	: CounterDialogBase(parent, name)
 {
 	connect( timeEdit, SIGNAL(valueChanged(const QTime &)), 
 		 this, SLOT(timeChanged(const QTime &)) );
 	helpButton->setEnabled(false);
 	timeLabel->setText(tr("Time"));
-	//userLabel->setText(tr("User code"));
+	userLabel->setText(tr("User code"));
 	resetSessionCheck->setText(tr("Close last user session"));
 	resetSessionCheck->setChecked(true);
 	
 	this->setCaption(tr("Start new session"));
 
 	/* Setting default 30 minutes */
-	//QTime time = QTime(1,0,0);
+	QTime time = QTime(0,30,0);
 	
-	//timeEdit->setTime(time);
-	int hours = seconds / 3600;
-	int mins = (seconds - hours * 3600) / 60;
-	int secs = (seconds - hours * 3600 - mins * 60); 
-	timeEdit->setTime(QTime(hours, mins, secs));
+	timeEdit->setTime(time);
 	
 	QToolTip::add(timeEdit, tr("Minimum: 10 seconds"));
 }

@@ -41,9 +41,7 @@ IMAGES += images/icon.png \
           images/small/address_delete.png \
           images/small/address_edit.png \
           images/small/tabs.png \
-          images/light_bulb.png \
-	  images/xscreensaver.png \
-	  images/system-log-out.png
+          images/light_bulb.png 
 IDLS += configurationdialogbase.ui \
         runningwarningbase.ui \
         counterdialogbase.ui \

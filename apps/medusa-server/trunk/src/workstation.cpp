@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucï¿½                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -51,7 +51,6 @@ WorkStation::WorkStation(QObject * parent, const char * name, QString host, int 
 	hostIP(host)
 {
 	socket = new QSocket(this);
-	socketsec=new QSocket(this);
 	connectionTimer = new QTimer();
 	timeoutTimer = new QTimer();	
 	statusTimer = new QTimer();
@@ -61,14 +60,11 @@ WorkStation::WorkStation(QObject * parent, const char * name, QString host, int 
 	timeout = 3;
 	// Time to wait to start a delayedStatus
 	statusTimeout = 4;
-	//int count=1; //adrian: vamos a probar esto
 	
 	
 	// connections
 	connect(socket, SIGNAL(connected()),
 		 SLOT(sendCommand()) );	
-	connect(socketsec, SIGNAL(connected()),
-		 SLOT(sendCommandTime()) );	
 	connect(socket, SIGNAL(connectionClosed()),
 		 SLOT(connectionClosedByClient()) );
 	connect(socket, SIGNAL(readyRead()),
@@ -86,8 +82,6 @@ WorkStation::WorkStation(QObject * parent, const char * name, QString host, int 
 		this, SLOT(user()) );
 		
 	remainingSecs = 0;
-	sessionSecs=0; //adrian
-	count=1;
 	
 	messageNum = 0;
 	blocked = false;
@@ -174,9 +168,7 @@ void WorkStation::status()
 	if ( state != WorkStation::ACTIVE) {
 		state = WorkStation::CONNECTING ;
 	}
-	sendMessage();
-
-	
+	sendMessage();	
 }
 
 /// sends a message to host
@@ -195,24 +187,6 @@ void WorkStation::sendMessage()
 		// 10 seconds
 		//state = WorkStation::CONNECTING ;
 		connectionTimer->start(2 * 1000, true);
-	}	
-}
-
-void WorkStation::sendMessageTime()
-{
-	Q_UINT16 lport=0;
-	MainWindow *main = static_cast<MainWindow *>(qApp->mainWidget());
-
-	if (main != NULL)
-		lport = main->getControlPort();
-	
-	if ( hostIP != 0 && lport != 0 ){
-		
-		socketsec->connectToHost(hostIP, lport);
-		// In case it doesn't connect, abort after 
-		// 10 seconds
-		//state = WorkStation::CONNECTING ;
-		connectionTimer->start(2 * 1000, true); 
 	}	
 }
 
@@ -243,18 +217,9 @@ void WorkStation::sendCommand()
 	QTextStream os(socket);	
 	Protocol prot;
 	
-	os << prot.getCommand(messageNum) <<  "\n";
-
-}
-void WorkStation::sendCommandTime()
-{
-	QTextStream os(socketsec);	
+	os << prot.getCommand(messageNum) << "\n";	
 	
-	
-	os << "<MD><TIME" <<remainingSecs << "/></MD>\n";
-
 }
-
 
 
 /// close the socket when the remote machine closes the connection
@@ -424,7 +389,7 @@ void WorkStation::delayStatus(int offset)
 		statusTimer->start(statusTimeout * 1000, true);
 	}
 	else{
-		qDebug("delayStatus con %d dï¿½imas de segundos", offset);
+		qDebug("delayStatus con %d décimas de segundos", offset);
 		statusTimer->start(offset * 50, true);
 	}
 		
@@ -496,8 +461,7 @@ void WorkStation::updateTimer()
 	//qDebug("Entrando en updateTimer para estacion id: %d ", id);
 	//qDebug("state: %d, remainingSecs: %d", state, remainingSecs);
 	
-
-
+	
 	switch (state){
 		case WorkStation::ACTIVE :	
 			if (remainingSecs <= 0){
@@ -511,58 +475,7 @@ void WorkStation::updateTimer()
 				emit wsTimeChanged(hostIP, -1);
 				
 			}
-			if (remainingSecs <= sessionSecs/2 && count == 1){
-				//halfTimeNotify(); 
-				timeNotify(); //adrian
-				status();
-				count=2; 
-				remainingSecs -= 1;
-				// emit workstation changed
-				emit wsTimeChanged(hostIP, remainingSecs);
-				if ((remainingSecs % 30 ) == 0 ){
-					delayUser();		
-				}
-			}
-			if (remainingSecs <= sessionSecs/4 && count ==2){
-				//quarterTimeNotify(); 
-				timeNotify();//adrian
-				status();
-				count=3;
-				remainingSecs -= 1;
-				// emit workstation changed
-				emit wsTimeChanged(hostIP, remainingSecs);
-				if ((remainingSecs % 30 ) == 0 ){
-					delayUser();	
-				 }
-			}
-			if (remainingSecs<=120 && remainingSecs>60 && count != 4){
-				//twoMinutesNotify(); 
-				timeNotify();
-				status();
-				count=4; 
-				remainingSecs -= 1;
-				//printf("(<2m)Segundos que quedan: %d \n",remainingSecs);
-				// emit workstation changed
-				emit wsTimeChanged(hostIP, remainingSecs);
-				if ((remainingSecs % 30 ) == 0 ){
-					delayUser();	
-				}
-			}
-			if (remainingSecs<=60 && remainingSecs >0 && count != 5){
-				//oneMinuteNotify();
-				timeNotify();
-				status();
-				count=5;	
-				remainingSecs -= 1;
-				//printf("(<1m)Segundos que quedan: %d \n",remainingSecs);
-				// emit workstation changed
-				emit wsTimeChanged(hostIP, remainingSecs);
-				if ((remainingSecs % 30 ) == 0 ){ 
-					delayUser();	
-				
-				  }
-			}
-			else{		//Check if we have to change this Â¿?
+			else{
 				remainingSecs -= 1;
 				// emit workstation changed
 				emit wsTimeChanged(hostIP, remainingSecs);
@@ -607,16 +520,13 @@ void WorkStation::startSession(long nsecs)
 		ws_log.log("End session for user " + getUser() + " from IP " + getHostIP() + ".");
 		emit userChanged(hostIP, "");
 	}
-	state=WorkStation::ACTIVE;
+	
+	state = WorkStation::ACTIVE;
 	qDebug("WorkStation::startSession() - trying to start timer for %ld seconds", nsecs);
 	ws_log.log("Start session for user " + getUser() + " from IP " + getHostIP() + ".");
-	unblock(); 
+	unblock();
 	delayStatus();
-	unblock(); //a
 	remainingSecs = nsecs;
-	sessionSecs=nsecs;
-	timeNotify();
-	unblock();//a
 	
 }
 
@@ -685,46 +595,5 @@ void WorkStation::delayUser()
 		userTimer->start(5 * 1000, true);
 }
 
-/// shuts down 
-void WorkStation::shutdown()
-{	
-	messageNum = Protocol::ShutdownCommand;	
-	sendMessage();
-}
-void WorkStation::timeNotify()
-{
 
-	messageNum=Protocol::timeCommand;
-	sendMessageTime();
-}
-void WorkStation::halfTimeNotify()
-{
-	messageNum=Protocol::halfTimeCommand;
-	sendMessageTime();
-}
-void WorkStation::quarterTimeNotify()
-{
-	messageNum=Protocol::quarterTimeCommand;
-	sendMessageTime();
-}
-void WorkStation::twoMinutesNotify()
-{
-	messageNum=Protocol::twoMinutesCommand;
-	sendMessageTime();
-}
-void WorkStation::oneMinuteNotify()
-{
-	messageNum=Protocol::oneMinuteCommand;
-	sendMessage();
-}
 
-/// high level function to shut down the workstation
-void WorkStation::shutdownStation()
-{
-	if (state != WorkStation::ERROR || state != WorkStation::CONNECTING || state != WorkStation::SHUTTINGDOWN) {
-		// We can connect to the workstation
-		ws_log.log("Shutting down IP " + getHostIP() + ".");
-		state = WorkStation::SHUTTINGDOWN;
-		shutdown();
-	}
-}

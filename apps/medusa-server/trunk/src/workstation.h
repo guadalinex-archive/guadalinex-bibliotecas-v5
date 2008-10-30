@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucï¿½				   *
- *   medusa@juntadeandalucia.es						   *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -30,8 +30,8 @@
 /// \brief this class models a workstation and should
 /// provide all the functionality to operate with each
 /// of the workstations
-/// @author Jess Roncero
-/// @author Daniel Carriï¿½
+/// @author Jesús Roncero
+/// @author Daniel Carrión
 class WorkStation : public QObject 
 {
 	Q_OBJECT
@@ -48,8 +48,7 @@ public:
 		PAUSED, 	// the WS is paused
 		INACTIVE, 	// the WS is unblocked and timer isn't on
 		ERROR,		// could not connect to it
-		CONNECTING,	// trying to connecto to the client
-		SHUTTINGDOWN	// shutting down
+		CONNECTING	// trying to connecto to the client	
 	};
 	
 	enum ConnectionState {
@@ -62,7 +61,6 @@ public:
 	mlog::LogItem ws_log;
 
 	void sendMessage();
-	void sendMessageTime();
 	void block();
 	void unblock();
 	
@@ -76,8 +74,6 @@ public:
 	void setUser(QString name);
 	QString getUser();
 	int getState();
-
-	void shutdown();
 	
 	// This would update the remaining time
 	void startSession(long nsecs);
@@ -86,13 +82,6 @@ public:
 	void blockStation();
 	void unblockStation();
 	void endSession();
-	void shutdownStation();
-	void halfTimeNotify();
-	void quarterTimeNotify();
-	void twoMinutesNotify();
-	void oneMinuteNotify();
-	void timeNotify();
-	
 	
 	void pauseSession();
 	void continueSession();
@@ -120,7 +109,6 @@ private slots:
 	void readFromClient();
 	void socketError(int errorno);
 	void sendCommand();
-	void sendCommandTime();
 	void blockSlot();
 	void delayBlocked();
 	void wakeUp();
@@ -142,13 +130,11 @@ private:
 	QString hostName;
 	
 	QSocket *socket;
-	QSocket *socketsec;
 	
 	QTimer *connectionTimer;
 	QTimer *timeoutTimer;
 	QTimer *statusTimer;
 	QTimer *userTimer;
-
 	
 	QTime initHour;
 	
@@ -169,8 +155,6 @@ private:
 	
 	int statusTimeout;
 	int timeout;
-	int sessionSecs; //adrian: Tiempo en segundos para el total de la sesion, para calcular cuando falta la mitad
-	int count; //adrian: aqui tambien
 	
 	// we count the errors
 	int errorCount;

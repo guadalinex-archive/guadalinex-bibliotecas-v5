@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucía                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -63,14 +63,12 @@ public:
 	void unblockStation(QString host);
 	void blockAll();
 	void unblockAll();
-	void shutdownStation(QString host);
-	void shutdownAll();
 	
 	WorkStation * findHost(QString host);
 	void startTimerSession(QString const &host, long seconds, QString user, bool reset = false);
 			
-	bool save(const QString & fileName, long seconds);
-	bool load(const QString & fileName, StationList *stationList, long &seconds);
+	bool save(const QString & fileName);
+	bool load(const QString & fileName, StationList *stationList);
 	bool deleteHost(QString host);
 	bool getLoginUser(QString host);
 	void statusAll();

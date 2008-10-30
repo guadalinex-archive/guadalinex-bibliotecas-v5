@@ -1,6 +1,6 @@
 /***************************************************************************
- *   Copyright (C) 2004 by Junta de Andalucía                              *
- *   medusa@juntadeandalucia.es                                            *
+ *   Copyright (C) 2004 by Emergya, S.C.A.                                   *
+ *   info@emergya.info                                                     *
  *                                                                         *
  *   This program is free software; you can redistribute it and/or modify  *
  *   it under the terms of the GNU General Public License as published by  *
@@ -24,7 +24,6 @@
 #define COUNTERDIALOG_H
 
 #include <counterdialogbase.h>
-#include <qdatetimeedit.h>
 
 /**
 @author Jesús Roncero
@@ -33,7 +32,7 @@ class CounterDialog : public CounterDialogBase
 {
   Q_OBJECT
 public:
-	CounterDialog(QWidget *parent = 0, const char *name = 0, long seconds = 3600);
+	CounterDialog(QWidget *parent = 0, const char *name = 0);
 
 	~CounterDialog();
 	
