@@ -1,0 +1,20 @@
+Format: 1.7
+Date: Thu, 30 Oct 2008 20:30:17 +0200
+Source: gbiblio-stats
+Binary: gbiblio-stats
+Architecture: source i386
+Version: 0.1
+Distribution: unstable
+Urgency: low
+Maintainer: David Teyssiere Rubio <dteyssiere@emergya.es>
+Changed-By: David Teyssiere Rubio <dteyssiere@emergya.es>
+Description: 
+ gbiblio-stats - Guadalinex Bibliotecas V5 stats package
+Changes: 
+ gbiblio-stats (0.1) unstable; urgency=low
+ .
+   * Initial Release.
+Files: 
+ 4a3cc49cd9195009e272c6418575bcec 275 metapackages standard gbiblio-stats_0.1.dsc
+ 2f038140eda80a818d92dd15a038fc73 14241 metapackages standard gbiblio-stats_0.1.tar.gz
+ 30db085cf12fc0b6404d9934708ed961 3822 metapackages standard gbiblio-stats_0.1_i386.deb
