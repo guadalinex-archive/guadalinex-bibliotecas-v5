@@ -1,3 +1,11 @@
+gbiblio-client (0.7) unstable; urgency=low
+
+  * Changed cau's password
+  * Added biblio to lpadmin's group
+  * Added system-config-printer-gnome
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 17:05:34 +0100
+
 gbiblio-client (0.6) unstable; urgency=low
 
   * Added group 'admin'

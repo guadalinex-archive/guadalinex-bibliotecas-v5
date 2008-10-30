@@ -10,7 +10,7 @@ adduser biblio --disabled-password --gecos biblio
 adduser cau --disabled-password --gecos cau
 chpasswd -m <<EOF
 biblio:biblio
-cau:bl4d3runner
+cau:r3pl1c4nt3
 EOF
 
 # Adding group 'admin'
