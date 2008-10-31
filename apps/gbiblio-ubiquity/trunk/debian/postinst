@@ -9,6 +9,10 @@ dpkg-divert --package gbiblio-ubiquity --add --rename \
 ln -s /usr/lib/gbiblio-ubiquity/ubiquity/frontend/__init__.py /usr/lib/ubiquity/ubiquity/frontend/__init__.py
 
 dpkg-divert --package gbiblio-ubiquity --add --rename \
-         --divert /lib/partman/recipes/20guadalinex.py.real /lib/partman/recipes/20guadalinex
+         --divert /lib/partman/recipes/20guadalinex.real /lib/partman/recipes/20guadalinex
 ln -s /usr/lib/gbiblio-ubiquity/partman/recipes/20guadalinex /lib/partman/recipes/20guadalinex
+
+dpkg-divert --package gbiblio-ubiquity --add --rename \
+         --divert /lib/partman/automatically_partition/20some_device.real /lib/partman/automatically_partition/20some_device
+ln -s /usr/lib/gbiblio-ubiquity/partman/automatically_partition/20some_device /lib/partman/automatically_partition/20some_device
 
