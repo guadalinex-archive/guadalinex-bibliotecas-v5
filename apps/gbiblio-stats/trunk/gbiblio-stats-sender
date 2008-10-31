@@ -1,0 +1,67 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+Este pequeño programa sirve para enviar estadísticas de forma manual y con la posibilidad de
+añadir un correo de copia a la dirección de envío.
+
+Author: David Teyssiere Rubio <dteyssiere@emergya.es>
+"""
+
+import pygtk
+pygtk.require('2.0')
+import gtk
+import gtk.glade
+import gobject
+import sys
+
+
+class GbiblioStatsSender (object):
+
+    def __init__(self):
+        self.widgets = {}
+        self.mainloop = gobject.MainLoop() 
+
+    def initgui(self):
+        self.ui = gtk.glade.XML('/usr/share/gbiblio-stats-sender/gbiblio-stats-dialog.glade')
+
+        # cargamos todos los widgets
+        for widget in self.ui.get_widget_prefix(""):
+            self.widgets[widget.get_name()]=widget
+        
+        # conectamos las señales
+        self.ui.signal_autoconnect(self)
+
+        self.widgets['entry1'].set_sensitive(False)
+        self.widgets['entry1'].set_text('usuario@dominio.es')
+        self.widgets['dialog1'].show_all()
+    
+    def run (self):
+        try:
+            self.mainloop.run()
+        except KeyboardInterrupt:
+            self.quit()
+        
+    def quit(self, *args):
+        self.mainloop.quit()
+        sys.exit(0)
+
+    def on_checkbutton1_toggled(self, *args):
+
+        if self.widgets['checkbutton1'].get_active():
+            self.widgets['entry1'].set_sensitive(True)
+            self.widgets['entry1'].set_editable(True)
+            self.widgets['entry1'].grab_focus()
+        else:
+            self.widgets['entry1'].set_editable(False)
+            self.widgets['entry1'].set_sensitive(False)
+
+    def send_stats(self, *args):
+        if self.widgets['checkbutton1'].get_active():
+            alternatemail = self.widgets['entry1'].get_text()
+            print alternatemail
+
+
+if __name__ == '__main__':
+    app = GbiblioStatsSender()
+    app.initgui()
+    app.run()

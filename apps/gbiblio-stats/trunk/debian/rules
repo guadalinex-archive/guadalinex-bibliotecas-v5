@@ -52,6 +52,10 @@ install: build
 	dh_install logs /etc/cron.monthly
 	dh_install parse_medusa_log.py /usr/local/bin
 	dh_install email_estadisticas.conf /etc
+	dh_install gbiblio-stats-sender /usr/sbin
+	dh_install gbiblio-stats-dialog.glade /usr/share/gbiblio-stats-sender
+	dh_install gbiblio-stats.png /usr/share/pixmaps
+	dh_install gbiblio-stats.desktop /usr/share/applications
 
 # Build architecture-independent files here.
 binary-indep: build install
