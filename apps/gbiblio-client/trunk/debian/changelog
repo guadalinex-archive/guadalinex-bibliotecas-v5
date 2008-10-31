@@ -1,3 +1,8 @@
+gbiblio-client (0.8) unstable; urgency=low
+
+  * Added etc/hosts
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 31 Oct 2008 11:15:34 +0100
 gbiblio-client (0.7) unstable; urgency=low
 
   * Changed cau's password

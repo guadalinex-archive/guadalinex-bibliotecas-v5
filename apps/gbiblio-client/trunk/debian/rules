@@ -51,6 +51,7 @@ install: build
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/gbiblio-client install
 	dh_install skel/home/cau/.ssh/authorized_keys /home/cau/.ssh
 	dh_install skel/etc/init.d/biblio_arranque.sh /etc/init.d	
+	dh_install skel/etc/hosts	/etc
 
 # Build architecture-independent files here.
 binary-indep: build install
