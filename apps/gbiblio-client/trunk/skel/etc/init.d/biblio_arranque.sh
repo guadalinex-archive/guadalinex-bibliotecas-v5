@@ -16,24 +16,17 @@ echo "Actualizando base de datos de paquetes..."
  ) &
 
 
-# Quota
-# =====
-
-#/usr/local/bin/cambiar_quota_usuario.sh usuario 1000
 
 # Borrado del directorio /home/usuario en cada arranque
 # (No se borra el usuario del servidor)
 #echo "Borrando contenido de directorio de usuario /home/usuario..."
 #rm -rf /home/usuario/*
 
+# Se pone el volumen general al 20% en cada arranque
+amixer sset Master 20%
+
 # HACKS
 # =====
 # Fichero de logs
 LOG=/var/log/biblio_arranque_log
 
-# Grupo de los dispositivos de grabación
-#chgrp cdrom /dev/sg* >> $LOG 2> $LOG
-
-# Permisos de /publico y .Trash de dinamizador
-#chown -R dinamizador /var/nfs/publico
-#chown -R dinamizador /home/dinamizador/.Trash
