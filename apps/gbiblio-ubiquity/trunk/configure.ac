@@ -53,6 +53,7 @@ data/desktop/Makefile
 src/Makefile
 src/automatically_partition/Makefile
 src/automatically_partition/70reuse/Makefile
+src/automatically_partition/20some_device/Makefile
 src/frontend/Makefile
 src/DiskPreview/Makefile
 src/scripts/Makefile

@@ -11,7 +11,11 @@ if [ remove = "$1" ]; then
 
     rm -f /lib/partman/recipes/20guadalinex 
     dpkg-divert --package gbiblio-ubiquity --remove --rename \
-             --divert /lib/partman/recipes/20guadalinex.py.real /lib/partman/recipes/20guadalinex
+             --divert /lib/partman/recipes/20guadalinex.real /lib/partman/recipes/20guadalinex
+
+    rm -f /lib/partman/automatically_partition/20some_device 
+    dpkg-divert --package gbiblio-ubiquity --remove --rename \
+             --divert /lib/partman/automatically_partition/20some_device.real /lib/partman/automatically_partition/20some_device
 fi
 
 
