@@ -75,14 +75,14 @@ usermod -G lpadmin biblio
 chmod 755 /etc/init.d/biblio_arranque.sh
 update-rc.d biblio_arranque.sh start 98 2 3 4 5 .
 
-INTERFACE=$(awk -F: '/:/ {print $1}' /proc/net/dev | egrep -v "lo|wm|wl")
+# INTERFACE=$(awk -F: '/:/ {print $1}' /proc/net/dev | egrep -v "lo|wm|wl")
 
 cat << EOF > /etc/network/interfaces
 auto lo
 iface lo inet loopback
 
-auto $INTERFACE
-iface $INTERFACE inet static
+auto eth0
+iface eth0 inet static
    address 192.168.1.10
    netmask 255.255.255.0
 EOF
