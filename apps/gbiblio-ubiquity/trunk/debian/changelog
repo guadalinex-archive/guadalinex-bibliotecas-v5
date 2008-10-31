@@ -1,3 +1,16 @@
+gbiblio-ubiquity (0.9guada3gbiblio9) stable; urgency=low
+
+  * Rollback to a old good version 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 31 Oct 2008 14:36:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio8) stable; urgency=low
+
+  * Changed guided partition method's title 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 31 Oct 2008 12:14:25 +0200
+
+
 gbiblio-ubiquity (0.9guada3gbiblio7) stable; urgency=low
 
   * Changed the target-config script to point to local scanpackages directory  
