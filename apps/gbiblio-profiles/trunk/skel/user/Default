@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ "$USER" = "usuario" ]; then
+    cp /home/usuario/.local/share/desktop-directories/System-Settings.directory /tmp
+    cp /home/usuario/.local/share/applications/gnome-about-me.desktop /tmp
+    rm -rf /home/usuario
+    mkdir /home/usuario
+    su -c "cp -a /etc/skel/* /home/usuario" root
+    # Copiamos los ocultos (.*)
+    su -c "cp -a /etc/skel/.[0-Z]* /home/usuario" root
+    su -c "cp /tmp/System-Settings.directory /home/usuario/.local/share/desktop-directories/" root
+    su -c "cp /tmp/gnome-about-me.desktop /home/usuario/.local/share/applications/" root
+    # Cambiamos el propietario y el grupo
+    chown -R usuario.usuario /home/usuario/*
+    chown -R usuario.usuario /home/usuario/.[0-Z]*
+
+fi
+exit 0
+
