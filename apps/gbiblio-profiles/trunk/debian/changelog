@@ -1,3 +1,8 @@
+gbiblio-profiles (0.7) unstable; urgency=low
+
+  * Added removing user data for usuario user.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 31 Oct 2008 12:53:19 +0100
 gbiblio-profiles (0.6) unstable; urgency=low
 
   * Customized user's session
