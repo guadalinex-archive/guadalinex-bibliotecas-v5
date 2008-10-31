@@ -1,3 +1,8 @@
+gbiblio-server (1.1) unstable; urgency=low
+
+  * Added static interface
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 31 Oct 2008 11:30:39 +0100
 gbiblio-server (1.0) unstable; urgency=low
 
   * Added dependencies needed (gbiblio-ine-selector, gbiblio-stats)
