@@ -1,4 +1,4 @@
-SUBDIRS = 70reuse 20some_device 
+SUBDIRS = 70reuse 
 
 CLEANFILES = Makefile.in
 
