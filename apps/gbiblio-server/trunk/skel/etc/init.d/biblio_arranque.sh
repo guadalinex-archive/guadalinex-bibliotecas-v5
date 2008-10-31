@@ -26,14 +26,10 @@ echo "Actualizando base de datos de paquetes..."
 #echo "Borrando contenido de directorio de usuario /home/usuario..."
 #rm -rf /home/usuario/*
 
+# Se pone el volumen general al 20% en cada arranque
+amixer sset Master 20% 
+
 # HACKS
 # =====
 # Fichero de logs
 LOG=/var/log/biblio_arranque_log
-
-# Grupo de los dispositivos de grabación
-#chgrp cdrom /dev/sg* >> $LOG 2> $LOG
-
-# Permisos de /publico y .Trash de dinamizador
-#chown -R dinamizador /var/nfs/publico
-#chown -R dinamizador /home/dinamizador/.Trash
