@@ -1,3 +1,10 @@
+gbiblio-stats (0.2) unstable; urgency=low
+
+  * Added pygtk based frontend for biblio user
+  * Added desktop entrie
+  * Added icon
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Fri, 31 Oct 2008 12:05:17 +0200
 gbiblio-stats (0.1) unstable; urgency=low
 
   * Initial Release.
