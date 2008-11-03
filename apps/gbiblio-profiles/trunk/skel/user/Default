@@ -11,8 +11,7 @@ if [ "$USER" = "usuario" ]; then
     su -c "cp /tmp/System-Settings.directory /home/usuario/.local/share/desktop-directories/" root
     su -c "cp /tmp/gnome-about-me.desktop /home/usuario/.local/share/applications/" root
     # Cambiamos el propietario y el grupo
-    chown -R usuario.usuario /home/usuario/*
-    chown -R usuario.usuario /home/usuario/.[0-Z]*
+    chown -R usuario.usuario /home/usuario
 
 fi
 exit 0
