@@ -7,11 +7,14 @@ if [ "$USER" = "usuario" ]; then
     mkdir /home/usuario
     su -c "cp -a /etc/skel/* /home/usuario" root
     # Copiamos los ocultos (.*)
-    su -c "cp -a /etc/skel/.[0-Z]* /home/usuario" root
-    su -c "cp /tmp/System-Settings.directory /home/usuario/.local/share/desktop-directories/" root
-    su -c "cp /tmp/gnome-about-me.desktop /home/usuario/.local/share/applications/" root
+    cp -a /etc/skel/.[0-Z]* /home/usuario
+    mkdir -p /home/usuario/.local/share/desktop-directories
+    mkdir -p /home/usuario/.local/share/applications
+    cp /tmp/System-Settings.directory /home/usuario/.local/share/desktop-directories/
+    cp /tmp/gnome-about-me.desktop /home/usuario/.local/share/applications/
     # Cambiamos el propietario y el grupo
-    chown -R usuario.usuario /home/usuario
+    chown -R usuario:usuario /home/usuario
+#    chown -R usuario:usuario /home/usuario/.[0-Z]*
 
 fi
 exit 0
