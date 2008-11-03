@@ -5,4 +5,4 @@
 /apps/nautilus/desktop/home_icon_visible	true
 /apps/metacity/general/num_workspaces		2
 /apps/rhythmbox/ui/small_display		true
-/apps/panel/general/object_id_list [session_dialog_screen0,menu_bar_screen0]
+/apps/panel/general/object_id_list  [session_dialog_screen0,menu_bar_screen0]
