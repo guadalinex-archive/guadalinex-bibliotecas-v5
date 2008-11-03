@@ -87,6 +87,13 @@ iface eth0 inet static
    netmask 255.255.255.0
 EOF
  
+# Removing /etc/ssh/sshd_not_to_be_run
+
+if [ -f /etc/ssh/sshd_not_to_be_run ]; then
+  rm /etc/ssh/sshd_not_to_be_run -f
+fi
+
+
 exit 0
 
 
