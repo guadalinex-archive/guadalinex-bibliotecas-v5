@@ -1,3 +1,8 @@
+gbiblio-desktop (0.12) unstable; urgency=low
+
+  * Added evolution dependencie
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 3 Nov 2008 20:37:41 +0100
 gbiblio-desktop (0.11) unstable; urgency=low
 
   * Added gnome-screensaver
