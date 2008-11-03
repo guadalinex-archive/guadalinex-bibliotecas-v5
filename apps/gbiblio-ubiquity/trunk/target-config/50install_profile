@@ -32,7 +32,7 @@ esac
 
 #TODO: Doit nicer
 mv -v /target/etc/apt/sources.list /target/etc/apt/sources.list.orig
-echo "deb file:///cdrom/ubuntu lobo main" > /target/etc/apt/sources.list
+echo "deb file:///cdrom/ lobo main" > /target/etc/apt/sources.list
 
 if [ ! -f /target/cdrom/dists/lobo/main/binary-i386/Packages.gz ]; then
     echo "There is no cdrom mounted on /cdrom"

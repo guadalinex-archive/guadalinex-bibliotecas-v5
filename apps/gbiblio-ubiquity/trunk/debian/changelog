@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio11) unstable; urgency=low
+
+  * Fix repo: file:///cdrom/ubuntu -> file:///cdrom/
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 03 Nov 2008 19:12:52 +0100
+
 gbiblio-ubiquity (0.9guada3gbiblio10) stable; urgency=low
 
   * Now the germinate generate a proper pool CD so we come back to the normal
