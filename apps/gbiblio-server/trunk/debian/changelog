@@ -1,3 +1,8 @@
+gbiblio-server (1.3) unstable; urgency=low
+
+  * Fixing no installation of exports file
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 3 Nov 2008 18:57:35 +0100
 gbiblio-server (1.2) unstable; urgency=low
 
   * Setting master volume at 20% in biblio_arranque.sh
