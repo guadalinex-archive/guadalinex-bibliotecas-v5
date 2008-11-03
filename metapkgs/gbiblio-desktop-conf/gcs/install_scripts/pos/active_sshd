@@ -1,5 +1,0 @@
-# Removing /etc/ssh/sshd_not_to_be_run
-
-if [ -f /etc/ssh/sshd_not_to_be_run ]; then
-  rm /etc/ssh/sshd_not_to_be_run -f
-fi
