@@ -1,3 +1,9 @@
+gbiblio-client (0.10) unstable; urgency=low
+
+  * Removing sshd_not_to_be_run from postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 03 Nov 2008 19:12:23 +0100
+
 gbiblio-client (0.9) unstable; urgency=low
 
   * Setting master volume at 20% in biblio_arranque.sh
