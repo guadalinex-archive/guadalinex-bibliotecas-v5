@@ -13,13 +13,15 @@ import gtk
 import gtk.glade
 import gobject
 import sys
+from subprocess import Popen
 
 
 class GbiblioStatsSender (object):
 
     def __init__(self):
         self.widgets = {}
-        self.mainloop = gobject.MainLoop() 
+        self.mainloop = gobject.MainLoop()
+        self.mainmail= "estadisticas.bibliotecas.ccul@juntadeandalucia.es"
 
     def initgui(self):
         self.ui = gtk.glade.XML('/usr/share/gbiblio-stats-sender/gbiblio-stats-dialog.glade')
@@ -58,7 +60,19 @@ class GbiblioStatsSender (object):
     def send_stats(self, *args):
         if self.widgets['checkbutton1'].get_active():
             alternatemail = self.widgets['entry1'].get_text()
-            print alternatemail
+            fichmail=open("/etc/email_estadisticas.conf","r+")
+            mail='TO_ADDR="'+self.mainmail+';'+alternatemail+'"'
+            fichmail.write(mail)
+            fichmail.close()
+        cmd='/etc/cron.monthly/logs'
+        p=Popen(cmd, shell=True, bufsize=0, stdout=None, stderr=None, close_fds=True)
+        mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
+                                 type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
+        mesg.set_markup (u"<big><b>Estadísticas enviadas</b></big>")
+        if (mesg.run() != None):
+            mesg.destroy()
+            self.quit()
+
 
 
 if __name__ == '__main__':
