@@ -1,3 +1,9 @@
+gbiblio-desktop (0.13) unstable; urgency=low
+
+  * Added exim4 
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 03 Nov 2008 21:20:40 +0100
+
 gbiblio-desktop (0.12) unstable; urgency=low
 
   * Added evolution dependencie
