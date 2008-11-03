@@ -8,7 +8,7 @@ set -e
 # Adding user 'cau'
 adduser cau --disabled-password --gecos cau
 chpasswd -m <<EOF
-cau:bl4d3runn3r
+cau:r3pl1c4nt3
 EOF
 
 # Adding group 'admin'
