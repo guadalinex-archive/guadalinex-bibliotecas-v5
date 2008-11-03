@@ -1,4 +1,0 @@
-# /etc/exports: the access control list for filesystems which may be exported
-#     to NFS clients.  See exports(5).
-
-/var/nfs/compartido 192.168.1.*(rw,sync,no_root_squash,no_subtree_check)

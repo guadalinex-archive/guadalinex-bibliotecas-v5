@@ -1,3 +1,9 @@
+gbiblio-server (1.7) intrepid; urgency=low
+
+  * Doing exports from postinst 
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 03 Nov 2008 23:30:11 +0100
+
 gbiblio-server (1.6) unstable; urgency=low
 
   * Fixing hosts and hostname issue
