@@ -1,3 +1,9 @@
+gbiblio-server (1.6) unstable; urgency=low
+
+  * Fixing hosts and hostname issue
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 03 Nov 2008 22:37:20 +0100
+
 gbiblio-server (1.5) unstable; urgency=low
 
   * Modified cau password

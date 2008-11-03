@@ -93,6 +93,43 @@ if [ -f /etc/ssh/sshd_not_to_be_run ]; then
   rm /etc/ssh/sshd_not_to_be_run -f
 fi
 
+# Added hosts and hostname workaround
+
+cat > /etc/hosts <<EOF
+127.0.0.1       localhost
+192.168.1.10    servidor
+192.168.1.11    cliente-1
+192.168.1.12    cliente-2
+192.168.1.13    cliente-3
+192.168.1.14    cliente-4
+192.168.1.15    cliente-5
+192.168.1.16    cliente-6
+192.168.1.17    cliente-7
+192.168.1.18    cliente-8
+192.168.1.19    cliente-9
+192.168.1.20    cliente-10
+192.168.1.21    cliente-11
+192.168.1.22    cliente-12
+192.168.1.23    cliente-13
+192.168.1.24    cliente-14
+192.168.1.25    cliente-15
+192.168.1.26    cliente-16
+192.168.1.27    cliente-17
+192.168.1.28    cliente-18
+192.168.1.29    cliente-19
+192.168.1.30    cliente-20
+
+# The following lines are desirable for IPv6 capable hosts
+::1     ip6-localhost ip6-loopback
+fe00::0 ip6-localnet
+ff00::0 ip6-mcastprefix
+ff02::1 ip6-allnodes
+ff02::2 ip6-allrouters
+ff02::3 ip6-allhosts
+EOF
+
+echo "servidor" > /etc/hostname
+hostname --file /etc/hostname
 
 exit 0
 
