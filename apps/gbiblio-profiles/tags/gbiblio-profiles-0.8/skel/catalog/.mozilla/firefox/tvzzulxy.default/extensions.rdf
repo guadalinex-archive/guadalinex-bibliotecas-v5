@@ -1,0 +1,110 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:NS1="http://www.mozilla.org/2004/em-rdf#"
+         xmlns:NC="http://home.netscape.com/NC-rdf#"
+         xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+  <RDF:Description RDF:about="urn:mozilla:item:langpack-es-ES@firefox-3.0.ubuntu.com"
+                   NS1:installLocation="app-global"
+                   NS1:version="3.0.1"
+                   NS1:name="Firefox (es-ES)"
+                   NS1:creator="http://translations.launchpad.net">
+    <NS1:type NC:parseType="Integer">8</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$CT5h8"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$CT5h8"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="rdf:#$qU5h8"
+                   NS1:id="toolkit@mozilla.org"
+                   NS1:minVersion="1.9"
+                   NS1:maxVersion="1.9.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:langpack-es-AR@firefox-3.0.ubuntu.com"
+                   NS1:installLocation="app-global"
+                   NS1:version="3.0.1"
+                   NS1:name="Firefox (es-AR)"
+                   NS1:creator="http://translations.launchpad.net">
+    <NS1:type NC:parseType="Integer">8</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$JT5h8"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:langpack-es-AR@xulrunner-1.9.ubuntu.com"
+                   NS1:installLocation="gre-global"
+                   NS1:version="1.9.0.1"
+                   NS1:name="Xulrunner (es-AR)"
+                   NS1:creator="http://translations.launchpad.net">
+    <NS1:type NC:parseType="Integer">8</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$qU5h8"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$jU5h8"
+                   NS1:id="toolkit@mozilla.org"
+                   NS1:minVersion="1.9"
+                   NS1:maxVersion="1.9.0.*" />
+  <RDF:Description RDF:about="rdf:#$79Tva"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="2.0"
+                   NS1:maxVersion="3.*" />
+  <RDF:Description RDF:about="rdf:#$JT5h8"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:langpack-es-ES@xulrunner-1.9.ubuntu.com"
+                   NS1:installLocation="gre-global"
+                   NS1:version="1.9.0.1"
+                   NS1:name="Xulrunner (es-ES)"
+                   NS1:creator="http://translations.launchpad.net">
+    <NS1:type NC:parseType="Integer">8</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$jU5h8"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$ZT5h8"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="1.5"
+                   NS1:maxVersion="3.0.*" />
+  <RDF:Description RDF:about="urn:mozilla:item:guadafox@guadalinex.org"
+                   NS1:installLocation="app-global"
+                   NS1:version="0.1"
+                   NS1:iconURL="chrome://guadafox/content/guadalinexlogo32.png"
+                   NS1:name="Guadalinex Firefox Modifications"
+                   NS1:description="Guadalinex configuration defaults and apt support for firefox extensions/plugins."
+                   NS1:creator="Junta de Andalucia">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:contributor>Alexander Sack &lt;asac@ubuntu.com&gt;</NS1:contributor>
+    <NS1:contributor>Roberto Majadas &lt;roberto.majadas@openshine.com&gt;</NS1:contributor>
+    <NS1:contributor>Sasa Bodiroza &lt;jazzva@gmail.com&gt;</NS1:contributor>
+    <NS1:contributor>Daniel Abramov &lt;ex@vingrad.ru&gt;</NS1:contributor>
+    <NS1:targetApplication RDF:resource="rdf:#$ZT5h8"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="urn:mozilla:item:{972ce4c6-7e08-4474-a285-3208198ce6fd}"
+                   NS1:installLocation="gre-global"
+                   NS1:version="3.0.1"
+                   NS1:internalName="classic/1.0"
+                   NS1:locked="true"
+                   NS1:appManaged="true"
+                   NS1:name="Default"
+                   NS1:description="The default theme."
+                   NS1:creator="Mozilla"
+                   NS1:contributor="Mozilla Contributors">
+    <NS1:type NC:parseType="Integer">4</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$cU5h8"/>
+  </RDF:Description>
+  <RDF:Description RDF:about="rdf:#$cU5h8"
+                   NS1:id="{ec8030f7-c20a-464f-9b0e-13a3a9e97384}"
+                   NS1:minVersion="3.0.1"
+                   NS1:maxVersion="3.0.1" />
+  <RDF:Seq RDF:about="urn:mozilla:item:root">
+    <RDF:li RDF:resource="urn:mozilla:item:{972ce4c6-7e08-4474-a285-3208198ce6fd}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:langpack-es-AR@firefox-3.0.ubuntu.com"/>
+    <RDF:li RDF:resource="urn:mozilla:item:langpack-es-ES@firefox-3.0.ubuntu.com"/>
+    <RDF:li RDF:resource="urn:mozilla:item:{4D498D0A-05AD-4fdb-97B5-8A0AABC1FC5B}"/>
+    <RDF:li RDF:resource="urn:mozilla:item:guadafox@guadalinex.org"/>
+    <RDF:li RDF:resource="urn:mozilla:item:langpack-es-AR@xulrunner-1.9.ubuntu.com"/>
+    <RDF:li RDF:resource="urn:mozilla:item:langpack-es-ES@xulrunner-1.9.ubuntu.com"/>
+  </RDF:Seq>
+  <RDF:Description RDF:about="urn:mozilla:item:{4D498D0A-05AD-4fdb-97B5-8A0AABC1FC5B}"
+                   NS1:installLocation="app-profile"
+                   NS1:version="0.7.2"
+                   NS1:name="gbiblio-firefox-kiosk"
+                   NS1:description="Guadalinex Bibliotecas extension to disable not needed components from nav-bar and set fullscreen by default"
+                   NS1:creator="Kimmo Heinaaro">
+    <NS1:type NC:parseType="Integer">2</NS1:type>
+    <NS1:targetApplication RDF:resource="rdf:#$79Tva"/>
+  </RDF:Description>
+</RDF:RDF>
