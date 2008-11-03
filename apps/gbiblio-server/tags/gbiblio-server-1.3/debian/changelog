@@ -1,0 +1,81 @@
+gbiblio-server (1.3) unstable; urgency=low
+
+  * Fixing no installation of exports file
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 3 Nov 2008 18:57:35 +0100
+gbiblio-server (1.2) unstable; urgency=low
+
+  * Setting master volume at 20% in biblio_arranque.sh
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 31 Oct 2008 11:52:35 +0100
+
+gbiblio-server (1.1) unstable; urgency=low
+
+  * Added static interface
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 31 Oct 2008 11:30:39 +0100
+gbiblio-server (1.0) unstable; urgency=low
+
+  * Added dependencies needed (gbiblio-ine-selector, gbiblio-stats)
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 21:16:39 +0100
+gbiblio-server (0.9) unstable; urgency=low
+
+  * Changed cau's password
+  * Added biblio to lpadmin's group
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 20:55:39 +0100
+
+gbiblio-server (0.8) unstable; urgency=low
+
+  * Added exim config to send mails for stats
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 20:25:32 +0100
+gbiblio-server (0.7) unstable; urgency=low
+
+  * Added client hosts and gbiblio-ine-selector exec privilege to biblio.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 12:02:32 +0100
+gbiblio-server (0.6) unstable; urgency=low
+
+  * Added group 'admin'
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 29 Oct 2008 19:49:32 +0100
+
+gbiblio-server (0.5) unstable; urgency=low
+
+  * Added biblio_arranque.sh
+  * Added cau to admin's group
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 29 Oct 2008 12:08:48 +0100
+
+gbiblio-server (0.4) unstable; urgency=low
+
+  [dteyssiere]
+  * Added nfs-kernel-server dependencie
+  * Added /etc/exports with compartido directory export
+  * Added diverts and /var/nfs/compartido creation in postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 23 Oct 2008 11:25:43 +0200
+gbiblio-server (0.3) unstable; urgency=low
+
+  * Uncommented chown in posinst
+  * Added preinst
+  * Added /etc/sudoers
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 16:02:43 +0200
+
+gbiblio-server (0.2) unstable; urgency=low
+
+  * Commented chown in postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 17 Oct 2008 14:13:36 +0200
+
+gbiblio-server (0.1) unstable; urgency=low
+
+  * Initial Release.
+  * Added private rsa key
+  * Added some dependencies
+  * Added servidor at hostname and hosts to /etc
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 14 Oct 2008 17:16:17 +0200
