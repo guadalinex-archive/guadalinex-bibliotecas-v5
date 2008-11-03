@@ -50,8 +50,6 @@ install: build
 	# Add here commands to install the package into debian/gbiblio-server.
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/gbiblio-server install
 	dh_install skel/home/cau/.ssh/id_rsa /home/cau/.ssh/
-	dh_install skel/etc/hostname /etc/
-	dh_install skel/etc/hosts /etc/	
 	dh_install skel/etc/init.d/biblio_arranque.sh /etc/init.d/	
 	dh_install skel/etc/exports /etc/
 
