@@ -1,0 +1,12 @@
+# Mount point creation
+
+[ ! -d /var/compartido ] && mkdir -p /var/compartido
+
+# Mount export directory
+
+[ -z "$(cat /etc/fstab  | grep "servidor:/var/nfs/compartido")" ] && \
+                echo "servidor:/var/nfs/compartido /var/compartido  nfs        rw,hard,intr,auto,user      0 0" >> /etc/fstab
+
+# Add to bookmarks
+echo "File:///var/compartido" >> /etc/skel/.gtk-bookmarks
+
