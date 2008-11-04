@@ -1,3 +1,8 @@
+gbiblio-client (0.11) unstable; urgency=low
+
+  * Deleting mounting nfs from postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 04 Nov 2008 09:59:23 +0100
 gbiblio-client (0.10) unstable; urgency=low
 
   * Removing sshd_not_to_be_run from postinst
