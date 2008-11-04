@@ -10,7 +10,7 @@
 # Add to bookmarks
 echo "file:///var/compartido" >> /etc/skel/.gtk-bookmarks
 
-mv /usr/share/gconf/defaults/05_panel-default-setup.entries.* /usr/share/gbiblio-desktop-conf/
-ln -sf /usr/share/gbiblio-desktop-conf/05_panel-default-setup.entries.gbv5 /usr/share/gconf/defaults/05_panel-default-setup.entries
+#mv /usr/share/gconf/defaults/05_panel-default-setup.entries.* /usr/share/gbiblio-desktop-conf/
+#ln -sf /usr/share/gbiblio-desktop-conf/05_panel-default-setup.entries.gbv5 /usr/share/gconf/defaults/05_panel-default-setup.entries
 
 update-gconf-defaults
