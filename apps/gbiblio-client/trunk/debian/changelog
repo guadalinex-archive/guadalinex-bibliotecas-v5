@@ -1,3 +1,10 @@
+gbiblio-client (0.12) unstable; urgency=low
+
+  * Added wicd as dependence
+  * Allowing biblio to run as super-user wicd
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 04 Nov 2008 12:43:44 +0100
+
 gbiblio-client (0.11) unstable; urgency=low
 
   * Deleting mounting nfs from postinst
