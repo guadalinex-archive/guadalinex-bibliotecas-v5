@@ -1,0 +1,13 @@
+Source: gbiblio-secure-lending
+Section: utils 
+Priority: extra
+Maintainer: Javier Hernández Antúnez <jhernandez@emergya.es>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: gbiblio-secure-lending
+Architecture: any
+Depends: 
+Description: Prestamo de Seguridad AbsysNET
+ Herramienta de préstamo de seguridad AbsysNET. 
+ La herramienta está diseñada para poder trabajar sin conexión.

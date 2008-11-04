@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Préstamo Seguridad AbsysNET
+Comment=Utilice ésta herramienta cuando no disponga de conexión
+Exec=/usr/bin/prestamo
+Icon=/home/biblio/absysNET_seguridad/icon/battstat.png
+Terminal=false
+Type=Application
+Categories=Application;System;Settings
+Encoding=UTF-8
