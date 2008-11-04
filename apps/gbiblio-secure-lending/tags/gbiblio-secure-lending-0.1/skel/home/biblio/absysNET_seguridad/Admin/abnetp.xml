@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="ISO-8859-15" ?> 
+<abnet>
+<lang value="es-ES"/>
+<workarea value="/home/biblio/absysNET_seguridad/Work" />
+<mbarcode>
+<barcode ID="1" model="LEC" value="LNNNNNNNN"/>
+<barcode ID="2" model="LEC" value="LNNNNNNNNN"/>
+<barcode ID="3" model="LEC" value="lNNNNNNNN"/>
+<barcode ID="4" model="LEC" value="lNNNNNNNNN"/>
+<barcode ID="5" model="LEC" value="NNNNNNNNN"/>
+<barcode ID="6" model="LEC" value="NNNNNNNN"/>
+<barcode ID="7" model="COP" value="NNNNNNNNNN"/>
+<barcode ID="8" model="COP" value="NNNNNNN"/>
+
+<!-- <barcode ID="7" model="COP" value="NNNNNNNN"/> -->
+
+
+</mbarcode>
+<messages xml:lang="es-ES">
+<mesg ID="col1" text="Fecha" />
+<mesg ID="col2" text="Hora" />
+<mesg ID="col3" text="Numero secuencial" />
+<mesg ID="col4" text="Lector" />
+<mesg ID="col5" text="Ejemplar" />
+<mesg ID="col6" text="Operacion" />
+<mesg ID="op1" text="Prestamo" />
+<mesg ID="op2" text="Devolucion" />
+<mesg ID="dh" text="Fecha y hora del sistema" />
+<mesg ID="mes1" text="Por favor, compruebe que la fecha y hora del sistema son correctas" />
+<mesg ID="mes2" text="No se puede abrir el fichero" />
+<mesg ID="mes3" text="Debe rellenar este campo" />
+<mesg ID="mes4" text="El codigo leido no es valido" />
+</messages>
+</abnet>
+
