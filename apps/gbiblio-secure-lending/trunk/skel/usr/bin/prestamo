@@ -1,0 +1,4 @@
+#!/bin/bash
+
+export ABNETPATH="/home/biblio/absysNET_seguridad/Admin"
+/home/biblio/absysNET_seguridad/Bin/absysNETp

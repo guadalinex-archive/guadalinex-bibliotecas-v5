@@ -1,0 +1,13 @@
+#!/bin/sh
+# postinst script for gbiblio-secure-lending
+#
+# see: dh_installdeb(1)
+
+set -e
+
+chown biblio:biblio /home/biblio/absysNET_seguridad -R
+chmod +x /usr/bin/prestamo
+
+exit 0
+
+
