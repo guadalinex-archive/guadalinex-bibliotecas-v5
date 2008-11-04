@@ -1,0 +1,14 @@
+[Desktop Entry]
+Name=Procesador de Textos (Abiword)
+Name[ja]=AbiWord ワードプロセッサ
+Name[de]=AbiWord Textverarbeitung
+GenericName=Word Processor
+Comment=AbiWord Word Processor
+Categories=GNOME;Application;WordProcessor;Office;
+Encoding=UTF-8
+Exec=abiword
+Icon=abiword
+Terminal=false
+Type=Application
+StartupNotify=true
+MimeType=application/x-abiword;application/msword;application/rtf;text/abiword;text/plain;text/richtext;text/rtf;application/vnd.ms-word
