@@ -122,6 +122,12 @@ PRESEED = ["debconf debconf/language string es",
 "d-i time/zone string Europe/Madrid",
 "d-i console-setup/modelcode string pc105",
 "d-i console-setup/layoutcode string es",
+"d-i netcfg/choose_interface select eth0",
+"d-i netcfg/disable_dhcp boolean true",
+"d-i netcfg/get_netmask      string 255.255.255.0",
+"d-i netcfg/get_gateway      string 192.168.1.1",
+"d-i netcfg/get_nameservers  string 192.168.1.1",
+"d-i netcfg/confirm_static  boolean true",
 "ubiquity languagechooser/language-name-fb select Spanish",
 "ubiquity languagechooser/language-name select Spanish",
 "ubiquity languagechooser/language-name-ascii select Spanish",
@@ -133,40 +139,10 @@ PRESEED = ["debconf debconf/language string es",
 "ubiquity tzconfig/gmt boolean false",
 "ubiquity time/zone select Europe/Madrid",
 "ubiquity passwd/make-user boolean false",
-"ubiquity ubiquity/install/hostname string cliente-",
-"d-i netcfg/get_hostname string cliente-",
 "console-setup console-setup/variant select Spain",
 "console-setup console-setup/layout select Spain"
 ]
 
-class GuadaPrePartition(FilteredCommand):
-    def prepare(self):
-        syslog.syslog("------->prepare guadaPrePartition")
-        self.preseed('gbiblio-ubiquity/prepartition', 'false')
-        questions = ["^gbiblio-ubiquity/prepartition"]
-        env = {}
-        self.frontend.diskpreview.mount_filesystems()
-        return (['/usr/share/ubiquity/guada-prepartition'], questions, env)
-
-    def run(self, priority, question):
-        syslog.syslog("-------> run guadaPrePartition")
-        if question.startswith('gbiblio-ubiquity/prepartition'):
-            #advanced = self.frontend.get_advanced()
-            #self.preseed_bool('mythbuntu/advanced_install', advanced)
-            print "question" 
-
-        return FilteredCommand.run(self, priority, question)
-    
-    def ok_handler(self):
-        syslog.syslog("------->ok handler guadaPrePartition")
-        return FilteredCommand.ok_handler(self)
-
-    def cleanup(self):
-        self.frontend.diskpreview.umount_filesystems()
-        syslog.syslog("------>cleanup guadaPrePartition")
-        return
-
-    
 class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def __init__(self, distro):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
@@ -174,19 +150,47 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
 
+    def get_net_config(self):
+        cmdline = open('/proc/cmdline').readline().split()
+        type = ''
+
+        if 'gbiblio' not in str(cmdline):
+            return False
+
+        for cmd in cmdline:
+            if 'gbiblio' in cmd:
+                type = cmd.split('=')[1]
+            if type == 'client' and cmd.isdigit() and int(cmd) in range(1,21):
+                # num is the last ip num which is the num of client plus 10
+                num = int(cmd) + 10
+                type = "%s-%s" % (type, cmd)
+
+        if type == 'server':
+            hostname = 'servidor'
+            ip = '192.168.1.10'
+        else:
+            # change 'client-X' for 'cliente-X'
+            hostname = type.replace('t-', 'te-')
+            ip = '192.168.1.%s' % num
+        net_preseed = ["ubiquity ubiquity/install/hostname string %s" % hostname,
+                        "d-i netcfg/get_hostname string %s" % hostname,
+                        "d-i netcfg/get_ipaddress  string %s" % ip ]
+        syslog.syslog ("\nnet_preseed:\n\n%s\n" % '\n'.join(net_preseed) )
+        return net_preseed
+ 
+
     def preseed_debconf(self):
+        net_preseed = self.get_net_config()
+        if net_preseed:
+            preseed = PRESEED + net_preseed 
+        else:
+            preseed = [i for i in PRESEED]
+        syslog.syslog ("\npreseed:\n\n%s\n" % '\n'.join(preseed) )
         seed = ""
-        for x in PRESEED :
+        for x in preseed :
             seed = seed + x + '\n'
 
         os.system("echo -e '%s' | debconf-set-selections" % seed)
-
-    def show_intro(self):
-        self.welcome_image.set_from_file("/usr/share/gbiblio-ubiquity/pics/photo_1024.jpg")
-        return True
-
-    def prepartition_intro(self):
-        return True
 
     def launch_hermes(self):
 	os.spawnlp(os.P_NOWAIT,'hermeshardware','hermeshardware')
@@ -210,7 +214,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         self.disable_volume_manager()
 
         # show interface
-        got_intro = False
         self.allow_change_step(True)
 
         # Declare SignalHandler
@@ -233,7 +236,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         pageslen = len(self.pages)
         
         if 'UBIQUITY_AUTOMATIC' in os.environ:
-            got_intro = False
             self.debconf_progress_start(0, pageslen,
                 self.get_string('ubiquity/install/checking'))
             self.refresh()
@@ -253,11 +255,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
         first_step = self.stepPartAuto
         
         self.set_current_page(self.steps.page_num(first_step))
-        if got_intro:
-            # intro_label was the only focusable widget, but got can-focus
-            # removed, so we end up with no input focus and thus pressing
-            # Enter doesn't activate the default widget. Work around this.
-            self.next.grab_focus()
 
         if not 'UBIQUITY_MIGRATION_ASSISTANT' in os.environ:
             self.steps.remove_page(self.steps.page_num(self.stepMigrationAssistant))
@@ -267,11 +264,6 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
                     BREADCRUMB_STEPS[step] -= 1
             BREADCRUMB_MAX_STEP -= 1
 
-        if got_intro:
-            gtk.main()
-
-        syslog.syslog("----> RUN : Salte la intro")
-        
         while(self.pagesindex < pageslen):
             syslog.syslog("----> RUN : Dentro del while %s" % self.pagesindex)
             if self.current_page == None:
