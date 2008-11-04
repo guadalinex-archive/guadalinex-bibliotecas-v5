@@ -10,3 +10,4 @@
 # Add to bookmarks
 echo "File:///var/compartido" >> /etc/skel/.gtk-bookmarks
 
+update-gconf-defaults
