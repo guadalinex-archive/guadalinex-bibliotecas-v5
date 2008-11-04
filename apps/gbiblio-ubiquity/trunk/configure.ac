@@ -50,6 +50,7 @@ data/Makefile
 data/glade/Makefile
 data/pics/Makefile
 data/desktop/Makefile
+data/templates/Makefile
 src/Makefile
 src/automatically_partition/Makefile
 src/automatically_partition/70reuse/Makefile

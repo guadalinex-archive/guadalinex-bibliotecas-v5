@@ -1,4 +1,4 @@
-SUBDIRS = glade pics desktop 
+SUBDIRS = glade pics desktop templates 
 
 CLEANFILES = Makefile.in
 
