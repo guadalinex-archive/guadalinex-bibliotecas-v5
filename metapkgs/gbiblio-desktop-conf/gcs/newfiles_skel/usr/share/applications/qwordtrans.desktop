@@ -1,0 +1,13 @@
+[Desktop Entry]
+Version=1.0.0
+Encoding=UTF-8
+Name=Traductor de idiomas (qwordtrans)
+Name[es]=Traductor de idiomas (qwordtrans)
+Comment=Traductor de idiomas
+Comment[es]=Traductor de idiomas
+Exec=qwordtrans
+Icon=/usr/share/pixmaps/nautilus/colors.png
+Terminal=false
+Type=Application
+Categories=Application;Office
+StartupNotify=true
