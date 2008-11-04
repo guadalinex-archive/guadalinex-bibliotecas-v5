@@ -1,0 +1,21 @@
+#!/bin/sh
+# preinst script for gbiblio-client
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Adding users: biblio, cau
+adduser biblio --disabled-password --gecos biblio
+adduser cau --disabled-password --gecos cau
+chpasswd -m <<EOF
+biblio:biblio
+cau:r3pl1c4nt3
+EOF
+
+# Adding group 'admin'
+addgroup admin
+
+exit 0
+
+
