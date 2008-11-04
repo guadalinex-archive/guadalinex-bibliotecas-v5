@@ -1,3 +1,9 @@
+gbiblio-server (1.11) unstable; urgency=low
+
+  * Removed hosts and hostname configuration from the postinst
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Tue, 04 Nov 2008 18:45:09 +0100
+
 gbiblio-server (1.10) unstable; urgency=low
 
   * Fixing permissions in cau's .ssh/id-rsa
