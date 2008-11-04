@@ -8,6 +8,6 @@
                 echo "servidor:/var/nfs/compartido /var/compartido  nfs        rw,hard,intr,auto,user      0 0" >> /etc/fstab
 
 # Add to bookmarks
-echo "File:///var/compartido" >> /etc/skel/.gtk-bookmarks
+echo "file:///var/compartido" >> /etc/skel/.gtk-bookmarks
 
 update-gconf-defaults
