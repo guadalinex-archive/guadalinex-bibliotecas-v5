@@ -1,3 +1,8 @@
+gbiblio-server (1.6) unstable; urgency=low
+
+  * Adding gbiblio-stats execution permission to biblio user
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Tue, 04 Nov 2008 11:40:20 +0100
 gbiblio-server (1.7) intrepid; urgency=low
 
   * Doing exports from postinst 
