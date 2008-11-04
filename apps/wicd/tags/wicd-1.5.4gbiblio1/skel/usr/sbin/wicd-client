@@ -1,0 +1,10 @@
+#!/bin/bash
+
+
+if [ "$(whoami)" != "root" ];
+then
+     zenity --warning --text "Wicd debe ejecutarse como administrador." --title "Aviso" && exit 0
+
+else
+     exec python -O /usr/lib/wicd/wicd-client.py $@
+fi

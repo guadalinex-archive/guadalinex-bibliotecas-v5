@@ -1,0 +1,12 @@
+Source: wicd
+Section: net
+Priority: extra
+Maintainer: Javier Hernández Antúnez <jhernandez@emergya.es>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: wicd
+Architecture: any
+Depends: 
+Description: Wicd network manager
+ Wicd Network Manager allows to configure network using a simple GUI.
