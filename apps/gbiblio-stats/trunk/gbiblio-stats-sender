@@ -14,7 +14,7 @@ import gtk.glade
 import gobject
 import sys
 from subprocess import Popen
-
+import os
 
 class GbiblioStatsSender (object):
 
@@ -76,6 +76,8 @@ class GbiblioStatsSender (object):
 
 
 if __name__ == '__main__':
+    if not os.geteuid()==0:
+        sys.exit("\nSolo root puede ejecutar este script\n")
     app = GbiblioStatsSender()
     app.initgui()
     app.run()
