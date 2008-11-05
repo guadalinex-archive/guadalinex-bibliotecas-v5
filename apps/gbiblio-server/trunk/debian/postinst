@@ -7,8 +7,8 @@ set -e
 
 # Diverts
 
-dpkg-divert --package gbiblio-server --rename --quiet --add /etc/update-exim4.conf.conf
-ln -fs /etc/update-exim4.conf.conf.gbv5 /etc/update-exim4.conf.conf
+dpkg-divert --package gbiblio-server --rename --quiet --add /etc/exim4/update-exim4.conf.conf
+ln -fs /etc/exim4/update-exim4.conf.conf.gbv5 /etc/exim4/update-exim4.conf.conf
 
 # Exports directories creation
 [ ! -d /var/nfs/compartido ] && mkdir -p /var/nfs/compartido

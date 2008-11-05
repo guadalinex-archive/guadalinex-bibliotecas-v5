@@ -1,4 +1,4 @@
 #!/bin/bash
 
-rm -f /etc/update-exim4.conf.conf
-dpkg-divert --package gbiblio-server --rename --quiet --remove /etc/update-exim4.conf.conf
+rm -f /etc/exim4/update-exim4.conf.conf
+dpkg-divert --package gbiblio-server --rename --quiet --remove /etc/exim4/update-exim4.conf.conf
