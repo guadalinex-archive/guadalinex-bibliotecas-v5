@@ -6,7 +6,7 @@
 set -e
 
 # Adding user catalogo
-adduser catalogo --disabled-password --gecos catalogo
+id catalogo || adduser catalogo --disabled-password --gecos catalogo
 chpasswd -m <<EOF
 catalogo:catalogo
 EOF
