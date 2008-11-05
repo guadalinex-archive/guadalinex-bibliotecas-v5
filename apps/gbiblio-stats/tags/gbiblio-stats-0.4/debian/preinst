@@ -1,0 +1,11 @@
+#!/bin/sh
+# preinst script for gbiblio-client
+#
+# see: dh_installdeb(1)
+
+set -e
+
+
+exit 0
+
+
