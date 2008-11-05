@@ -238,7 +238,8 @@ int read_from_client(int filedes)
 			send_status(filedes);
 			break;
 		case stop:
-			end_session();
+         /* Not needed for bibliotecas */
+			//end_session();
 			if (lockScreen() < 0) {
 				write_log_fmt("Could not open display.\n");
 				exit(EXIT_FAILURE);
