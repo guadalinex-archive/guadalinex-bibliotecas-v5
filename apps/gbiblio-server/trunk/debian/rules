@@ -51,6 +51,7 @@ install: build
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/gbiblio-server install
 	dh_install skel/home/cau/.ssh/id_rsa /home/cau/.ssh/
 	dh_install skel/etc/init.d/biblio_arranque.sh /etc/init.d/	
+	dh_install skel/etc/exim4/update-exim4.conf.conf.gbv5 /etc/exim4/update-exim4.conf.conf.gbv5
 
 # Build architecture-independent files here.
 binary-indep: build install
