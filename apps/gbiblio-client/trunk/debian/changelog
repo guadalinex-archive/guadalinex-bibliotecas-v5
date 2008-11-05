@@ -1,3 +1,9 @@
+gbiblio-client (0.13) unstable; urgency=low
+
+  * Checking users during the installation
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 11:59:32 +0100
+
 gbiblio-client (0.12) unstable; urgency=low
 
   * Added wicd as dependence
