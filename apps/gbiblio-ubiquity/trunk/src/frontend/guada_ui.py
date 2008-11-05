@@ -139,6 +139,7 @@ PRESEED = ["debconf debconf/language string es",
 "ubiquity tzconfig/gmt boolean false",
 "ubiquity time/zone select Europe/Madrid",
 "ubiquity passwd/make-user boolean false",
+"ubiquity ubiquity/success_command string cat /usr/share/gbiblio-ubiquity/templates/hosts > /target/etc/hosts",
 "console-setup console-setup/variant select Spain",
 "console-setup console-setup/layout select Spain"
 ]
