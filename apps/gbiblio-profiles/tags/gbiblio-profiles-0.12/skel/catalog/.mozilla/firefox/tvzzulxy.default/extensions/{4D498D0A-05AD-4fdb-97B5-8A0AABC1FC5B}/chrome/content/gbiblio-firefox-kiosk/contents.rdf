@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<RDF:RDF xmlns:RDF="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+xmlns:chrome="http://www.mozilla.org/rdf/chrome#">
+
+	<RDF:Seq RDF:about="urn:mozilla:package:root">
+		<RDF:li RDF:resource="urn:mozilla:package:gbiblio-firefox-kiosk"/>
+	</RDF:Seq>
+
+	<RDF:Seq RDF:about="urn:mozilla:overlays">
+		<RDF:li RDF:resource="chrome://browser/content/browser.xul"/>
+		<RDF:li RDF:resource="chrome://mozapps/content/xpinstall/xpinstallConfirm.xul"/>
+		<RDF:li RDF:resource="chrome://mozapps/content/downloads/unknownContentType.xul"/>
+	</RDF:Seq>
+
+	<RDF:Seq RDF:about="chrome://browser/content/browser.xul">
+		<RDF:li>chrome://gbiblio-firefox-kiosk/content/gbiblio-firefox-kioskbrowser.xul</RDF:li>
+	</RDF:Seq>
+	<RDF:Seq RDF:about="chrome://mozapps/content/xpinstall/xpinstallConfirm.xul">
+		<RDF:li>chrome://gbiblio-firefox-kiosk/content/gbiblio-firefox-kioskxpinstallConfirm.xul</RDF:li>
+	</RDF:Seq>
+	<RDF:Seq RDF:about="chrome://mozapps/content/downloads/unknownContentType.xul">
+		<RDF:li>chrome://gbiblio-firefox-kiosk/content/gbiblio-firefox-kioskunknownContentType.xul</RDF:li>
+	</RDF:Seq>
+
+	<RDF:Description RDF:about="urn:mozilla:package:gbiblio-firefox-kiosk"
+            chrome:displayName="Guadalinex Bibliotecas kiosk extension"
+            chrome:author="Roberto C. Morano"
+            chrome:name="gbiblio-firefox-kiosk"
+		chrome:extension="true"
+            chrome:description="Removes not needed nav-bar components and sets fullscreen by default">
+	</RDF:Description>
+
+</RDF:RDF>

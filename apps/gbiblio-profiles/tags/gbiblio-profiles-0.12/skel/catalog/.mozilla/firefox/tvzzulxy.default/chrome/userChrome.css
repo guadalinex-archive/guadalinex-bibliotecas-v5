@@ -1,0 +1,24 @@
+/* * Do not remove the @namespace line -- it's required for correct functioning */
+/* set default namespace to XUL */
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Remove menus */
+#main-menubar { display: none !important; }
+
+/* Remove not needed elements from nav-bar */
+#urlbar-container[disabled="true"] { display: none !important; }
+#search-container[disabled="true"] { display: none !important; }
+#home-button[disabled="true"] { display: none !important; }
+#PersonalToolbar[disabled="true"] { display: none !important; }
+
+/* Remove Home button (never use it) */
+#home-button { display: none; }
+#urlbar-container { display: none; }
+#search-container { display: none; }
+#PersonalToolbar { display: none; }
+
+/* Show keyword input box when adding a bookmark */
+#keywordRow { display: -moz-grid-line !important; }
+
+/* Make the active tab wider */
+tab[selected="true"] { min-width: 200px !important; }
