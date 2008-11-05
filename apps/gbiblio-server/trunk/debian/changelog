@@ -1,3 +1,11 @@
+gbiblio-server (1.15) unstable; urgency=low
+
+  * Added absysnet biblio's launcher
+  [cperez]
+  * Translated thunderbird first run
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 19:19:41 +0100
+
 gbiblio-server (1.14) unstable; urgency=low
 
   * Checking users during the installation

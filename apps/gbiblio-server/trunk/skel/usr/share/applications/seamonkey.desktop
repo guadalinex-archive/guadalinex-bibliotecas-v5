@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=AbsysNET
+GenericName=AbsysNET
+Exec=seamonkey http://217.12.18.35/abnet/inicio.htm
+Terminal=false
+Type=Application
+Categories=Application;System;Settings
+Icon=/usr/share/pixmaps/absys_icon.png
