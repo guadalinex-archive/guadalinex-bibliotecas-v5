@@ -6,7 +6,7 @@
 set -e
 
 # Adding user biblio
-adduser biblio --disabled-password --gecos biblio
+id biblio || adduser biblio --disabled-password --gecos biblio
 chpasswd -m <<EOF
 biblio:biblio
 EOF
