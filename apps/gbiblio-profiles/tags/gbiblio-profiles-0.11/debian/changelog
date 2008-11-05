@@ -1,0 +1,63 @@
+gbiblio-profiles (0.11) unstable; urgency=low
+
+  * Fixing syntax error on user creation
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 11:09:06 +0100
+gbiblio-profiles (0.10) unstable; urgency=low
+
+  * Added if users exists check on preinstals
+  * Added prevent change password to usuario user
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 08:49:06 +0100
+gbiblio-profiles (0.9) unstable; urgency=low
+
+  * Changed default url to show in catalog's session
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 04 Nov 2008 16:17:06 +0100
+
+gbiblio-profiles (0.8) unstable; urgency=low
+
+  * Tunning removing usuario data session
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 3 Nov 2008 19:24:19 +0100
+gbiblio-profiles (0.7) unstable; urgency=low
+
+  * Added removing user data for usuario user.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 31 Oct 2008 12:53:19 +0100
+gbiblio-profiles (0.6) unstable; urgency=low
+
+  * Customized user's session
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 29 Oct 2008 12:19:19 +0100
+
+gbiblio-profiles (0.5) unstable; urgency=low
+
+  * Customized catalog's session
+
+ -- jhernandez <jhernandez@jhernandez-laptop>  Fri, 17 Oct 2008 11:32:34 +0200
+
+gbiblio-profiles (0.4) unstable; urgency=low
+
+  * Added liferea and pan to librarian profile
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 10 Oct 2008 15:20:33 +0200
+
+gbiblio-profiles (0.3) unstable; urgency=low
+
+  * Added seamonkey browser to librarian profile
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 09 Oct 2008 15:50:45 +0200
+
+gbiblio-profiles (0.2) unstable; urgency=low
+
+  * Adding users to profiles
+  * Adding medusa-server to depends
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 09 Oct 2008 14:19:41 +0200
+
+gbiblio-profiles (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 07 Oct 2008 16:04:32 +0200
