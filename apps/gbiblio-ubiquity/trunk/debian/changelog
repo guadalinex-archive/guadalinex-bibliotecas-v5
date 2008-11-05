@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio14) stable; urgency=low
+
+  * Changed the extra partition's size (from 800 Mb to 10000 Mb) 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 5 Nov 2008 19:02:25 +0200
+
 gbiblio-ubiquity (0.9guada3gbiblio13) stable; urgency=low
 
   * Added ubiquity/success_command preseed to config the /etc/hosts and 
