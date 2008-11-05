@@ -1,3 +1,9 @@
+gbiblio-profiles (0.12) unstable; urgency=low
+
+  * Fixing catalog's session
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 14:03:29 +0100
+
 gbiblio-profiles (0.11) unstable; urgency=low
 
   * Fixing syntax error on user creation
