@@ -1,3 +1,13 @@
+gbiblio-ubiquity (0.9guada3gbiblio12) stable; urgency=low
+
+  * Added ubiquity/success_command preseed to config the /etc/hosts and
+    /etc/network/interfaces after install
+  * Added hosts file as a template for the after install
+  * Generate /etc/network/interfaces file from guada_ui.py to be used by
+    ubiquity/success_command at the end of the installation
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 5 Nov 2008 15:50:25 +0200
+
 gbiblio-ubiquity (0.9guada3gbiblio11) unstable; urgency=low
 
   * Fix repo: file:///cdrom/ubuntu -> file:///cdrom/

@@ -122,12 +122,6 @@ PRESEED = ["debconf debconf/language string es",
 "d-i time/zone string Europe/Madrid",
 "d-i console-setup/modelcode string pc105",
 "d-i console-setup/layoutcode string es",
-"d-i netcfg/choose_interface select eth0",
-"d-i netcfg/disable_dhcp boolean true",
-"d-i netcfg/get_netmask      string 255.255.255.0",
-"d-i netcfg/get_gateway      string 192.168.1.1",
-"d-i netcfg/get_nameservers  string 192.168.1.1",
-"d-i netcfg/confirm_static  boolean true",
 "ubiquity languagechooser/language-name-fb select Spanish",
 "ubiquity languagechooser/language-name select Spanish",
 "ubiquity languagechooser/language-name-ascii select Spanish",
@@ -139,7 +133,8 @@ PRESEED = ["debconf debconf/language string es",
 "ubiquity tzconfig/gmt boolean false",
 "ubiquity time/zone select Europe/Madrid",
 "ubiquity passwd/make-user boolean false",
-"ubiquity ubiquity/success_command string cat /usr/share/gbiblio-ubiquity/templates/hosts > /target/etc/hosts",
+"ubiquity partman-auto/init_automatically_partition select Guiado - utilizar todo el disco",
+"ubiquity ubiquity/success_command string cat /usr/share/gbiblio-ubiquity/templates/hosts > /target/etc/hosts ; cat /tmp/interfaces > /target/etc/network/interfaces",
 "console-setup console-setup/variant select Spain",
 "console-setup console-setup/layout select Spain"
 ]
@@ -174,9 +169,23 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             hostname = type.replace('t-', 'te-')
             ip = '192.168.1.%s' % num
         net_preseed = ["ubiquity ubiquity/install/hostname string %s" % hostname,
-                        "d-i netcfg/get_hostname string %s" % hostname,
-                        "d-i netcfg/get_ipaddress  string %s" % ip ]
+                        "d-i netcfg/get_hostname string %s" % hostname ]
         syslog.syslog ("\nnet_preseed:\n\n%s\n" % '\n'.join(net_preseed) )
+
+        interfaces = open('/tmp/interfaces','w')
+        interfaces.write('''
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+	address %s
+	netmask 255.255.255.0
+	gateway 192.168.1.1
+
+''' % ip)
+        interfaces.close()
+
         return net_preseed
  
 
