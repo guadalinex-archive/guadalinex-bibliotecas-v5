@@ -1,3 +1,8 @@
+gbiblio-profiles (0.10) unstable; urgency=low
+
+  * Added if users exists check on preinstals
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 08:49:06 +0100
 gbiblio-profiles (0.9) unstable; urgency=low
 
   * Changed default url to show in catalog's session
