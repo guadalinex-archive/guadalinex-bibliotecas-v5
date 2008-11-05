@@ -1,3 +1,9 @@
+gbiblio-server (1.12) unstable; urgency=low
+
+  * Added gbiblio-secure-lending as dependence
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 08:46:34 +0100
+
 gbiblio-server (1.11) unstable; urgency=low
 
   * Removed hosts and hostname configuration from the postinst
