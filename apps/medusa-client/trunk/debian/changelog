@@ -1,3 +1,9 @@
+medusa-client (1.17) hardy; urgency=low
+
+  [dteyssiere]
+  * Se comenta end_session cuando el cliente recibe un unblock
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 21:46:09 +0200
 medusa-client (1.16) hardy; urgency=low
 
   * Cambiando la ip del servidor en medusa.conf
