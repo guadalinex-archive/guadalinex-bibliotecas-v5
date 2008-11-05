@@ -1,0 +1,12 @@
+#!/bin/sh
+# postinst script for gbiblio-profile-catalog
+#
+# see: dh_installdeb(1)
+
+set -e
+
+chown catalogo:catalogo /home/catalogo/.xsession
+chown catalogo:catalogo /home/catalogo/.mozilla -R
+
+exit 0
+
