@@ -1,3 +1,10 @@
+gbiblio-server (1.14) unstable; urgency=low
+
+  * Checking users during the installation
+  * Added wicd: depends, sudoers
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 05 Nov 2008 12:17:08 +0100
+
 gbiblio-server (1.13) unstable; urgency=low
 
   * Fixing bad done divert to exim conf
