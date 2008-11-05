@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Lupa (xzoom)
+Comment=Lupa de Escritorio
+Exec=xzoom
+Icon=/usr/share/pixmaps/xzoom.png
+Terminal=false
+Type=Application
+Categories=Application;Utility
