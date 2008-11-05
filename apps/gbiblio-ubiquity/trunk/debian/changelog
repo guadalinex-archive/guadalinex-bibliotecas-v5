@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio13) stable; urgency=low
+
+  * Added ubiquity/success_command preseed to config the /etc/hosts and 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 5 Nov 2008 18:53:25 +0200
+
 gbiblio-ubiquity (0.9guada3gbiblio12) stable; urgency=low
 
   * Added ubiquity/success_command preseed to config the /etc/hosts and
