@@ -134,7 +134,7 @@ PRESEED = ["debconf debconf/language string es",
 "ubiquity time/zone select Europe/Madrid",
 "ubiquity passwd/make-user boolean false",
 "ubiquity partman-auto/init_automatically_partition select Guiado - utilizar todo el disco",
-"ubiquity ubiquity/success_command string cat /usr/share/gbiblio-ubiquity/templates/hosts > /target/etc/hosts ; cat /tmp/interfaces > /target/etc/network/interfaces",
+"ubiquity ubiquity/success_command string cat /usr/share/gbiblio-ubiquity/templates/hosts > /target/etc/hosts ; cat /tmp/interfaces > /target/etc/network/interfaces ; echo 'servidor:/var/nfs/compartido /var/compartido  nfs        rw,hard,intr,auto,user      0 0' >> /target/etc/fstab ",
 "console-setup console-setup/variant select Spain",
 "console-setup console-setup/layout select Spain"
 ]
