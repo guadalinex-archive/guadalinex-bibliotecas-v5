@@ -102,6 +102,19 @@ cat > /etc/exports <<EOF
 /var/nfs/compartido 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)
 EOF
 
+# Sustituye el fichero /usr/lib/thunderbird/chrome/en-US.jar por uno con el mismo nombre, pero traducido al castellano.
+BASE="/usr/lib/thunderbird/chrome/en-US.jar"
+package="gbiblio-server"
+
+[ $BASE != "$(dpkg-divert --truename $BASE)" ] && rm -f $BASE && dpkg-divert --rename --remove $BASE
+dpkg-divert --package $package --rename --quiet --add $BASE
+ln -fs /usr/share/$package/en-US.jar $BASE
+
+# Divert of seamonkey.desktop
+
+[ "/usr/share/applications/seamonkey.desktop" != "$(dpkg-divert --truename /usr/share/applications/seamonkey.desktop)" ] && rm -f /usr/share/applications/seamonkey.desktop && dpkg-divert --rename --remove /usr/share/applications/seamonkey.desktop
+dpkg-divert --package gbiblio-server --rename --quiet --add /usr/share/applications/seamonkey.desktop
+ln -fs /usr/share/gbiblio-server/seamonkey.desktop /usr/share/applications/seamonkey.desktop
 
 exit 0
 
