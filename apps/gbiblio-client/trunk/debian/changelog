@@ -1,3 +1,9 @@
+gbiblio-client (0.14) unstable; urgency=low
+
+  * Added mount point creation
+
+ -- jhernandez <jhernandez@jhernandez-laptop>  Thu, 06 Nov 2008 11:42:03 +0100
+
 gbiblio-client (0.13) unstable; urgency=low
 
   * Checking users during the installation
