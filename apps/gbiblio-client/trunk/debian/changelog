@@ -1,3 +1,9 @@
+gbiblio-client (0.15) unstable; urgency=low
+
+  * Removed wicd
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 06 Nov 2008 17:21:44 +0100
+
 gbiblio-client (0.14) unstable; urgency=low
 
   * Added mount point creation
