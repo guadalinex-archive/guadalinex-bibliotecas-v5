@@ -1,0 +1,19 @@
+#!/usr/bin/python
+
+import os
+import re
+
+os.popen('ps -C metacity -opid,user | grep -v PID > /tmp/metacitypid')
+
+f = open('/tmp/metacitypid')
+
+for line in f.readlines():
+        pid, user = line.strip().split(' ')
+        environ_file = "/proc/%s/environ" % pid
+        f_environ = open(environ_file)
+        environ = f_environ.read()
+        f_environ.close()
+        re_session_manager = re.compile('SESSION_MANAGER=(local.*ICE.*?)\x00')
+        os.popen('SESSION_MANAGER=%s su %s -c \'gnome-session-save --kill --silent\'' % (re_session_manager.findall(environ)[0], user))
+
+f.close()

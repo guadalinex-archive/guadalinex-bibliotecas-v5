@@ -1,0 +1,15 @@
+#!/usr/bin/ruby
+
+system "ps -C notification-daemon -o pid,user= | grep -v PID > /tmp/pidofnotificationdaemon"
+
+tiempo = ARGV[0]
+ARGV[0] = 'OuT'
+mensaje = ""
+ARGV.each {|l| mensaje =  "#{mensaje} #{l}" if l != 'OuT' }
+
+File.open('/tmp/pidofnotificationdaemon').each{|line|
+        pid, user = line.split" "
+        environ_file = "/proc/#{pid.chomp}/environ"
+        bus_address = File.open(environ_file).read.scan(/DBUS_SESSION_BUS_ADDRESS=(unix.*)\000/)[0][0]
+        system "DBUS_SESSION_BUS_ADDRESS=#{bus_address} DISPLAY=:0.0 su #{user.chomp} -c \"notify-send -t #{tiempo} \'#{mensaje}\'\""
+}
