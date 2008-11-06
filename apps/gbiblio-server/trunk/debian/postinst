@@ -16,8 +16,11 @@ chmod 644 /etc/exim4/update-exim4.conf.conf
 [ ! -d /var/nfs/compartido ] && mkdir -p /var/nfs/compartido
 [ -d /var/nfs/compartido ] && chmod 1777 /var/nfs/compartido
 
+# Symbolic link to /var/nfs/compartido
+[ ! -L /var/Compartido ] && ln -s /var/nfs/compartido /var/Compartido
+
 # Change owner of id_rsa
-chown cau:cau /home/cau/.ssh/id_rsa
+chown cau:cau /home/cau/.ssh/ -R
 chmod 400 /home/cau/.ssh/id_rsa
 
 # Adding /etc/sudoers
