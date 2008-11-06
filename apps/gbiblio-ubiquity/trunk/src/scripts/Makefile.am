@@ -1,5 +1,5 @@
 guadaubiquityscriptsdir = $(datadir)/ubiquity/
-guadaubiquityscripts_SCRIPTS = guada-prepartition
+guadaubiquityscripts_SCRIPTS = final_fixes.sh
 
 guadareposscriptdir = $(libdir)/ubiquity/apt-setup/generators/
 guadareposscript_SCRIPTS = 92guadalinex-repos
