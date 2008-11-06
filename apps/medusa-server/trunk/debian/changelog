@@ -1,3 +1,8 @@
+medusa-server (1.16) hardy; urgency=low
+
+  * Anadida la capacidad de apagar clientes
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 06 Nov 2008 18:53:42 +0200
 medusa-server (1.15) hardy; urgency=low
 
   * Version de medusa adaptada correctamente a bibliotecas
