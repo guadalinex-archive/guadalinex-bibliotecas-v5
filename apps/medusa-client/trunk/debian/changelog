@@ -1,3 +1,9 @@
+medusa-client (1.19) hardy; urgency=low
+
+  [dteyssiere]
+  * Volviendo a comentar codigo anterior porque no cierra la sesion con v5
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 06 Nov 2008 12:23:09 +0200
 medusa-client (1.18) hardy; urgency=low
 
   [dteyssiere]
