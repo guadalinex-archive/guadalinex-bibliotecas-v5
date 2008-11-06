@@ -177,8 +177,10 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
 auto lo
 iface lo inet loopback
 
-auto eth0
-iface eth0 inet static
+auto wlan0
+iface wlan0 inet static
+	wireless-essid biblioteca
+	wireless-key s:1357986420900
 	address %s
 	netmask 255.255.255.0
 	gateway 192.168.1.1
