@@ -172,13 +172,14 @@ int unlockScreen(void)
 
 void end_session(void)
 {
-	char user[MAX_USER_LENGTH];
-	pid_t pid;
-
-	pid = get_user(user);
-	write_log_fmt("Try to end session for user %s (PID %d).\n", user, pid);
-	if (pid > 0)
-		kill(pid, SIGTERM);
+	system("guadalinfo-kill-sessions &");
+//	char user[MAX_USER_LENGTH];
+//	pid_t pid;
+//
+//	pid = get_user(user);
+//	write_log_fmt("Try to end session for user %s (PID %d).\n", user, pid);
+//	if (pid > 0)
+//		kill(pid, SIGTERM);
 }
 
 void shut_down(void)
