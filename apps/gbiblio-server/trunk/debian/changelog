@@ -1,3 +1,9 @@
+gbiblio-server (1.16) unstable; urgency=low
+
+  * Added /var/Compartido symbolic link 
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 06 Nov 2008 12:08:22 +0100
+
 gbiblio-server (1.15) unstable; urgency=low
 
   * Added absysnet biblio's launcher
