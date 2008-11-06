@@ -1,8 +1,10 @@
 gbiblio-ubiquity (0.9guada3gbiblio15) stable; urgency=low
 
   * Changed ethernet configuration to wireless
+  * Deleted script for original package guada-ubiquity, guada-prepartition
+  * Added script for configuring some stuff after the ubiquity finish
 
- -- Juan Jesús Ojeda Croissier <jojeda@ws-jojeda>  Thu, 06 Nov 2008 13:50:24 +0100
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 06 Nov 2008 13:57:24 +0200
 
 gbiblio-ubiquity (0.9guada3gbiblio14) stable; urgency=low
 
