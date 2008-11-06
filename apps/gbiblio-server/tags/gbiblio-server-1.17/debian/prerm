@@ -1,0 +1,10 @@
+#!/bin/bash
+
+rm -f /etc/exim4/update-exim4.conf.conf
+dpkg-divert --package gbiblio-server --rename --quiet --remove /etc/exim4/update-exim4.conf.conf
+
+rm -rf /usr/lib/thunderbird/chrome/en-US.jar
+dpkg-divert --package gbiblio-server --rename --quiet --remove /usr/lib/thunderbird/chrome/en-US.jar
+
+rm -rf /usr/share/applications/seamonkey.desktop
+dpkg-divert --package gbiblio-server --rename --quiet --remove /usr/share/applications/seamonkey.desktop
