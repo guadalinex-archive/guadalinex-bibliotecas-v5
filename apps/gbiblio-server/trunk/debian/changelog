@@ -1,3 +1,9 @@
+gbiblio-server (1.17) unstable; urgency=low
+
+  * Removed wicd
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 06 Nov 2008 17:07:18 +0100
+
 gbiblio-server (1.16) unstable; urgency=low
 
   * Added /var/Compartido symbolic link 
