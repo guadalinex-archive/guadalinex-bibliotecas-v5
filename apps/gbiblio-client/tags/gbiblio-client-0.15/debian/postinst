@@ -1,0 +1,78 @@
+#!/bin/sh
+# postinst script for gbiblio-client
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Change owner of authorized_keys
+chown cau:cau /home/cau/.ssh/authorized_keys
+
+# Adding /etc/sudoers
+cat << EOF > /etc/sudoers
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer
+
+Cmnd_Alias  BIBLIOADMINNOPW = /sbin/halt, /etc/init.d/cupsys
+
+# User privilege specification
+root    ALL=(ALL) ALL
+
+# Uncomment to allow members of group sudo to not need a password
+# (Note that later entries override this, so you might need to move
+# it further down)
+# %sudo ALL=NOPASSWD: ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Permisos de biblio
+biblio ALL = NOPASSWD: BIBLIOADMINNOPW, PASSWD: BIBLIOADMIN
+EOF
+
+
+# Permissions in /etc/sudoers
+
+chown root.root /etc/sudoers
+chmod 440 /etc/sudoers
+
+# Adding cau to admin's group
+
+usermod -G admin cau
+
+# Adding biblio to lpadmin's group
+
+usermod -G lpadmin biblio
+
+# Añadimos biblio_arranque.sh a los correpondientes niveles de ejecucion
+
+chmod 755 /etc/init.d/biblio_arranque.sh
+update-rc.d biblio_arranque.sh start 98 2 3 4 5 .
+
+# Removing /etc/ssh/sshd_not_to_be_run
+
+if [ -f /etc/ssh/sshd_not_to_be_run ]; then
+  rm /etc/ssh/sshd_not_to_be_run -f
+fi
+
+
+# Mount point creation
+
+[ ! -d /var/Compartido ] && mkdir -p /var/Compartido
+
+
+exit 0
