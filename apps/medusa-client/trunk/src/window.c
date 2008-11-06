@@ -172,7 +172,7 @@ int unlockScreen(void)
 
 void end_session(void)
 {
-	system("guadalinfo-kill-sessions &");
+	system("/usr/sbin/guadalinfo-kill-sessions &");
 //	char user[MAX_USER_LENGTH];
 //	pid_t pid;
 //
