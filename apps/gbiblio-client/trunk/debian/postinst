@@ -70,4 +70,9 @@ if [ -f /etc/ssh/sshd_not_to_be_run ]; then
 fi
 
 
+# Mount point creation
+
+[ ! -d /var/Compartido ] && mkdir -p /var/Compartido
+
+
 exit 0
