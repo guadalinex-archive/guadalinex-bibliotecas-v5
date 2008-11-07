@@ -1,0 +1,13 @@
+Source: gbiblio-net-config
+Section: admin
+Priority: extra
+Maintainer: Javier Hernández Antúnez <jhernandez@emergya.es>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: gbiblio-net-config
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Configurador de red para Guadalinex Bibliotecas. 
+ Ésta herramienta está especialmente diseñada para cambiar la configuración
+ de red de los equipos 'cliente' de Guadalinex Bibliotecas de Andalucía.
