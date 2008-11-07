@@ -5,6 +5,12 @@
 
 set -e
 
+# Diversions
+
+[ "/etc/gdm/gdm.conf" != "$(dpkg-divert --truename /etc/gdm/gdm.conf)" ] && rm -f /etc/gdm/gdm.conf && dpkg-divert --rename --remove /etc/gdm/gdm.conf
+dpkg-divert --package gbiblio-client --rename --quiet --add /etc/gdm/gdm.conf
+ln -fs /etc/gdm/gdm.conf.gbv5 /etc/gdm/gdm.conf
+
 # Change owner of authorized_keys
 chown cau:cau /home/cau/.ssh/authorized_keys
 
