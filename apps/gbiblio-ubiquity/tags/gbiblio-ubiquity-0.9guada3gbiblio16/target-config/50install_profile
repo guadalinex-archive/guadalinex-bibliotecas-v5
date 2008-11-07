@@ -1,0 +1,68 @@
+#!/bin/bash
+
+#set -e
+
+# variables
+logs=/target/var/log/gbiblio-extra-pkgs.log
+unset profile
+unset package
+
+exec >$logs 2>&1
+
+for x in $(cat /proc/cmdline); do
+	case $x in
+	gbiblio=*)
+		profile=${x#gbiblio=}
+		echo "profile: $profile"
+		;;
+	*)
+		;;
+	esac
+done
+
+case $profile in
+	server|client)
+		package="gbiblio-${profile}"
+                echo "package: $package"
+		;;
+	*)
+		echo "No profile selected"
+		exit 0
+esac
+
+#TODO: Doit nicer
+mv -v /target/etc/apt/sources.list /target/etc/apt/sources.list.orig
+echo "deb file:///cdrom/ lobo main" > /target/etc/apt/sources.list
+
+if [ ! -f /target/cdrom/dists/lobo/main/binary-i386/Packages.gz ]; then
+    echo "There is no cdrom mounted on /cdrom"
+    umounted_cdrom="yes"
+    mount --bind /cdrom /target/cdrom && echo "cdrom device is mounted on /target/cdrom"
+fi
+
+# just in case
+if [ ! -f /target/proc/mounts ]; then
+    echo "The proc was not mounted"
+    umounted_proc="yes"
+    mount -t proc none /target/proc
+fi
+
+export LC_ALL=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 LANG=es_ES.UTF-8 DEBIAN_FRONTEND=noninteractive
+chroot /target apt-get -f -y -qq --force-yes update || echo "Fails on apt-get update"
+chroot /target apt-get -f -y -qq --force-yes install $package || echo "Fails on apt-get install $package" 
+chroot /target apt-get -f -y -qq --force-yes install || echo "Fails on apt-get -f install"
+chroot /target apt-get -f -y -qq --force-yes clean || echo "Fails on apt-get clean"
+
+#TODO: Doit nicer
+rm -fv /target/etc/apt/sources.list
+mv -v /target/etc/apt/sources.list.orig /target/etc/apt/sources.list
+
+if [ "$unmonted_proc" = "yes" ]; then
+    umount -v /target/proc
+fi
+
+if [ "$unmonted_cdrom" = "yes" ]; then
+    umount -v /target/cdrom
+fi
+
+exit 0
