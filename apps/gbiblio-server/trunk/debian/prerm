@@ -9,5 +9,3 @@ dpkg-divert --package gbiblio-server --rename --quiet --remove /usr/lib/thunderb
 rm -rf /usr/share/applications/seamonkey.desktop
 dpkg-divert --package gbiblio-server --rename --quiet --remove /usr/share/applications/seamonkey.desktop
 
-rm -f /etc/gdm/gdm.conf
-dpkg-divert --package gbiblio-server --rename --quiet --remove /etc/gdm/gdm.conf

@@ -1,3 +1,8 @@
+gbiblio-server (1.22) unstable; urgency=low
+
+  * Deleted exim config not needed
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 07 Nov 2008 15:35:18 +0100
 gbiblio-server (1.21) unstable; urgency=low
 
   * Deleted exim config not needed
