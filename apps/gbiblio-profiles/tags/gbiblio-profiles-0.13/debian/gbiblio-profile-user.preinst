@@ -1,0 +1,16 @@
+#!/bin/sh
+# preinst script for gbiblio-profile-user
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Adding user usuario
+[ -z "$(id -Gn|grep usuario)" ] && groupadd usuario
+id usuario || useradd -g usuario -K PASS_MIN_DAYS=1825 -s /bin/bash usuario
+chpasswd -m <<EOF
+usuario:usuario
+EOF
+
+exit 0
+

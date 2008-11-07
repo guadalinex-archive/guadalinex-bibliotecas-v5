@@ -1,0 +1,23 @@
+#!/bin/bash
+
+if [ "$USER" = "usuario" ]; then
+    cp /home/usuario/.local/share/desktop-directories/System-Settings.directory /tmp
+    cp /home/usuario/.local/share/applications/gnome-about-me.desktop /tmp
+    rm -rf /home/usuario
+    mkdir /home/usuario
+    su -c "cp -a /etc/skel/* /home/usuario" root
+    # Copiamos los ocultos (.*)
+    cp -a /etc/skel/.[0-Z]* /home/usuario
+    mkdir -p /home/usuario/.local/share/desktop-directories
+    mkdir -p /home/usuario/.local/share/applications
+    cp /tmp/System-Settings.directory /home/usuario/.local/share/desktop-directories/
+    cp /tmp/gnome-about-me.desktop /home/usuario/.local/share/applications/
+    # Cambiamos el propietario y el grupo
+    chown -R usuario:usuario /home/usuario
+    su -c 'gconftool-2 -s --type bool /apps/panel/global/disable_log_out true' usuario
+    su -c 'gconftool-2 -s --type bool /apps/panel/global/disable_lock_screen true' usuario
+#    chown -R usuario:usuario /home/usuario/.[0-Z]*
+
+fi
+exit 0
+
