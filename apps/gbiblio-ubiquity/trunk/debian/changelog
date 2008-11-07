@@ -1,3 +1,8 @@
+gbiblio-ubiquity (0.9guada3gbiblio16) stable; urgency=low
+
+  * Changed nfs mount point to capitalized
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 07 Nov 2008 09:09:24 +0200
 gbiblio-ubiquity (0.9guada3gbiblio15) stable; urgency=low
 
   * Changed ethernet configuration to wireless
