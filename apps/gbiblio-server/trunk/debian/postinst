@@ -15,6 +15,7 @@ chmod 644 /etc/exim4/update-exim4.conf.conf
 [ "/etc/gdm/gdm.conf" != "$(dpkg-divert --truename /etc/gdm/gdm.conf)" ] && rm -f /etc/gdm/gdm.conf && dpkg-divert --rename --remove /etc/gdm/gdm.conf
 dpkg-divert --package gbiblio-server --rename --quiet --add /etc/gdm/gdm.conf
 ln -fs /etc/gdm/gdm.conf.gbv5 /etc/gdm/gdm.conf
+chmod 644 /etc/gdm/gdm.conf
 
 # Exports directories creation
 [ ! -d /var/nfs/compartido ] && mkdir -p /var/nfs/compartido
