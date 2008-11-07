@@ -29,7 +29,7 @@ class GbiblioNetConfig (object):
 
     def initgui(self):
 	# Ruta al .glade
-        self.ui = gtk.glade.XML('/usr/share/gbiblio-net-config.glade')
+        self.ui = gtk.glade.XML('/usr/share/gbiblio-net-config/gbiblio-net-config.glade')
 
 	# Ruta al .glade -- LINEA DE PRUEBA. 
 	#self.ui = gtk.glade.XML('./gbiblio-net-config.glade'
