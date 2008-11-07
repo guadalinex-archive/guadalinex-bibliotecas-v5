@@ -44,7 +44,7 @@ Defaults        env_reset
 
 # Cmnd alias specification
 
-Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer, /usr/sbin/gbiblio-ine-selector, /usr/sbin/gbiblio-stats-sender
+Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer, /usr/sbin/gbiblio-ine-selector, /usr/sbin/gbiblio-stats-sender, /usr/sbin/gbiblio-net-config
 
 Cmnd_Alias  BIBLIOADMINNOPW = /sbin/halt, /etc/init.d/cupsys
 
