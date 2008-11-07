@@ -1,5 +1,0 @@
-#!/bin/bash
-
-rm -f /etc/gdm/gdm.conf
-dpkg-divert --package gbiblio-client --rename --quiet --remove /etc/gdm/gdm.conf
-
