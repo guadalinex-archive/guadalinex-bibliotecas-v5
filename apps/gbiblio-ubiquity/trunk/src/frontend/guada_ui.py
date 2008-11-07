@@ -142,32 +142,57 @@ PRESEED = ["debconf debconf/language string es",
 class Wizard(ubiquity.frontend.gtk_ui.Wizard):
     def __init__(self, distro):
         del os.environ['UBIQUITY_MIGRATION_ASSISTANT']
+        self.__get_type()
+        if self.type == 'client':
+            self.client_num = self.__get_client_num()
         self.preseed_debconf()
         
         ubiquity.frontend.gtk_ui.Wizard.__init__(self,distro)
-
-    def get_net_config(self):
+ 
+    def __get_type(self):
         cmdline = open('/proc/cmdline').readline().split()
-        type = ''
+        self.type = ''
 
         if 'gbiblio' not in str(cmdline):
-            return False
-
+            error_dialog("No se ha pasado una server o biblio en el arranque")
+            self.do_reboot()
         for cmd in cmdline:
             if 'gbiblio' in cmd:
-                type = cmd.split('=')[1]
-            if type == 'client' and cmd.isdigit() and int(cmd) in range(1,21):
-                # num is the last ip num which is the num of client plus 10
-                num = int(cmd) + 10
-                type = "%s-%s" % (type, cmd)
+                self.type = cmd.split('=')[1]
 
-        if type == 'server':
+    def __get_client_num(self):
+        title = 'Nombre del cliente'
+        type = gtk.DIALOG_MODAL
+        dialog = gtk.Dialog(title, None, type, (gtk.STOCK_OK, gtk.RESPONSE_CLOSE))
+        
+        label = gtk.Label('Elije un número de equipo')
+        vbox = gtk.VBox()
+        vbox.set_border_width(10)
+        
+        dialog.vbox.pack_start(vbox)
+        
+        vbox.pack_start(label)
+        combo_box = gtk.combo_box_new_text()
+        
+        for i in range(1,21):
+            num = i
+            combo_box.append_text('Cliente %d' % num)
+        combo_box.set_active(0)
+        vbox.pack_start(combo_box)
+        dialog.show_all()
+        response = dialog.run()
+        dialog.hide()
+        if response == gtk.RESPONSE_CLOSE:
+            option = combo_box.get_active() + 1
+            return option
+
+    def __get_net_config(self):
+        if self.type == 'server':
             hostname = 'servidor'
             ip = '192.168.1.10'
         else:
-            # change 'client-X' for 'cliente-X'
-            hostname = type.replace('t-', 'te-')
-            ip = '192.168.1.%s' % num
+            hostname = 'cliente-%d' % self.client_num
+            ip = '192.168.1.%s' % self.client_num
         net_preseed = ["ubiquity ubiquity/install/hostname string %s" % hostname,
                         "d-i netcfg/get_hostname string %s" % hostname ]
         syslog.syslog ("\nnet_preseed:\n\n%s\n" % '\n'.join(net_preseed) )
@@ -192,7 +217,7 @@ iface wlan0 inet static
  
 
     def preseed_debconf(self):
-        net_preseed = self.get_net_config()
+        net_preseed = self.__get_net_config()
         if net_preseed:
             preseed = PRESEED + net_preseed 
         else:
@@ -206,7 +231,7 @@ iface wlan0 inet static
 
     def launch_hermes(self):
 	os.spawnlp(os.P_NOWAIT,'hermeshardware','hermeshardware')
- 
+
     def run(self):
         """run the interface."""
 
