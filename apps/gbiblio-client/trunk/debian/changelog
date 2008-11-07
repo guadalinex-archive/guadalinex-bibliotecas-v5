@@ -1,3 +1,8 @@
+gbiblio-client (0.17) unstable; urgency=low
+
+  * Added gbiblio-net-config dependencie
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 07 Nov 2008 13:51:44 +0100
 gbiblio-client (0.16) unstable; urgency=low
 
   * Added gdm.conf for prevent users shutdown or reboot machines
