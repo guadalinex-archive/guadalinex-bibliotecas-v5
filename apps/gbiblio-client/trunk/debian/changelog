@@ -1,3 +1,8 @@
+gbiblio-client (0.16) unstable; urgency=low
+
+  * Added gdm.conf for prevent users shutdown or reboot machines
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 07 Nov 2008 12:24:44 +0100
 gbiblio-client (0.15) unstable; urgency=low
 
   * Removed wicd
