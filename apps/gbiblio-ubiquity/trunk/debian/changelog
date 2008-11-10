@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio18) stable; urgency=low
+
+  [dteyssiere]
+  * Added setting of resolv.conf for both installations
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Mon, 10 Nov 2008 17:53:24 +0200
 gbiblio-ubiquity (0.9guada3gbiblio17) stable; urgency=low
 
   * Added dialog for asking the client's number before the installer
