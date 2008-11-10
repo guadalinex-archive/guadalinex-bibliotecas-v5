@@ -9,6 +9,7 @@
 echo "He recogido $1 $2 y $3"
 
 if [ "$2" == "eth0" ];then
+    ifconfig wlan0 down
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
@@ -20,6 +21,7 @@ iface $2 inet static
         gateway 192.168.1.1
 EOF
 else
+    ifconfig eth0 down
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
@@ -39,3 +41,5 @@ echo $1 > /tmp/hostname
 
 cp /tmp/interfaces /etc/network/interfaces
 cp /tmp/hostname /etc/hostname
+
+/etc/init.d/networking restart
