@@ -1,3 +1,9 @@
+gbiblio-client (0.20) unstable; urgency=low
+
+  [dteyssiere]
+  * Changed gbiblio-net-config dependencie by gbiblio-net-config-user
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 07 Nov 2008 16:38:44 +0100
 gbiblio-client (0.19) unstable; urgency=low
 
   * Added fixeds
