@@ -28,11 +28,11 @@ class GbiblioNetConfig (object):
         self.mainloop = gobject.MainLoop()
 
     def initgui(self):
-	# Ruta al .glade
+        # Ruta al .glade
         self.ui = gtk.glade.XML('/usr/share/gbiblio-net-config/gbiblio-net-config.glade')
 
-	# Ruta al .glade -- LINEA DE PRUEBA. 
-	#self.ui = gtk.glade.XML('./gbiblio-net-config.glade'
+        # Ruta al .glade -- LINEA DE PRUEBA. 
+        #self.ui = gtk.glade.XML('./gbiblio-net-config.glade'
 
         # cargamos todos los widgets
         for widget in self.ui.get_widget_prefix(""):
@@ -44,7 +44,7 @@ class GbiblioNetConfig (object):
         self.widgets['combo_cliente'].set_active(0)
         self.widgets['combo_conexion'].set_active(1)
         self.widgets['main_window'].show_all()
-	
+        
 
     def run (self):
         try:
@@ -58,22 +58,22 @@ class GbiblioNetConfig (object):
 
 
     def update(self, *args):
-	num =10+int(self.widgets['combo_cliente'].get_active_text())
+        num =10+int(self.widgets['combo_cliente'].get_active_text())
         ip = '192.168.1.' + num.__str__()
         numcliente='cliente-'+self.widgets['combo_cliente'].get_active_text()
 
         if self.widgets['combo_conexion'].get_active_text() == 'Cableada':
             tipo='eth0'
-	else:
-	    tipo='wlan0'
-	comando = "/usr/share/gbiblio-net-config/bin/update-net-config "+numcliente+" "+tipo+" "+ip
+        else:
+            tipo='wlan0'
+        comando = "/usr/share/gbiblio-net-config/bin/update-net-config "+numcliente+" "+tipo+" "+ip
 
-	#LINEAS PARA DEBUGGEAR
-	#print "el comando es %s" % comando
-	#print "Ha escogido el cliente %s" % self.widgets['combo_cliente'].get_active_text()
-	#print "Ha escogido el tipo de conexión %s" % self.widgets['combo_conexion'].get_active_text()
+        #LINEAS PARA DEBUGGEAR
+        #print "el comando es %s" % comando
+        #print "Ha escogido el cliente %s" % self.widgets['combo_cliente'].get_active_text()
+        #print "Ha escogido el tipo de conexión %s" % self.widgets['combo_conexion'].get_active_text()
 
-	p = Popen(comando,shell=True, bufsize=0, stdout=None, stderr=None, close_fds=True)
+        p = Popen(comando,shell=True, bufsize=0, stdout=None, stderr=None, close_fds=True)
         mesg = gtk.MessageDialog(self.widgets['main_window'], flags=gtk.DIALOG_MODAL,
                                  type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
         mesg.set_markup (u"<big><b>Configuración de red actualizada, reinicie el equipo para que los cambios tengan efectos</b></big>")
