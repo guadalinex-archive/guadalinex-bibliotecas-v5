@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Fichero: update-net-config
+# 
+# Éste fichero forma parte del Configurador de red para Guadalinex V5 Bibliotecas, gbiblio-net-config.
+# Su cometido es cambiar la configuración de red actualizando el fichero /etc/network/interfaces
+#
+#
+echo "He recogido $1 $2 y $3"
+
+if [ "$2" == "eth0" ];then
+    ifconfig wlan0 down
+    cat <<EOF > /tmp/interfaces
+auto lo
+iface lo inet loopback
+
+auto $2
+iface $2 inet static
+	address $3
+	netmask 255.255.255.0
+        gateway 192.168.1.1
+EOF
+else
+    ifconfig eth0 down
+    cat <<EOF > /tmp/interfaces
+auto lo
+iface lo inet loopback
+
+auto $2
+iface $2 inet static
+	address $3
+	netmask 255.255.255.0
+        gateway 192.168.1.1
+        wireless-essid biblioteca
+        wireless-key s:1357986420900
+EOF
+
+fi
+
+echo $1 > /tmp/hostname
+
+cp /tmp/interfaces /etc/network/interfaces
+cp /tmp/hostname /etc/hostname
+
+/etc/init.d/networking restart
