@@ -50,11 +50,13 @@ install: build
 	# Add here commands to install the package into debian/gbiblio-net-config.
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/gbiblio-net-config install
 
-	dh_install src/gbiblio-net-config /usr/sbin
-	dh_install src/gbiblio-net-config.desktop /usr/share/applications
-	dh_install src/gbiblio-net-config.glade /usr/share/gbiblio-net-config
-	dh_install src/gbiblio-net-config.png /usr/share/gbiblio-net-config
-	dh_install src/update-net-config /usr/share/gbiblio-net-config
+	dh_install --sourcedir=$(CURDIR)/src
+
+#	dh_install src/gbiblio-net-config /usr/sbin
+#	dh_install src/gbiblio-net-config.desktop /usr/share/applications
+#	dh_install src/gbiblio-net-config.glade /usr/share/gbiblio-net-config
+#	dh_install src/gbiblio-net-config.png /usr/share/gbiblio-net-config
+#	dh_install src/update-net-config /usr/share/gbiblio-net-config
 
 
 # Build architecture-independent files here.
