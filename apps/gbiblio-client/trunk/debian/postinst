@@ -75,5 +75,7 @@ fi
 
 [ ! -d /var/Compartido ] && mkdir -p /var/Compartido
 
+# Quitamos el menu de reiniciar y apagar en gdm
+sed -i 's/#SystemMenu=true/SystemMenu=false/g' /etc/gdm/gdm.conf 
 
 exit 0

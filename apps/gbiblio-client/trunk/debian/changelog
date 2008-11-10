@@ -1,3 +1,9 @@
+gbiblio-client (0.21) unstable; urgency=low
+
+  [dteyssiere]
+  * Added postinst line that make gdm unrebootable and unshutdownable
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 10 Nov 2008 17:08:44 +0100
 gbiblio-client (0.20) unstable; urgency=low
 
   [dteyssiere]
