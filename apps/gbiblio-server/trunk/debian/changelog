@@ -1,3 +1,9 @@
+gbiblio-server (1.25) unstable; urgency=low
+
+  [dteyssiere]
+  * Added gbiblio-net-config-biblio dependencie
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 10 Nov 2008 16:43:18 +0100
 gbiblio-server (1.24) unstable; urgency=low
 
   [dteyssiere]
