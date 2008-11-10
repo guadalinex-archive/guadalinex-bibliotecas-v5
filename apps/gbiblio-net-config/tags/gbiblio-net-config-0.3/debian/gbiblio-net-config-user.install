@@ -1,0 +1,5 @@
+user/gbiblio-net-config  /usr/sbin
+user/gbiblio-net-config.desktop   /usr/share/applications
+user/gbiblio-net-config.glade  /usr/share/gbiblio-net-config
+user/gbiblio-net-config.png /usr/share/gbiblio-net-config
+user/update-net-config   /usr/share/gbiblio-net-config/bin

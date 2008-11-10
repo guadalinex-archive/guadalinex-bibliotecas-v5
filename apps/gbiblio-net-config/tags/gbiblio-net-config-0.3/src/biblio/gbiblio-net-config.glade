@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
+<!--Generated with glade3 3.4.5 on Mon Nov 10 15:21:13 2008 -->
+<glade-interface>
+  <widget class="GtkWindow" id="main_window">
+    <property name="title" translatable="yes">Configuracion de Red</property>
+    <property name="window_position">GTK_WIN_POS_CENTER</property>
+    <property name="default_width">360</property>
+    <property name="icon">gbiblio-net-config.png</property>
+    <signal name="destroy" handler="quit"/>
+    <child>
+      <widget class="GtkVBox" id="vbox1">
+        <property name="visible">True</property>
+        <child>
+          <widget class="GtkHBox" id="hbox2">
+            <property name="visible">True</property>
+            <property name="spacing">10</property>
+            <child>
+              <widget class="GtkLabel" id="label_conexion">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Conexión:</property>
+              </widget>
+              <packing>
+                <property name="fill">False</property>
+                <property name="padding">20</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkComboBox" id="combo_conexion">
+                <property name="visible">True</property>
+                <property name="items" translatable="yes">Cableada
+Wifi</property>
+              </widget>
+              <packing>
+                <property name="fill">False</property>
+                <property name="padding">10</property>
+                <property name="position">1</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="fill">False</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="GtkHBox" id="hbox3">
+            <property name="visible">True</property>
+            <property name="spacing">10</property>
+            <property name="homogeneous">True</property>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <placeholder/>
+            </child>
+            <child>
+              <widget class="GtkButton" id="btn_aceptar">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">Aceptar</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="update"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="padding">20</property>
+                <property name="position">2</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkButton" id="btn_cancelar">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <property name="receives_default">True</property>
+                <property name="label" translatable="yes">Cancelar</property>
+                <property name="response_id">0</property>
+                <signal name="clicked" handler="quit"/>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="padding">20</property>
+                <property name="position">3</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="expand">False</property>
+            <property name="fill">False</property>
+            <property name="padding">10</property>
+            <property name="position">1</property>
+          </packing>
+        </child>
+      </widget>
+    </child>
+  </widget>
+</glade-interface>
