@@ -1,3 +1,9 @@
+gbiblio-client (0.22) unstable; urgency=low
+
+  [dteyssiere]
+  * Added conflicts field for delete exim4 not needed on client
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 10 Nov 2008 17:41:44 +0100
 gbiblio-client (0.21) unstable; urgency=low
 
   [dteyssiere]
