@@ -1,0 +1,202 @@
+gbiblio-ubiquity (0.9guada3gbiblio19) stable; urgency=low
+
+  [dteyssiere]
+  * Added resolv.conf to Makefile.am in data/templates
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Tue, 11 Nov 2008 11:17:24 +0200
+gbiblio-ubiquity (0.9guada3gbiblio18) stable; urgency=low
+
+  [dteyssiere]
+  * Added setting of resolv.conf for both installations
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Mon, 10 Nov 2008 17:53:24 +0200
+gbiblio-ubiquity (0.9guada3gbiblio17) stable; urgency=low
+
+  * Added dialog for asking the client's number before the installer
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 07 Nov 2008 13:51:24 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio16) stable; urgency=low
+
+  * Changed nfs mount point to capitalized
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 07 Nov 2008 09:09:24 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio15) stable; urgency=low
+
+  * Changed ethernet configuration to wireless
+  * Deleted script for original package guada-ubiquity, guada-prepartition
+  * Added script for configuring some stuff after the ubiquity finish
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 06 Nov 2008 13:57:24 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio14) stable; urgency=low
+
+  * Changed the extra partition's size (from 800 Mb to 10000 Mb) 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 5 Nov 2008 19:02:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio13) stable; urgency=low
+
+  * Added ubiquity/success_command preseed to config the /etc/hosts and 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 5 Nov 2008 18:53:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio12) stable; urgency=low
+
+  * Added ubiquity/success_command preseed to config the /etc/hosts and
+    /etc/network/interfaces after install
+  * Added hosts file as a template for the after install
+  * Generate /etc/network/interfaces file from guada_ui.py to be used by
+    ubiquity/success_command at the end of the installation
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 5 Nov 2008 15:50:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio11) unstable; urgency=low
+
+  * Fix repo: file:///cdrom/ubuntu -> file:///cdrom/
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 03 Nov 2008 19:12:52 +0100
+
+gbiblio-ubiquity (0.9guada3gbiblio10) stable; urgency=low
+
+  * Now the germinate generate a proper pool CD so we come back to the normal
+    way on sources.list
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Mon, 3 Nov 2008 16:51:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio9) stable; urgency=low
+
+  * Rollback to a old good version 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 31 Oct 2008 14:36:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio8) stable; urgency=low
+
+  * Changed guided partition method's title 
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 31 Oct 2008 12:14:25 +0200
+
+
+gbiblio-ubiquity (0.9guada3gbiblio7) stable; urgency=low
+
+  * Changed the target-config script to point to local scanpackages directory  
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 30 Oct 2008 20:36:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio6) stable; urgency=low
+
+  * Fixing some issues with divert
+  * Hidden the rest of the steps we don't need
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 29 Oct 2008 12:12:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio5) stable; urgency=low
+
+  * Fixed path for the /cdrom and /proc checking. We must check the ones from /target
+  * Deleted restricted component from sources.list uri because we have no packages from there and crash looking for restricted's Packages.gz
+  * Hidden some steps (Welcome and userinfo)
+  * Added some preseed (userinfo)
+  * No create user. Those will be created by profiles packages
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Mon, 27 Oct 2008 18:35:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio4) stable; urgency=low
+
+  * Added source.list line for the CDROM. Other way. And other
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 17 Oct 2008 14:56:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio3) stable; urgency=low
+
+  * Added source.list line for the CDROM. Other way.
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 17 Oct 2008 14:37:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio2) stable; urgency=low
+
+  * Added source.list line for the CDROM.
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Thu, 16 Oct 2008 14:07:25 +0200
+
+gbiblio-ubiquity (0.9guada3gbiblio1) stable; urgency=low
+
+  * Imported from guada-ubiquity.
+  * Renamed the package and the references on all files
+  * Made some improvements on autotools and debian packaging stuff
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 15 Oct 2008 00:29:25 +0200
+
+guada-ubiquity (0.9-1guada3) hardy; urgency=low
+
+  * Fixed some splitted strings.
+
+ -- Alfredo Matas <amatas@emergya.es>  Mon, 15 Sep 2008 11:48:25 +0200
+
+guada-ubiquity (0.9-1guada2) hardy; urgency=low
+
+  * Kill hermes while ubiquity runs. 
+
+ -- Alfredo Matas <amatas@emergya.es>  Tue, 26 Aug 2008 10:38:28 +0200
+
+guada-ubiquity (0.9-1guada1) hardy; urgency=low
+
+  * Done a workaround with gtklabel in welcome screen.
+
+ -- Alfredo Matas <amatas@emergya.es>  Mon, 07 Jul 2008 14:00:17 +0200
+
+guada-ubiquity (0.9-1) hardy; urgency=low
+
+  * Upstream version 
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Mon, 07 Jul 2008 09:23:42 +0200
+
+guada-ubiquity (0.8-1) hardy; urgency=low
+
+  * Added correct .desktop and diverts 
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Thu, 26 Jun 2008 09:56:34 +0200
+
+guada-ubiquity (0.7-1) hardy; urgency=low
+
+  * Better 70reuse bash syntax
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Tue, 24 Jun 2008 10:20:24 +0200
+
+guada-ubiquity (0.6-1) hardy; urgency=low
+
+  * Add reuse partitions option
+  * Corp texts to welcome page and preparted page
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Thu, 12 Jun 2008 15:10:03 +0200
+
+guada-ubiquity (0.5-1) hardy; urgency=low
+
+  * 92guadalinexrepos
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Mon, 26 May 2008 12:28:49 +0200
+
+guada-ubiquity (0.4-1) hardy; urgency=low
+
+  * Fix bug in summary
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Mon, 26 May 2008 10:18:20 +0200
+
+guada-ubiquity (0.3-1) hardy; urgency=low
+
+  * Added desktop
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Tue, 13 May 2008 12:14:47 +0200
+
+guada-ubiquity (0.2-1) hardy; urgency=low
+
+  * Added repository guadalinex hook
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Fri, 09 May 2008 13:03:25 +0200
+
+guada-ubiquity (0.1-1) unstable; urgency=low
+
+  * Initial release 
+
+ -- Roberto Majadas <roberto.majadas@openshine.com>  Fri, 02 May 2008 13:31:22 +0200
+
