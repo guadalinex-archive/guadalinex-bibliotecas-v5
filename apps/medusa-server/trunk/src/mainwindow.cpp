@@ -48,6 +48,7 @@
 #include "osd.h"
 #include "mlog/layout.h"
 #include "mlog/output.h"
+#include "sendmessagedialog.h"
 
 using namespace mlog;
 
@@ -150,6 +151,11 @@ void MainWindow::createActions()
 	addHostAct->setStatusTip(tr("Add a host"));
 	addHostAct->setIconSet(QPixmap::fromMimeSource("address_next_move_add_insert.png"));
 	connect(addHostAct, SIGNAL(activated()), this, SLOT(addHost()));
+
+   sendMessageAct = new QAction(tr("&Send Message"), tr("Ctrl+M"), this);
+   sendMessageAct->setStatusTip(tr("Send a Message"));
+   sendMessageAct->setIconSet(QPixmap::fromMimeSource("message.png"));
+   connect(sendMessageAct, SIGNAL(activated()), this, SLOT(sendMessage()));
 	
 	editHostAct = new QAction(tr("&Edit Host"), tr("Ctrl+E"), this);
 	editHostAct->setStatusTip(tr("Edit selected host"));
@@ -259,6 +265,7 @@ void MainWindow::createMenus()
 	unblockSelectedAct->addTo(actionsMenu);
    shutdownSelectedAct->addTo(actionsMenu);
    shutdownAllAct->addTo(actionsMenu);
+   sendMessageAct->addTo(actionsMenu);
 	//getUserAct->addTo(actionsMenu);
 	
 
@@ -316,6 +323,7 @@ void MainWindow::createToolBars()
 	unblockSelectedAct->addTo(actionToolBar);
    shutdownSelectedAct->addTo(actionToolBar);
    shutdownAllAct->addTo(actionToolBar);
+   sendMessageAct->addTo(actionToolBar);
 	
 }
 
@@ -580,6 +588,14 @@ void MainWindow::addHost()
 		
 		configModified();
 	}	
+}
+
+void MainWindow::sendMessage()
+{
+   SendMessageDialog dialog (this);
+   dialog.exec();
+
+   return;
 }
 
 /// Edit current host

@@ -14,6 +14,7 @@ class AddHostDialog;
 class ConfigurationDialog;
 class QFont;
 class OSDWidget;
+class SendMessageDialog;
 
 class MainWindow:public QMainWindow {
 	Q_OBJECT 
@@ -58,6 +59,7 @@ private slots:
 	void updateViewUser(const QString &host, const QString &user);
 	void updateViewLoginUser(const QString &host, const QString &user);
 	void getLoginUser();
+   void sendMessage();
 	
 
 
@@ -83,7 +85,8 @@ private:
 	// Dialogs
 	AddHostDialog *addHostDialog;
 	ConfigurationDialog *configDialog;
-	
+   SendMessageDialog *sendMessageDialog;	
+
 	QListViewItem *element;
 
 	QLabel *locationLabel;
@@ -142,6 +145,7 @@ private:
    QAction *shutdownSelectedAct;
 	QAction *setTimerAct;
 	QAction *getUserAct;
+   QAction *sendMessageAct;
 
 	// Settings
 	QAction *autoDisAct;
