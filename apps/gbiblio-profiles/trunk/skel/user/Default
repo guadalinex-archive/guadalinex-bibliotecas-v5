@@ -14,8 +14,10 @@ if [ "$USER" = "usuario" ]; then
     cp /tmp/gnome-about-me.desktop /home/usuario/.local/share/applications/
     # Cambiamos el propietario y el grupo
     chown -R usuario:usuario /home/usuario
-    su -c 'gconftool-2 -s --type bool /apps/panel/global/disable_log_out true' usuario
-    su -c 'gconftool-2 -s --type bool /apps/panel/global/disable_lock_screen true' usuario
+    su -c 'gconftool-2 -s --type bool /desktop/gnome/lockdown/disable_lock_screen true' usuario
+    su -c 'gconftool-2 -s --type bool /desktop/gnome/lockdown/disable_user_switching true' usuario
+    su -c 'gconftool-2 -s --type bool /apps/gnome-power-manager/general/can_hibernate false' usuario
+    su -c 'gconftool-2 -s --type bool /apps/gnome-power-manager/general/can_suspend false' usuario
 #    chown -R usuario:usuario /home/usuario/.[0-Z]*
 
 fi
