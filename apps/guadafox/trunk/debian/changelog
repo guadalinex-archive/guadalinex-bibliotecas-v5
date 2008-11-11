@@ -1,3 +1,9 @@
+guadafox (0.2-3gbiblio1) hardy; urgency=low
+
+  [dteyssiere]
+  * Added bookmarks for bibliotecas.
+
+ -- Roberto C. Morano <rcmorano@emergya.es>  Tue, 11 Nov 2008 13:38:55 +0200
 guadafox (0.2-3) hardy; urgency=low
 
   * Added 'laSexta' bookmark.
