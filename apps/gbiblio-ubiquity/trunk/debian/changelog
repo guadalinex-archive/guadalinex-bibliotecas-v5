@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio19) stable; urgency=low
+
+  [dteyssiere]
+  * Added resolv.conf to Makefile.am in data/templates
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Tue, 11 Nov 2008 11:17:24 +0200
 gbiblio-ubiquity (0.9guada3gbiblio18) stable; urgency=low
 
   [dteyssiere]
