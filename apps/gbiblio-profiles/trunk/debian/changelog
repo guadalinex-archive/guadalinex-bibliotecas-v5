@@ -1,3 +1,9 @@
+gbiblio-profiles (0.14) unstable; urgency=low
+
+  [dteyssiere]
+  * Disabling all actions except close session at close button gnome
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 11 Nov 2008 18:01:29 +0100
 gbiblio-profiles (0.13) unstable; urgency=low
 
   [dteyssiere]
