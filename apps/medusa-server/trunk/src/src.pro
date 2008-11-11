@@ -8,7 +8,8 @@ FORMS += addhostdialogbase.ui \
          runningwarningbase.ui \
          counterdialogbase.ui \
          autodiscoverydialogbase.ui \
-         waitingdialogbase.ui 
+         waitingdialogbase.ui \
+         sendmessagedialogbase.ui
 TRANSLATIONS += mdserver_es.ts 
 IMAGES += images/icon.png \
           images/new.png \
@@ -25,6 +26,7 @@ IMAGES += images/icon.png \
           images/delete.png \
           images/find.png \
           images/gotocell.png \
+          images/message.png \
           images/small/circle_blue.png \
           images/small/circle_green.png \
           images/small/circle_red.png \
@@ -65,7 +67,8 @@ HEADERS += mainwindow.h \
            counterdialog.h \
            autodiscoverydialog.h \
            osd.h \
-           waitingdialog.h 
+           waitingdialog.h \
+           sendmessagedialog.h
 SOURCES += main.cpp \
            mainwindow.cpp \
            workstation.cpp \
@@ -82,7 +85,8 @@ SOURCES += main.cpp \
            counterdialog.cpp \
            autodiscoverydialog.cpp \
            osd.cpp \
-           waitingdialog.cpp 
+           waitingdialog.cpp \
+           sendmessagedialog.cpp
 CONFIG += exceptions \
 release \
 warn_on \
