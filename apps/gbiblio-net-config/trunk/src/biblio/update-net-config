@@ -38,5 +38,4 @@ EOF
 fi
 
 cp /tmp/interfaces /etc/network/interfaces
-cp /tmp/hostname /etc/hostname
 /etc/init.d/networking restart
