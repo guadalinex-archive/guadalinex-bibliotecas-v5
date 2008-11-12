@@ -60,7 +60,7 @@ class GbiblioNetConfig (object):
         if self.widgets['combo_conexion'].get_active_text() == 'Cableada':
             tipo='eth0'
         else:
-            tipo='wlan0'
+            tipo='wireless'
         comando = "/usr/share/gbiblio-net-config/bin/update-net-config "+tipo
 
         p = Popen(comando,shell=True, bufsize=0, stdout=None, stderr=None, close_fds=True)
