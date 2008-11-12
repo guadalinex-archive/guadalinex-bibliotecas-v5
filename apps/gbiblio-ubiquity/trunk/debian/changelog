@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio20) stable; urgency=low
+
+  * Added checking for the network device on the final script
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 12 Nov 2008 09:39:24 +0200
+
 gbiblio-ubiquity (0.9guada3gbiblio19) stable; urgency=low
 
   [dteyssiere]
