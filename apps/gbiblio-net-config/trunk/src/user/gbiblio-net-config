@@ -65,7 +65,7 @@ class GbiblioNetConfig (object):
         if self.widgets['combo_conexion'].get_active_text() == 'Cableada':
             tipo='eth0'
         else:
-            tipo='wlan0'
+            tipo='wireless'
         comando = "/usr/share/gbiblio-net-config/bin/update-net-config "+numcliente+" "+tipo+" "+ip
 
         #LINEAS PARA DEBUGGEAR

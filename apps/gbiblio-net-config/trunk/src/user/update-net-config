@@ -22,12 +22,13 @@ iface $2 inet static
 EOF
 else
     ifconfig eth0 down
+    INTERFACE="$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)"
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
 
-auto $2
-iface $2 inet static
+auto $INTERFACE
+iface $INTERFACE inet static
 	address $3
 	netmask 255.255.255.0
         gateway 192.168.1.1
