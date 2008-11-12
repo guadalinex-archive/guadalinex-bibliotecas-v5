@@ -15,20 +15,21 @@ iface lo inet loopback
 
 auto $1
 iface $1 inet static
-	address 192.168.1.10
-	netmask 255.255.255.0
+        address 192.168.1.10
+        netmask 255.255.255.0
         gateway 192.168.1.1
 EOF
 else
     ifconfig eth0 down
+    INTERFACE="$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)"
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
 
-auto $1
-iface $1 inet static
-	address 192.168.1.10
-	netmask 255.255.255.0
+auto $INTERFACE
+iface $INTERFACE inet static
+        address 192.168.1.10
+        netmask 255.255.255.0
         gateway 192.168.1.1
         wireless-essid biblioteca
         wireless-key s:1357986420900
