@@ -1,0 +1,23 @@
+gbiblio-net-config (0.4) unstable; urgency=low
+ 
+  [dteyssiere]
+  * Added autodetection of wireless interface
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 12 Nov 2008 10:40:40 +0100
+gbiblio-net-config (0.3) unstable; urgency=low
+ 
+  [dteyssiere]
+  * Created multipackage, one for server an another for user
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 10 Nov 2008 16:30:40 +0100
+gbiblio-net-config (0.2) unstable; urgency=low
+
+  * Fixed installation
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 07 Nov 2008 14:22:40 +0100
+
+gbiblio-net-config (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 07 Nov 2008 09:25:02 +0100
