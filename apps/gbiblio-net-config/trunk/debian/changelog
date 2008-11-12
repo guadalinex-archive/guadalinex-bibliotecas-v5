@@ -1,3 +1,9 @@
+gbiblio-net-config (0.4) unstable; urgency=low
+ 
+  [dteyssiere]
+  * Added autodetection of wireless interface
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 12 Nov 2008 10:40:40 +0100
 gbiblio-net-config (0.3) unstable; urgency=low
  
   [dteyssiere]
