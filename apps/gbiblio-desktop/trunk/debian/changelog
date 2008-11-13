@@ -1,3 +1,9 @@
+gbiblio-desktop (0.17) unstable; urgency=low
+
+  [dteyssiere]
+  * Added dependencie numlockx
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Thu, 13 Nov 2008 09:44:22 +0100
 gbiblio-desktop (0.16) unstable; urgency=low
 
   [dteyssiere]
