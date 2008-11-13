@@ -1,3 +1,9 @@
+gbiblio-net-config (0.5) unstable; urgency=low
+ 
+  [dteyssiere]
+  * Fixed some bugs and diferentiations between client and server
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 13 Nov 2008 11:12:40 +0100
 gbiblio-net-config (0.4) unstable; urgency=low
  
   [dteyssiere]
