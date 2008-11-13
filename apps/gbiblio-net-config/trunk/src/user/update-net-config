@@ -6,10 +6,11 @@
 # Su cometido es cambiar la configuración de red actualizando el fichero /etc/network/interfaces
 #
 #
-echo "He recogido $1 $2 y $3"
+
+WINTERFACE="$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)"
 
 if [ "$2" == "eth0" ];then
-    ifconfig wlan0 down
+    ifconfig $WINTERFACE down
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
@@ -22,13 +23,12 @@ iface $2 inet static
 EOF
 else
     ifconfig eth0 down
-    INTERFACE="$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)"
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
 
-auto $INTERFACE
-iface $INTERFACE inet static
+auto $WINTERFACE
+iface $WINTERFACE inet static
 	address $3
 	netmask 255.255.255.0
         gateway 192.168.1.1

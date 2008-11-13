@@ -7,8 +7,10 @@
 #
 #
 
+WINTERFACE="$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)"
+
 if [ "$1" == "eth0" ];then
-    ifconfig wlan0 down
+    ifconfig $WINTERFACE down
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
@@ -21,13 +23,12 @@ iface $1 inet static
 EOF
 else
     ifconfig eth0 down
-    INTERFACE="$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)"
     cat <<EOF > /tmp/interfaces
 auto lo
 iface lo inet loopback
 
-auto $INTERFACE
-iface $INTERFACE inet static
+auto $WINTERFACE
+iface $WINTERFACE inet static
         address 192.168.1.10
         netmask 255.255.255.0
         gateway 192.168.1.1
