@@ -1,6 +1,6 @@
 #!/bin/bash
 
-logs=/var/log/installer/debug
+logs=/target/var/log/installer/debug
 
 exec > $logs 2>&1
 
@@ -15,8 +15,8 @@ cp -v /usr/share/gbiblio-ubiquity/templates/resolv.conf /target/etc/resolv.conf 
 cp -v /tmp/interfaces /target/etc/network/interfaces  || error "copying interfaces"
 
 dev=$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)
-if [ "$dev" != "ath0" ]; then
-        sed -i 's|ath0|'$dev'|g' /target/etc/network/interfaces
+if [ "$dev" != "wlan0" ]; then
+        sed -i 's|wlan0|'$dev'|g' /target/etc/network/interfaces
 fi
 
 if ( grep -q client /proc/cmdline ) ; then
