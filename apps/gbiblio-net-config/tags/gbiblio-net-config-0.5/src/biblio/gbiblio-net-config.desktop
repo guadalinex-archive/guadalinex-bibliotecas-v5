@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Encoding=UTF-8
+Name=Configuración de Red
+Exec=gksudo gbiblio-net-config
+Comment=Configuración de Red del equipo.
+Icon=/usr/share/gbiblio-net-config/gbiblio-net-config.png
+Terminal=false
+Categories=GNOME;GTK;System;Settings;X-GNOME-NetworkSettings;
+StartupNotify=false
