@@ -113,5 +113,10 @@ ln -fs /usr/share/$package/en-US.jar $BASE
 dpkg-divert --package gbiblio-server --rename --quiet --add /usr/share/applications/seamonkey.desktop
 ln -fs /usr/share/gbiblio-server/seamonkey.desktop /usr/share/applications/seamonkey.desktop
 
+[ "/etc/exim4/update-exim4.conf.conf" != "$(dpkg-divert --truename /etc/exim4/update-exim4.conf.conf)" ] && rm -f /etc/exim4/update-exim4.conf.conf && dpkg-divert --rename --remove /etc/exim4/update-exim4.conf.conf
+dpkg-divert --package gbiblio-server --rename --quiet --add /etc/exim4/update-exim4.conf.conf
+ln -fs /etc/exim4/update-exim4.conf.conf.gbv5 /etc/exim4/update-exim4.conf.conf
+chmod 644 /etc/exim4/update-exim4.conf.conf
+
 exit 0
 

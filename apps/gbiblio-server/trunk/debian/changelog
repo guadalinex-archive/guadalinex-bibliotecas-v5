@@ -1,3 +1,9 @@
+gbiblio-server (1.26) unstable; urgency=low
+
+  [dteyssiere]
+  * Added exim4 config for send stats
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 19 Nov 2008 13:25:18 +0100
 gbiblio-server (1.25) unstable; urgency=low
 
   [dteyssiere]
