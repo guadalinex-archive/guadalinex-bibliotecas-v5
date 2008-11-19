@@ -27,6 +27,7 @@ IMAGES += images/icon.png \
           images/find.png \
           images/gotocell.png \
           images/message.png \
+          images/messagetoall.png \
           images/small/circle_blue.png \
           images/small/circle_green.png \
           images/small/circle_red.png \

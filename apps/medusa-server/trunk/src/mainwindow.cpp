@@ -193,6 +193,11 @@ void MainWindow::createActions()
    shutdownAllAct->setStatusTip(tr("Shutdown all the workstations at once"));
    shutdownAllAct->setIconSet(QPixmap::fromMimeSource("system-log-out.png"));
    connect(shutdownAllAct, SIGNAL(activated()), this, SLOT(shutdownAll()) );
+   
+   sendMessageAllAct = new QAction(tr("Send Message to All"), tr("Ctrl+Y"), this);
+   sendMessageAllAct->setStatusTip(tr("Send Message to All Workstations"));
+   sendMessageAllAct->setIconSet(QPixmap::fromMimeSource("messagetoall.png"));
+   connect(sendMessageAllAct, SIGNAL(activated()), this, SLOT(sendMessageAll()) );
 	
 	unblockSelectedAct = new QAction(tr("&Unblock selected Host"), tr("Ctrl+L"), this);
 	unblockSelectedAct->setStatusTip(tr("Unblock all the workstations at once"));
@@ -272,6 +277,7 @@ void MainWindow::createMenus()
    shutdownSelectedAct->addTo(actionsMenu);
    shutdownAllAct->addTo(actionsMenu);
         sendMessageAct->addTo(actionsMenu);
+        sendMessageAllAct->addTo(actionsMenu);
 	//getUserAct->addTo(actionsMenu);
 	
 
@@ -305,6 +311,7 @@ void MainWindow::contextMenuEvent(QContextMenuEvent * event)
 	editHostAct->addTo(&contextMenu);
 	deleteHostAct->addTo(&contextMenu);	
         sendMessageAct->addTo(&contextMenu);
+        sendMessageAllAct->addTo(&contextMenu);
 	
 
 	contextMenu.exec(event->globalPos());
@@ -331,6 +338,7 @@ void MainWindow::createToolBars()
         shutdownSelectedAct->addTo(actionToolBar);
         shutdownAllAct->addTo(actionToolBar);
         sendMessageAct->addTo(actionToolBar);
+        sendMessageAllAct->addTo(actionToolBar);
 	
 }
 
@@ -977,6 +985,22 @@ void MainWindow::sendMessage()
    }
 }
 
+void MainWindow::sendMessageAll()
+{
+   xmlDocPtr doc = xmlNewDoc(NULL);
+   xmlChar *tempmess;
+   SendMessageDialog dialog (this);
+   if (dialog.exec()){
+      QString message = dialog.textMessage->text();
+      message = message.remove('"');
+      message = message.remove("'");
+      tempmess =(xmlChar *) message.data();
+      tempmess = xmlEncodeSpecialChars(doc,tempmess);
+      message = QString((char *)tempmess);
+      qDebug("MainWindow::sendmessageAllStation() -- sending message to all hosts");
+      wsGroup.sendmessageAllStation(message);
+   }
+}
 
 void MainWindow::unblockAll()
 {
