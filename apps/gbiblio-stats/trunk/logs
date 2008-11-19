@@ -21,7 +21,8 @@ touch /tmp/vacio
 mutt -e "my_hdr from: $FROM_ADDR" -e "set realname=$REAL_NAME" -s "estadísticas de biblioteca $ID_PROVINCIA-$ID_LOCALIDAD" -a $STATS_FILE "$TO_ADDR" < /tmp/vacio
 
 # Se borran los ficheros enviados
-rm -f $STATS_FILE
+#rm -f $STATS_FILE
+echo -n $STATS_FILE
 
 # Se rota el fichero de logs
 # Eliminada la rotaciÃn
