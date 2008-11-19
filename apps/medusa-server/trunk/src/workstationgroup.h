@@ -63,9 +63,9 @@ public:
 	void unblockStation(QString host);
 	void blockAll();
 	void unblockAll();
-   void shutdownStation(QString host);
-   void shutdownAll();
-
+        void shutdownStation(QString host);
+        void shutdownAll();
+        void sendmessageStation(QString host, QString message);
 	
 	WorkStation * findHost(QString host);
 	void startTimerSession(QString const &host, long seconds, QString user, bool reset = false);

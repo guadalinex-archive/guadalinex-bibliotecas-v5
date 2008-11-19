@@ -85,8 +85,8 @@ private:
 	// Dialogs
 	AddHostDialog *addHostDialog;
 	ConfigurationDialog *configDialog;
-   SendMessageDialog *sendMessageDialog;	
-
+        SendMessageDialog *sendMessageDialog;
+	
 	QListViewItem *element;
 
 	QLabel *locationLabel;
@@ -145,7 +145,7 @@ private:
    QAction *shutdownSelectedAct;
 	QAction *setTimerAct;
 	QAction *getUserAct;
-   QAction *sendMessageAct;
+	QAction *sendMessageAct;
 
 	// Settings
 	QAction *autoDisAct;

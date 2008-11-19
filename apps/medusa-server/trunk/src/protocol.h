@@ -49,7 +49,8 @@ public:
 		StatusCommand,
 		UserCommand,
 		EndSessionCommand,
-      ShutdownCommand
+                ShutdownCommand,
+                SendMessageCommand
 	};
 	
 	QString getCommand(int cmd);
@@ -63,7 +64,8 @@ public:
 	QString status;	
 	QString user;
 	QString endSession;
-   QString shutdown;
+        QString shutdown;
+        QString sendmessage;
 	
 };
 

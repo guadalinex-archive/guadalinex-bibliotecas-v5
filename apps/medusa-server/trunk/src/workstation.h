@@ -49,7 +49,8 @@ public:
 		INACTIVE, 	// the WS is unblocked and timer isn't on
 		ERROR,		// could not connect to it
 		CONNECTING,	// trying to connecto to the client	
-      SHUTTINGDOWN   // shutting down
+                SHUTTINGDOWN,   // shutting down
+                SENDINGMESSAGE // sending message
 	};
 	
 	enum ConnectionState {
@@ -76,7 +77,8 @@ public:
 	QString getUser();
 	int getState();
 
-   void shutdown();
+        void shutdown();
+        void sendmessage(QString message);
 	
 	// This would update the remaining time
 	void startSession(long nsecs);
@@ -85,7 +87,8 @@ public:
 	void blockStation();
 	void unblockStation();
 	void endSession();
-   void shutdownStation();	
+        void shutdownStation();	
+        void sendmessageStation(QString host, QString message);
 	void pauseSession();
 	void continueSession();
 	void delayStatus(int offset=0);
@@ -131,6 +134,7 @@ private:
 	QString actualUser;	
 	QString logName;
 	QString hostName;
+        QString info;
 	
 	QSocket *socket;
 	
