@@ -12,6 +12,8 @@ cp -v /usr/share/gbiblio-ubiquity/templates/hosts /target/etc/hosts || error "co
 
 cp -v /usr/share/gbiblio-ubiquity/templates/resolv.conf /target/etc/resolv.conf || error "copying resolv.conf"
 
+cp -v /usr/share/gbiblio-ubiquity/templates/sources.list /target/etc/apt/sources.list || error "copying sources.list"
+
 cp -v /tmp/interfaces /target/etc/network/interfaces  || error "copying interfaces"
 
 dev=$(awk -F: '/:/ {gsub(" ","",$1); print $1}' /proc/net/wireless)
