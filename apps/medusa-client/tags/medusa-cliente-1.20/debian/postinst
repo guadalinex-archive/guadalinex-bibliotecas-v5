@@ -1,0 +1,8 @@
+#!/bin/bash
+
+cp /usr/share/medusa-client/Default /etc/gdm/Init
+
+# Add options to don't let change between screens.
+if [ -z "$(grep DontZap /etc/X11/xorg.conf)" ]; then
+	sed -i 's/Section.*\"ServerLayout\"/Section "ServerLayout"\n\tOption\t\t"DontZap" "true"\n\tOption\t\t"DontVTSwitch" "true"/g' /etc/X11/xorg.conf
+fi
