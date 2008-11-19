@@ -1,9 +1,0 @@
-[Desktop Entry]
-Name=Envío de estadísticas
-Comment=Herramienta de envío de estadísticas
-Exec=gksudo gbiblio-stats-sender
-Icon=/usr/share/pixmaps/gbiblio-stats.png
-Terminal=false
-Type=Application
-Categories=Application;System;Settings
-Encoding=UTF-8
