@@ -1,3 +1,9 @@
+gbiblio-desktop (0.18) unstable; urgency=low
+
+  [dteyssiere]
+  * Deleted blender dependencie not needed
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Wed, 19 Nov 2008 16:43:22 +0100
 gbiblio-desktop (0.17) unstable; urgency=low
 
   [dteyssiere]
