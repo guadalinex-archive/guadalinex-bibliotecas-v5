@@ -13,15 +13,16 @@ import gtk
 import gtk.glade
 import gobject
 import sys
-from subprocess import Popen
+from subprocess import Popen, PIPE
 import os
+import shutil
 
 class GbiblioStatsSender (object):
 
     def __init__(self):
         self.widgets = {}
         self.mainloop = gobject.MainLoop()
-        self.mainmail= "estadisticas.bibliotecas.ccul@juntadeandalucia.es"
+        self.defaultDir = '/home/biblio/Desktop/Estadisticas'
 
     def initgui(self):
         self.ui = gtk.glade.XML('/usr/share/gbiblio-stats-sender/gbiblio-stats-dialog.glade')
@@ -33,8 +34,14 @@ class GbiblioStatsSender (object):
         # conectamos las señales
         self.ui.signal_autoconnect(self)
 
-        self.widgets['entry1'].set_sensitive(False)
-        self.widgets['entry1'].set_text('usuario@dominio.es')
+        self.widgets['filechooserbutton1'].set_current_folder(self.defaultDir)
+
+        if not os.path.isdir(self.defaultDir):
+            os.mkdir(self.defaultDir)
+            p = Popen('id -u biblio', shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
+            uid = p.stdout.readline()
+            os.chown(self.defaultDir,int(uid), int(uid))
+
         self.widgets['dialog1'].show_all()
     
     def run (self):
@@ -58,14 +65,14 @@ class GbiblioStatsSender (object):
             self.widgets['entry1'].set_sensitive(False)
 
     def send_stats(self, *args):
-        if self.widgets['checkbutton1'].get_active():
-            alternatemail = self.widgets['entry1'].get_text()
-            fichmail=open("/etc/email_estadisticas.conf","r+")
-            mail='TO_ADDR="'+self.mainmail+';'+alternatemail+'"'
-            fichmail.write(mail)
-            fichmail.close()
-        cmd='/etc/cron.monthly/logs'
-        p=Popen(cmd, shell=True, bufsize=0, stdout=None, stderr=None, close_fds=True)
+        dest = self.widgets['filechooserbutton1'].get_current_folder()
+        cmd = '/etc/cron.monthly/logs'
+        p = Popen(cmd, shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
+        stats_file = p.stdout.readline()
+
+        if os.path.isfile(stats_file):
+           shutil.move(stats_file, dest)
+
         mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
                                  type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
         mesg.set_markup (u"<big><b>Estadísticas enviadas</b></big>")

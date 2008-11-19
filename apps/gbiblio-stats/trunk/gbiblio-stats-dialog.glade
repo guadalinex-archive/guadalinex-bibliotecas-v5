@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE glade-interface SYSTEM "glade-2.0.dtd">
-<!--Generated with glade3 3.4.5 on Fri Oct 31 10:48:13 2008 -->
+<!--Generated with glade3 3.4.5 on Wed Nov 19 12:49:59 2008 -->
 <glade-interface>
   <widget class="GtkDialog" id="dialog1">
     <property name="border_width">5</property>
@@ -13,23 +13,38 @@
         <property name="visible">True</property>
         <property name="spacing">2</property>
         <child>
-          <widget class="GtkHBox" id="hbox1">
+          <widget class="GtkVBox" id="vbox1">
             <property name="visible">True</property>
             <child>
-              <widget class="GtkCheckButton" id="checkbutton1">
+              <widget class="GtkLabel" id="label1">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="label" translatable="yes">Añadir dirección de copia</property>
-                <property name="response_id">0</property>
-                <property name="draw_indicator">True</property>
-                <signal name="toggled" handler="on_checkbutton1_toggled"/>
+                <property name="ypad">10</property>
+                <property name="label" translatable="yes">Puede seleccionar una carpeta donde guadar una copia
+de la estadística enviada. Si no selecciona ninguna se 
+guardará en su escritorio, en la carpeta "Estadísticas"</property>
+                <property name="justify">GTK_JUSTIFY_FILL</property>
+                <property name="wrap">True</property>
               </widget>
             </child>
             <child>
-              <widget class="GtkEntry" id="entry1">
+              <widget class="GtkHBox" id="hbox1">
                 <property name="visible">True</property>
-                <property name="can_focus">True</property>
-                <property name="editable">False</property>
+                <child>
+                  <widget class="GtkLabel" id="label2">
+                    <property name="visible">True</property>
+                    <property name="ypad">10</property>
+                    <property name="label" translatable="yes">Carpeta seleccionada</property>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkFileChooserButton" id="filechooserbutton1">
+                    <property name="visible">True</property>
+                    <property name="action">GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER</property>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
               </widget>
               <packing>
                 <property name="position">1</property>
