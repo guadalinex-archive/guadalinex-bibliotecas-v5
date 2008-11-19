@@ -80,4 +80,6 @@ void end_session(void);
  */
 void shut_down(void);
 
+void recive_message(int tam, char * mensaje);
+
 #endif

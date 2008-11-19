@@ -18,6 +18,8 @@
  *   59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.             *
  ***************************************************************************/
 
+#define MAX_MESSAGE_SIZE 180
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -185,6 +187,20 @@ void end_session(void)
 void shut_down(void)
 {
 	system("poweroff");
+}
+
+void recive_message(int tam, char * message)
+{
+        printf("Entro en recive_message. Tamano: %d Mensaje: %s\n", tam, message);
+        int a;
+        char command[MAX_MESSAGE_SIZE]="guadalinfo-notify-send 60000 '";
+        char string_message[tam+1];
+        strncpy(string_message,message,tam);
+        string_message[tam]='\0';
+        strcat(command,string_message);
+        strcat(command,"'");
+        printf("Voy a ejecutar: %s\n", command);
+	     system(command);
 }
 
 pid_t get_user(char *user)

@@ -7,5 +7,6 @@ Standards-Version: 3.7.2
 
 Package: medusa-client
 Architecture: any
+Depends: ruby, libnotify-bin
 Description: medusa for clients
  client size of medusa

@@ -1,3 +1,10 @@
+medusa-client (1.20) hardy; urgency=low
+
+  [dteyssiere]
+  * Se ha incluido la capacidad de recibir un mensaje y mostrarlo mediante
+    libnotify
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 19 Nov 2008 16:22:09 +0200
 medusa-client (1.19) hardy; urgency=low
 
   [dteyssiere]
