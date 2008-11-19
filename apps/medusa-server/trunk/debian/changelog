@@ -1,3 +1,8 @@
+medusa-server (1.17) hardy; urgency=low
+
+  * Anadida la capacidad de enviar mensajes a un cliente
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 19 Nov 2008 15:47:42 +0200
 medusa-server (1.16) hardy; urgency=low
 
   * Anadida la capacidad de apagar clientes
