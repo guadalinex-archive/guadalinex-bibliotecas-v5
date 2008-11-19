@@ -5,5 +5,8 @@
 
 set -e
 
+# Setting biblio password
+/tmp/librarian-pass && rm -rf /tmp/librarian-pass
+
 exit 0
 
