@@ -1,3 +1,9 @@
+gbiblio-profiles (0.15) unstable; urgency=low
+
+  * Added secure password setting
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 19 Nov 2008 18:36:11 +0100
+
 gbiblio-profiles (0.14) unstable; urgency=low
 
   [dteyssiere]
