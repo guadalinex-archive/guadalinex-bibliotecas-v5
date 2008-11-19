@@ -23,6 +23,7 @@ class GbiblioStatsSender (object):
         self.widgets = {}
         self.mainloop = gobject.MainLoop()
         self.defaultDir = '/home/biblio/Desktop/Estadisticas'
+        self.uid = None
 
     def initgui(self):
         self.ui = gtk.glade.XML('/usr/share/gbiblio-stats-sender/gbiblio-stats-dialog.glade')
@@ -39,8 +40,8 @@ class GbiblioStatsSender (object):
         if not os.path.isdir(self.defaultDir):
             os.mkdir(self.defaultDir)
             p = Popen('id -u biblio', shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
-            uid = p.stdout.readline()
-            os.chown(self.defaultDir,int(uid), int(uid))
+            self.uid = p.stdout.readline()
+            os.chown(self.defaultDir,int(self.uid), int(self.uid))
 
         self.widgets['dialog1'].show_all()
     
@@ -71,7 +72,8 @@ class GbiblioStatsSender (object):
         stats_file = p.stdout.readline()
 
         if os.path.isfile(stats_file):
-           shutil.move(stats_file, dest)
+            shutil.move(stats_file, dest)
+            os.chown(self.defaultDir+os.sep+stats_file.split('/')[-1],int(self.uid), int(self.uid))
 
         mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
                                  type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
