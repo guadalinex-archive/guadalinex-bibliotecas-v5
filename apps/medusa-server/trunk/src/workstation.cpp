@@ -216,9 +216,17 @@ void WorkStation::sendCommand()
 {
 	QTextStream os(socket);	
 	Protocol prot;
-	
-	os << prot.getCommand(messageNum) << "\n";	
-	
+
+        if ( ! info.isEmpty() )
+        {
+           os << info << "\n";
+           info="";
+        }
+        else
+        {
+           os << prot.getCommand(messageNum) << "\n";
+        }
+
 }
 
 
@@ -602,6 +610,13 @@ void WorkStation::shutdown()
    sendMessage();
 }
 
+void WorkStation::sendmessage(QString message)
+{
+   Protocol prot;
+   QString temp;
+   info = prot.getCommand(Protocol::SendMessageCommand) + "'" + temp.setNum(message.length()) + "'" + ">" + message + "</MESSAGE></MD>";
+   sendMessage();
+}
 
 /// high level function to shut down the workstation
 void WorkStation::shutdownStation()
@@ -614,3 +629,12 @@ void WorkStation::shutdownStation()
    }
 }
 
+void WorkStation::sendmessageStation(QString host, QString message)
+{
+   if (state != WorkStation::ERROR || state != WorkStation::CONNECTING || state != WorkStation::SHUTTINGDOWN) {
+      // We can connect to the workstation
+      ws_log.log("Sending message IP " + getHostIP() + ".");
+      state = WorkStation::SENDINGMESSAGE;
+      sendmessage(message);
+   }
+}

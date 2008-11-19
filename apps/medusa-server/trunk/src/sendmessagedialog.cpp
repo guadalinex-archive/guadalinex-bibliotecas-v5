@@ -2,7 +2,6 @@
 #include <qlabel.h>
 #include <qpushbutton.h>
 #include <qvalidator.h>
-#include <iostream.h>
 
 #include "sendmessagedialog.h"
 

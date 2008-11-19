@@ -24,6 +24,7 @@
 #include <qfiledialog.h>
 #include <qlabel.h>
 #include <qlineedit.h>
+#include <qtextedit.h>
 #include <qmenubar.h>
 #include <qlistview.h>
 #include <qmessagebox.h>
@@ -35,6 +36,10 @@
 #include <qfont.h>
 #include <qcolor.h>
 #include <qslider.h>
+
+#include <libxml/xmlmemory.h>
+#include <libxml/parser.h>
+
 
 #include "addhostdialog.h"
 #include "edithostdialog.h"
@@ -152,10 +157,11 @@ void MainWindow::createActions()
 	addHostAct->setIconSet(QPixmap::fromMimeSource("address_next_move_add_insert.png"));
 	connect(addHostAct, SIGNAL(activated()), this, SLOT(addHost()));
 
-   sendMessageAct = new QAction(tr("&Send Message"), tr("Ctrl+M"), this);
-   sendMessageAct->setStatusTip(tr("Send a Message"));
-   sendMessageAct->setIconSet(QPixmap::fromMimeSource("message.png"));
-   connect(sendMessageAct, SIGNAL(activated()), this, SLOT(sendMessage()));
+        sendMessageAct = new QAction(tr("&Send Message"), tr("Ctrl+M"), this);
+        sendMessageAct->setStatusTip(tr("Send a Message"));
+        sendMessageAct->setIconSet(QPixmap::fromMimeSource("message.png"));
+        connect(sendMessageAct, SIGNAL(activated()), this, SLOT(sendMessage()));
+
 	
 	editHostAct = new QAction(tr("&Edit Host"), tr("Ctrl+E"), this);
 	editHostAct->setStatusTip(tr("Edit selected host"));
@@ -265,7 +271,7 @@ void MainWindow::createMenus()
 	unblockSelectedAct->addTo(actionsMenu);
    shutdownSelectedAct->addTo(actionsMenu);
    shutdownAllAct->addTo(actionsMenu);
-   sendMessageAct->addTo(actionsMenu);
+        sendMessageAct->addTo(actionsMenu);
 	//getUserAct->addTo(actionsMenu);
 	
 
@@ -294,10 +300,11 @@ void MainWindow::contextMenuEvent(QContextMenuEvent * event)
 	setTimerAct->addTo(&contextMenu);	
 	blockSelectedAct->addTo(&contextMenu);
 	unblockSelectedAct->addTo(&contextMenu);	
-   shutdownSelectedAct->addTo(&contextMenu);
+        shutdownSelectedAct->addTo(&contextMenu);
 	contextMenu.insertSeparator();
 	editHostAct->addTo(&contextMenu);
 	deleteHostAct->addTo(&contextMenu);	
+        sendMessageAct->addTo(&contextMenu);
 	
 
 	contextMenu.exec(event->globalPos());
@@ -321,9 +328,9 @@ void MainWindow::createToolBars()
 	unblockAllAct->addTo(actionToolBar);
 	blockSelectedAct->addTo(actionToolBar);
 	unblockSelectedAct->addTo(actionToolBar);
-   shutdownSelectedAct->addTo(actionToolBar);
-   shutdownAllAct->addTo(actionToolBar);
-   sendMessageAct->addTo(actionToolBar);
+        shutdownSelectedAct->addTo(actionToolBar);
+        shutdownAllAct->addTo(actionToolBar);
+        sendMessageAct->addTo(actionToolBar);
 	
 }
 
@@ -588,14 +595,6 @@ void MainWindow::addHost()
 		
 		configModified();
 	}	
-}
-
-void MainWindow::sendMessage()
-{
-   SendMessageDialog dialog (this);
-   dialog.exec();
-
-   return;
 }
 
 /// Edit current host
@@ -949,6 +948,32 @@ void MainWindow::shutdownSelectedSlot()
       showSimpleWarningBox(tr("You need to select a workstation first"));
       //statusBar()->message(tr("Host %1 seems not to be on our list - BUG").
       //    arg(host), 2000);
+   }
+}
+
+void MainWindow::sendMessage()
+{
+   xmlDocPtr doc = xmlNewDoc(NULL);
+   xmlChar *tempmess;
+   SendMessageDialog dialog (this);
+   if (dialog.exec()){
+      QString message = dialog.textMessage->text();
+      message = message.remove('"');
+      message = message.remove("'");
+      tempmess =(xmlChar *) message.data();
+      tempmess = xmlEncodeSpecialChars(doc,tempmess);
+      message = QString((char *)tempmess);
+      QString host;
+      host = stationlist->findSelected();
+      if (host != QString::null){
+         qDebug("MainWindow::sendmessageStation() -- sending message to " + host );
+         wsGroup.sendmessageStation(host, message);
+      }
+      else{
+         showSimpleWarningBox(tr("You need to select a workstation first"));
+         //statusBar()->message(tr("Host %1 seems not to be on our list - BUG").
+         //    arg(host), 2000);
+      }
    }
 }
 

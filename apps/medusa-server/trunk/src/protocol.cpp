@@ -35,7 +35,8 @@ Protocol::Protocol()
 	status = "<MD><STATUS/></MD>";
 	user = "<MD><USER/></MD>";
 	endSession = "<MD><ENDSESSION/></MD>";
-   shutdown = "<MD><SHUTDOWN/></MD>";
+        shutdown = "<MD><SHUTDOWN/></MD>";
+        sendmessage = "<MD><MESSAGE lengh=";
 	
 }
 
@@ -58,9 +59,12 @@ QString Protocol::getCommand(int cmd)
 		case Protocol::EndSessionCommand:
 			return endSession;
 			break;
-      case Protocol::ShutdownCommand:
-         return shutdown;
-         break;
+                case Protocol::ShutdownCommand:
+                        return shutdown;
+                        break;
+                case Protocol::SendMessageCommand:
+                        return sendmessage;
+                        break;
 		default:
 			return stop;
 			

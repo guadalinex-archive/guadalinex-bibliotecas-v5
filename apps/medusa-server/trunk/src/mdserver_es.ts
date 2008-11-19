@@ -861,6 +861,14 @@ bien refrescando su estado o bien mediante contacto visual</translation>
         <source>Ctrl+G</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Send Message</source>
+        <translation>Enviar &amp;Mensaje</translation>
+    </message>
+    <message>
+        <source>Send a Message</source>
+        <translation>Enviar un Mensaje</translation>
+    </message>
 </context>
 <context>
     <name>OSDPreviewWidget</name>

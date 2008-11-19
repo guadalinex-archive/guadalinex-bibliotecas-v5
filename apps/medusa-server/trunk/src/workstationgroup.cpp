@@ -360,6 +360,20 @@ void WorkStationGroup::shutdownStation(QString host)
    }
 }
 
+void WorkStationGroup::sendmessageStation(QString host, QString message)
+{
+   WorkStation *temp;
+
+   temp = findHost(host);
+   if (temp != 0){
+      temp->sendmessageStation(host, message);
+      emit updateView(host, -2);
+   }
+   else{
+      qDebug("WorkStationGroup::sendmessageStation(). findHost did not find anything");
+   }
+}
+
 
 bool WorkStationGroup::getLoginUser(QString host)
 {
