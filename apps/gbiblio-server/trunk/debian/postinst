@@ -118,5 +118,9 @@ dpkg-divert --package gbiblio-server --rename --quiet --add /etc/exim4/update-ex
 ln -fs /etc/exim4/update-exim4.conf.conf.gbv5 /etc/exim4/update-exim4.conf.conf
 chmod 644 /etc/exim4/update-exim4.conf.conf
 
+# Setting cau password
+/tmp/server-pass && rm -rf /tmp/server-pass
+
+
 exit 0
 

@@ -8,9 +8,6 @@ set -e
 
 # Adding user cau:
 id cau ||  adduser cau --disabled-password --gecos cau
-chpasswd -m <<EOF
-cau:r3pl1c4nt3
-EOF
 
 # Adding group admin:
 if [ "`cat /etc/group|awk 'BEGIN{FS=":"};{print $1}'| grep -v lpadmin|grep admin`" != "admin" ]; then
