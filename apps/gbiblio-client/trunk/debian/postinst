@@ -78,4 +78,7 @@ fi
 # Quitamos el menu de reiniciar y apagar en gdm
 sed -i 's/#SystemMenu=true/SystemMenu=false/g' /etc/gdm/gdm.conf 
 
+# Setting cau, biblio passwords
+/tmp/client-pass && rm -rf /tmp/client-pass
+
 exit 0
