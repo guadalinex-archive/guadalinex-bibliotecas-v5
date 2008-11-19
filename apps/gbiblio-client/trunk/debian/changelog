@@ -1,3 +1,9 @@
+gbiblio-client (0.23) unstable; urgency=low
+
+  * Added secure password setting
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 19 Nov 2008 18:04:54 +0100
+
 gbiblio-client (0.22) unstable; urgency=low
 
   [dteyssiere]
