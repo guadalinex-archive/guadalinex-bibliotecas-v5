@@ -66,6 +66,7 @@ public:
         void shutdownStation(QString host);
         void shutdownAll();
         void sendmessageStation(QString host, QString message);
+        void sendmessageAllStation(QString message);
 	
 	WorkStation * findHost(QString host);
 	void startTimerSession(QString const &host, long seconds, QString user, bool reset = false);

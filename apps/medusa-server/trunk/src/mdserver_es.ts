@@ -869,6 +869,14 @@ bien refrescando su estado o bien mediante contacto visual</translation>
         <source>Send a Message</source>
         <translation>Enviar un Mensaje</translation>
     </message>
+    <message>
+        <source>Send Message to All</source>
+        <translation>Enviar Mensaje a Todos</translation>
+    </message>
+    <message>
+        <source>Send Message to All Workstations</source>
+        <translation>Enviar un Mensaje a todos los equipos</translation>
+    </message>
 </context>
 <context>
     <name>OSDPreviewWidget</name>

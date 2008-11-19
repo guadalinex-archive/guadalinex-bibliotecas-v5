@@ -60,6 +60,7 @@ private slots:
 	void updateViewLoginUser(const QString &host, const QString &user);
 	void getLoginUser();
    void sendMessage();
+   void sendMessageAll();
 	
 
 
@@ -146,6 +147,7 @@ private:
 	QAction *setTimerAct;
 	QAction *getUserAct;
 	QAction *sendMessageAct;
+	QAction *sendMessageAllAct;
 
 	// Settings
 	QAction *autoDisAct;

@@ -187,6 +187,13 @@ void WorkStationGroup::shutdownAll()
    }
 }
 
+void WorkStationGroup::sendmessageAllStation(QString message)
+{
+   WorkStationListIterator itr(computers);
+   for (itr.toFirst(); itr.current(); ++itr){
+      sendmessageStation(itr.current()->getHostIP(), message);
+   }
+}
 
 
 void WorkStationGroup::blockAll()
