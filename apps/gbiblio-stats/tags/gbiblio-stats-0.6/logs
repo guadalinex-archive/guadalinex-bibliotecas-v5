@@ -1,0 +1,31 @@
+#! /bin/sh
+
+. /etc/gbiblio_id.conf
+. /etc/email_estadisticas.conf
+
+# Dirección de origen
+FROM_ADDR=biblio_stats_${ID_PROVINCIA}_${ID_LOCALIDAD}@guadalinex.org
+REAL_NAME=biblio_stats_${ID_PROVINCIA}_${ID_LOCALIDAD}
+
+# Fichero de logs de medusa
+MEDUSA_LOG_FILE=/var/log/medusa.log
+
+# Fichero de estadísticas
+STATS_FILE=/tmp/estadisticas_${ID_PROVINCIA}_${ID_LOCALIDAD}_`date +%d_%m_%y`.txt
+
+# Ejecución de los scripts de parseo
+/usr/local/bin/parse_medusa_log.py $MEDUSA_LOG_FILE $STATS_FILE
+
+# Envío de los e-mails
+touch /tmp/vacio
+mutt -e "my_hdr from: $FROM_ADDR" -e "set realname=$REAL_NAME" -s "estadísticas de biblioteca $ID_PROVINCIA-$ID_LOCALIDAD" -a $STATS_FILE "$TO_ADDR" < /tmp/vacio
+
+# Se borran los ficheros enviados
+#rm -f $STATS_FILE
+echo -n $STATS_FILE
+
+# Se rota el fichero de logs
+# Eliminada la rotaciÃn
+cat $MEDUSA_LOG_FILE >> $MEDUSA_LOG_FILE.old
+rm $MEDUSA_LOG_FILE
+touch $MEDUSA_LOG_FILE

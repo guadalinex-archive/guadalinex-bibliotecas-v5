@@ -1,0 +1,90 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+Este pequeño programa sirve para enviar estadísticas de forma manual y con la posibilidad de
+añadir un correo de copia a la dirección de envío.
+
+Author: David Teyssiere Rubio <dteyssiere@emergya.es>
+"""
+
+import pygtk
+pygtk.require('2.0')
+import gtk
+import gtk.glade
+import gobject
+import sys
+from subprocess import Popen, PIPE
+import os
+import shutil
+
+class GbiblioStatsSender (object):
+
+    def __init__(self):
+        self.widgets = {}
+        self.mainloop = gobject.MainLoop()
+        self.defaultDir = '/home/biblio/Desktop/Estadisticas'
+
+    def initgui(self):
+        self.ui = gtk.glade.XML('/usr/share/gbiblio-stats-sender/gbiblio-stats-dialog.glade')
+
+        # cargamos todos los widgets
+        for widget in self.ui.get_widget_prefix(""):
+            self.widgets[widget.get_name()]=widget
+        
+        # conectamos las señales
+        self.ui.signal_autoconnect(self)
+
+        self.widgets['filechooserbutton1'].set_current_folder(self.defaultDir)
+
+        if not os.path.isdir(self.defaultDir):
+            os.mkdir(self.defaultDir)
+            p = Popen('id -u biblio', shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
+            uid = p.stdout.readline()
+            os.chown(self.defaultDir,int(uid), int(uid))
+
+        self.widgets['dialog1'].show_all()
+    
+    def run (self):
+        try:
+            self.mainloop.run()
+        except KeyboardInterrupt:
+            self.quit()
+        
+    def quit(self, *args):
+        self.mainloop.quit()
+        sys.exit(0)
+
+    def on_checkbutton1_toggled(self, *args):
+
+        if self.widgets['checkbutton1'].get_active():
+            self.widgets['entry1'].set_sensitive(True)
+            self.widgets['entry1'].set_editable(True)
+            self.widgets['entry1'].grab_focus()
+        else:
+            self.widgets['entry1'].set_editable(False)
+            self.widgets['entry1'].set_sensitive(False)
+
+    def send_stats(self, *args):
+        dest = self.widgets['filechooserbutton1'].get_current_folder()
+        cmd = '/etc/cron.monthly/logs'
+        p = Popen(cmd, shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
+        stats_file = p.stdout.readline()
+
+        if os.path.isfile(stats_file):
+           shutil.move(stats_file, dest)
+
+        mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
+                                 type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
+        mesg.set_markup (u"<big><b>Estadísticas enviadas</b></big>")
+        if (mesg.run() != None):
+            mesg.destroy()
+            self.quit()
+
+
+
+if __name__ == '__main__':
+    if not os.geteuid()==0:
+        sys.exit("\nSolo root puede ejecutar este script\n")
+    app = GbiblioStatsSender()
+    app.initgui()
+    app.run()
