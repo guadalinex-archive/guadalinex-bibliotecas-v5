@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio22) stable; urgency=low
+
+  * Added final sources.list at the end of the installation
+
+ -- Juan Jesús Ojeda Croissier <jojeda@emergya.es>  Wed, 19 Nov 2008 10:42:15 +0100
+
 gbiblio-ubiquity (0.9guada3gbiblio21) stable; urgency=low
 
   * Changed ath0 for wlan0, the one is configured by default
