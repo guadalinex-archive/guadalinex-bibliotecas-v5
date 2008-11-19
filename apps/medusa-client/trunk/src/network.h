@@ -11,6 +11,7 @@
 #define ENDSESSIONCMD "ENDSESSION"
 #define USERCMD "USER"
 #define SHUTDOWNCMD "SHUTDOWN"
+#define MESSAGECMD "MESSAGE"
 #define HALFTIMECMD "HALFTIME"
 #define QUARTERTIMECMD "QUARTERTIME"
 #define TWOMINUTESCMD "TWOMINUTES"
@@ -33,6 +34,7 @@ typedef enum {
 	twominutes,
 	oneminute,
 	times,
+        rcvmessage,
 	sdown
 } COMMAND;
 

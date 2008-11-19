@@ -44,6 +44,8 @@
 #include "conf.h"
 
 static int sock;
+xmlChar * message;
+char * tam;
 
 int parseCommand(const char *cmd)
 {
@@ -91,6 +93,13 @@ int parseCommand(const char *cmd)
 		} else if (!xmlStrcmp(cur->name, (const xmlChar *) SHUTDOWNCMD)) {
 			write_log_fmt("SHUTDOWN Command received\n");
 			mode = sdown;
+			/*break; */
+		} else if (!xmlStrcmp(cur->name, (const xmlChar *) MESSAGECMD)) {
+			write_log_fmt("MESSAGE Command received\n");
+         message = xmlNodeGetContent(cur);
+         write_log_fmt("Mensaje: %s\n",message);
+         tam = xmlGetProp(cur, "lengh");
+			mode = rcvmessage;
 			/*break; */
 		} else if (!xmlStrcmp(cur->name, (const xmlChar *) HALFTIMECMD)) {
 			write_log_fmt("HALFTIME Command received\n");
@@ -263,6 +272,9 @@ int read_from_client(int filedes)
 			break;
 		case sdown:
 			shut_down();
+			break;
+		case rcvmessage:
+			recive_message(atoi(tam), message);
 			break;
 		case halftime:
 			printf("Le queda la mitad del tiempo\n");
