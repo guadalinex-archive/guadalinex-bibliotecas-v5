@@ -55,7 +55,6 @@ install: build
 	dh_install skel/en-US.jar /usr/share/gbiblio-server	
 	dh_install skel/usr/share/applications/seamonkey.desktop /usr/share/gbiblio-server/
 	dh_install skel/tmp/server-pass /tmp
-	dh_install skel/etc/exim4/update-exim4.conf.conf /etc/exim4/
 
 # Build architecture-independent files here.
 binary-indep: build install
