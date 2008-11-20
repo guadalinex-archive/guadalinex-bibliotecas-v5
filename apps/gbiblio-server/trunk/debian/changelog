@@ -1,3 +1,9 @@
+gbiblio-server (1.29) unstable; urgency=low
+
+  [dteyssiere]
+  * Setting exim configuration by postinst
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 20 Nov 2008 12:29:26 +0100
 gbiblio-server (1.28) unstable; urgency=low
 
   [dteyssiere]
