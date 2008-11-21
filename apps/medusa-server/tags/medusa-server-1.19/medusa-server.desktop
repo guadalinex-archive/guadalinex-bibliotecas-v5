@@ -1,0 +1,9 @@
+[Desktop Entry]
+Name=Control de puestos
+Comment=Herramienta de control de puestos
+Exec=gksudo mdserver
+Icon=/usr/share/pixmaps/medusa-server.png
+Terminal=false
+Type=Application
+Categories=Application;System;Settings
+Encoding=UTF-8
