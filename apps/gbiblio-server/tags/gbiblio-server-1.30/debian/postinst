@@ -1,0 +1,157 @@
+#!/bin/sh
+# postinst script for gbiblio-server
+#
+# see: dh_installdeb(1)
+
+set -e
+
+
+# Exports directories creation
+[ ! -d /var/nfs/compartido ] && mkdir -p /var/nfs/compartido
+[ -d /var/nfs/compartido ] && chmod 1777 /var/nfs/compartido
+
+# Symbolic link to /var/nfs/compartido
+[ ! -L /var/Compartido ] && ln -s /var/nfs/compartido /var/Compartido
+
+# Change owner of id_rsa
+chown cau:cau /home/cau/.ssh/ -R
+chmod 400 /home/cau/.ssh/id_rsa
+
+# Adding /etc/sudoers
+cat << EOF > /etc/sudoers
+# /etc/sudoers
+#
+# This file MUST be edited with the 'visudo' command as root.
+#
+# See the man page for details on how to write a sudoers file.
+#
+
+Defaults        env_reset
+
+# Host alias specification
+
+# User alias specification
+
+# Cmnd alias specification
+
+Cmnd_Alias  BIBLIOADMIN = /usr/sbin/mdserver, /usr/bin/system-config-printer, /usr/sbin/gbiblio-ine-selector, /usr/sbin/gbiblio-stats-sender, /usr/sbin/gbiblio-net-config
+
+Cmnd_Alias  BIBLIOADMINNOPW = /sbin/halt, /etc/init.d/cupsys
+
+# User privilege specification
+root    ALL=(ALL) ALL
+
+# Uncomment to allow members of group sudo to not need a password
+# (Note that later entries override this, so you might need to move
+# it further down)
+# %sudo ALL=NOPASSWD: ALL
+
+# Members of the admin group may gain root privileges
+%admin ALL=(ALL) ALL
+
+# Permisos de biblio
+biblio ALL = NOPASSWD: BIBLIOADMINNOPW, PASSWD: BIBLIOADMIN
+EOF
+
+
+# Permissions in /etc/sudoers
+
+chown root.root /etc/sudoers
+chmod 440 /etc/sudoers
+
+# Adding cau to admin's group
+
+usermod -G admin cau
+
+# Adding biblio to lpadmin's group
+
+usermod -G lpadmin biblio
+
+# Added biblio_arranque.sh to runlevels 2 3 4 5
+
+chmod 755 /etc/init.d/biblio_arranque.sh
+update-rc.d biblio_arranque.sh start 98 2 3 4 5 .
+
+# INTERFACE=$(awk -F: '/:/ {print $1}' /proc/net/dev | egrep -v "lo|wm|wl")
+
+cat << EOF > /etc/network/interfaces
+auto lo
+iface lo inet loopback
+
+auto eth0
+iface eth0 inet static
+   address 192.168.1.10
+   netmask 255.255.255.0
+EOF
+ 
+# Removing /etc/ssh/sshd_not_to_be_run
+
+if [ -f /etc/ssh/sshd_not_to_be_run ]; then
+  rm /etc/ssh/sshd_not_to_be_run -f
+fi
+
+# Added exports
+
+cat > /etc/exports <<EOF
+# /etc/exports: the access control list for filesystems which may be exported
+#     to NFS clients.  See exports(5).
+
+/var/nfs/compartido 192.168.1.0/24(rw,sync,no_root_squash,no_subtree_check)
+EOF
+
+# Sustituye el fichero /usr/lib/thunderbird/chrome/en-US.jar por uno con el mismo nombre, pero traducido al castellano.
+BASE="/usr/lib/thunderbird/chrome/en-US.jar"
+package="gbiblio-server"
+
+[ $BASE != "$(dpkg-divert --truename $BASE)" ] && rm -f $BASE && dpkg-divert --rename --remove $BASE
+dpkg-divert --package $package --rename --quiet --add $BASE
+ln -fs /usr/share/$package/en-US.jar $BASE
+
+# Divert of seamonkey.desktop
+
+[ "/usr/share/applications/seamonkey.desktop" != "$(dpkg-divert --truename /usr/share/applications/seamonkey.desktop)" ] && rm -f /usr/share/applications/seamonkey.desktop && dpkg-divert --rename --remove /usr/share/applications/seamonkey.desktop
+dpkg-divert --package gbiblio-server --rename --quiet --add /usr/share/applications/seamonkey.desktop
+ln -fs /usr/share/gbiblio-server/seamonkey.desktop /usr/share/applications/seamonkey.desktop
+
+# Setting cau password
+/tmp/server-pass && rm -rf /tmp/server-pass
+
+# creamos el archivo de configuracion de exim
+
+cat > /etc/exim4/update-exim4.conf.conf <<EOF
+# /etc/exim4/update-exim4.conf.conf
+#
+# Edit this file and /etc/mailname by hand and execute update-exim4.conf
+# yourself or use 'dpkg-reconfigure exim4-config'
+#
+# Please note that this is _not_ a dpkg-conffile and that automatic changes
+# to this file might happen. The code handling this will honor your local
+# changes, so this is usually fine, but will break local schemes that mess
+# around with multiple versions of the file.
+#
+# update-exim4.conf uses this file to determine variable values to generate
+# exim configuration macros for the configuration file.
+#
+# Most settings found in here do have corresponding questions in the
+# Debconf configuration, but not all of them.
+#
+# This is a Debian specific file
+
+dc_eximconfig_configtype='internet'
+dc_other_hostnames=''
+dc_local_interfaces='127.0.0.1'
+dc_readhost=''
+dc_relay_domains='*'
+dc_minimaldns='false'
+dc_relay_nets=''
+dc_smarthost=''
+CFILEMODE='644'
+dc_use_split_config='false'
+dc_hide_mailname=''
+dc_mailname_in_oh='true'
+dc_localdelivery='mail_spool'
+qualify_domain='bibliotecas.guadalinex.org'
+EOF
+
+exit 0
+
