@@ -47,6 +47,9 @@ if [ ! -f /target/proc/mounts ]; then
     mount -t proc none /target/proc
 fi
 
+echo "mounting /target/dev/pts"
+mount -t devpts none /target/dev/pts
+
 export LC_ALL=es_ES.UTF-8 LANGUAGE=es_ES.UTF-8 LANG=es_ES.UTF-8 DEBIAN_FRONTEND=noninteractive
 chroot /target apt-get -f -y -qq --force-yes update || echo "Fails on apt-get update"
 chroot /target apt-get -f -y -qq --force-yes install $package || echo "Fails on apt-get install $package" 
@@ -56,6 +59,9 @@ chroot /target apt-get -f -y -qq --force-yes clean || echo "Fails on apt-get cle
 #TODO: Doit nicer
 rm -fv /target/etc/apt/sources.list
 mv -v /target/etc/apt/sources.list.orig /target/etc/apt/sources.list
+
+echo "umounting /target/dev/pts"
+umount -v /target/dev/pts
 
 if [ "$unmonted_proc" = "yes" ]; then
     umount -v /target/proc
