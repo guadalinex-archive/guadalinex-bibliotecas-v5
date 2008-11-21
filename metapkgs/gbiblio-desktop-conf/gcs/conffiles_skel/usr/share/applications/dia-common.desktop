@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=Editor de diagramas (Dia) 
+Name[pl]=Dia
+GenericName=Diagram editor
+GenericName[pl]=Edytor diagramÃ³w
+Comment=Create various types of diagrams and export them into popular image formats.
+Comment[pl]=Tworzenie diagramÃ³w rÃ³Å¼nego typu z moÅ¼liwoÅ›ciÄ… eksportu ich do wielu popularnych graficznych formatÃ³w plikÃ³w.
+Type=Application
+Exec=dia
+Icon=dia_gnome_icon
+Terminal=false
+Categories=GNOME;Graphics;
+StartupNotify=true
+MimeType=application/x-dia-diagram;
+X-GNOME-Bugzilla-Bugzilla=GNOME
+X-GNOME-Bugzilla-Product=dia
+X-GNOME-Bugzilla-Component=general
+X-GNOME-Bugzilla-Version=@0.96.1@
+
