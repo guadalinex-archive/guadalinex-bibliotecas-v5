@@ -1,3 +1,17 @@
+gbiblio-ubiquity (0.9guada3gbiblio24) stable; urgency=low
+
+  * Added mounting and umounting /dev/pts on /target to avoid some
+    packages instalation issues
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Fri, 21 Nov 2008 10:41:57 +0100
+
+gbiblio-ubiquity (0.9guada3gbiblio23) stable; urgency=low
+
+  * QA upload.
+  * new entry
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 19 Nov 2008 11:02:24 +0100
+
 gbiblio-ubiquity (0.9guada3gbiblio22) stable; urgency=low
 
   * Added final sources.list at the end of the installation
