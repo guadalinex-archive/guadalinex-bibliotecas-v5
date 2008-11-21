@@ -1,3 +1,9 @@
+gbiblio-profiles (0.16) unstable; urgency=low
+
+  [dteyssiere]
+  * Deleted pan dependencie
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 21 Nov 2008 13:14:11 +0100
 gbiblio-profiles (0.15) unstable; urgency=low
 
   * Added secure password setting
