@@ -192,7 +192,7 @@ class Wizard(ubiquity.frontend.gtk_ui.Wizard):
             ip = '192.168.1.10'
         else:
             hostname = 'cliente-%d' % self.client_num
-            ip = '192.168.1.%s' % self.client_num
+            ip = '192.168.1.%s' % (self.client_num + 10)
         net_preseed = ["ubiquity ubiquity/install/hostname string %s" % hostname,
                         "d-i netcfg/get_hostname string %s" % hostname ]
         syslog.syslog ("\nnet_preseed:\n\n%s\n" % '\n'.join(net_preseed) )
