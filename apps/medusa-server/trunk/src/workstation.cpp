@@ -275,7 +275,7 @@ void WorkStation::readFromClient()
 		else if ( msg.find("BLOCKED") != -1){
 			qDebug("WS blocked status: %d", WorkStation::BLOCKED);
 			emit wsStatusChanged(hostIP, WorkStation::BLOCKED);
-			
+		   stopSession();	
 			// In case it is not running on a timer
 			if ( state != WorkStation::ACTIVE )
 				state = WorkStation::BLOCKED;
