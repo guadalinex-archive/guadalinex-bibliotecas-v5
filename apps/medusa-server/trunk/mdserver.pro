@@ -5,3 +5,4 @@ CONFIG += release \
           qt \
           thread \
 	  debug
+

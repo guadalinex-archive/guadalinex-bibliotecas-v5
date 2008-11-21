@@ -95,3 +95,5 @@ thread \
 qt 
 TEMPLATE = app
 TARGET = ../bin/mdserver
+QMAKE_INCDIR += /usr/include/libxml2
+QMAKE_LIBS += -lxml2
