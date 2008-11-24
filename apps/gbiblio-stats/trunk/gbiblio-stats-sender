@@ -22,7 +22,9 @@ class GbiblioStatsSender (object):
     def __init__(self):
         self.widgets = {}
         self.mainloop = gobject.MainLoop()
-        self.defaultDir = '/home/biblio/Desktop/Estadisticas'
+        self.dataConfFile = '''TO_ADDR="estadisticas.bibliotecas.ccul@juntadeandalucia.es"
+COPY_DIR="'''
+        self.statsfileDir = ""
         self.uid = None
 
     def initgui(self):
@@ -35,13 +37,20 @@ class GbiblioStatsSender (object):
         # conectamos las señales
         self.ui.signal_autoconnect(self)
 
-        self.widgets['filechooserbutton1'].set_current_folder(self.defaultDir)
 
-        if not os.path.isdir(self.defaultDir):
-            os.mkdir(self.defaultDir)
-            p = Popen('id -u biblio', shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
-            self.uid = p.stdout.readline()
-            os.chown(self.defaultDir,int(self.uid), int(self.uid))
+        conffile = open("/etc/email_estadisticas.conf","r")
+        vars = conffile.readlines()
+        conffile.close()
+
+        self.statsfileDir = vars[1].strip("\n").split("=")[1].strip('"')
+        p = Popen('id -u biblio', shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
+        self.uid = p.stdout.readline()
+        
+        if not os.path.isdir(self.statsfileDir):
+            os.mkdir(self.statsfileDir)
+            os.chown(self.statsfileDir,int(self.uid), int(self.uid))
+        
+        self.widgets['filechooserbutton1'].set_current_folder(self.statsfileDir)
 
         self.widgets['dialog1'].show_all()
     
@@ -67,13 +76,19 @@ class GbiblioStatsSender (object):
 
     def send_stats(self, *args):
         dest = self.widgets['filechooserbutton1'].get_current_folder()
-        cmd = '/etc/cron.monthly/logs'
+        cmd = '/usr/share/gbiblio-stats/logs_manual'
         p = Popen(cmd, shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
         stats_file = p.stdout.readline()
-
+        print dest
+       
         if os.path.isfile(stats_file):
+            print "he entrao aqui"
             shutil.move(stats_file, dest)
-            os.chown(self.defaultDir+os.sep+stats_file.split('/')[-1],int(self.uid), int(self.uid))
+            os.chown(dest+os.sep+stats_file.split('/')[-1],int(self.uid), int(self.uid))
+        
+        conffile = open("/etc/email_estadisticas.conf","w")
+        conffile.write(self.dataConfFile+dest+os.sep+'"')
+        conffile.close()
 
         mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
                                  type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
