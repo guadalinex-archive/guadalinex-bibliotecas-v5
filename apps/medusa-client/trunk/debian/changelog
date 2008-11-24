@@ -1,3 +1,9 @@
+medusa-client (1.21) hardy; urgency=low
+
+  * Cambio de imagen de 'Estacion Bloqueada'
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 24 Nov 2008 17:38:25 +0100
+
 medusa-client (1.20) hardy; urgency=low
 
   [dteyssiere]
