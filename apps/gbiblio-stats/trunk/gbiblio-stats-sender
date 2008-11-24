@@ -76,7 +76,7 @@ COPY_DIR="'''
 
     def send_stats(self, *args):
         dest = self.widgets['filechooserbutton1'].get_current_folder()
-        cmd = '/usr/share/gbiblio-stats/logs_manual'
+        cmd = '/usr/share/gbiblio-stats-sender/logs_manual'
         p = Popen(cmd, shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
         stats_file = p.stdout.readline()
         print dest
