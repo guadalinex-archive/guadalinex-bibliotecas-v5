@@ -129,14 +129,14 @@ int lockScreen(void)
 			CopyFromParent, CWBackPixmap, &attr1);
 	XMapWindow(dsp, logo);
 	logo2 = XCreateSimpleWindow(dsp, wnd1, 0, 0, dW - 150, 30, 0, 0, 300);
-	XMapWindow(dsp, logo2);
+	//XMapWindow(dsp, logo2);
 
 	if (foreground_filename != NULL) {
 		XpmReadFileToPixmap(dsp, root, foreground_filename, &lock, &shp, NULL);
 	}
 
 	attr2.background_pixmap = lock;
-	wnd = XCreateWindow(dsp, wnd1, dW / 2 - 150, dH / 2 - 100, 300, 200, 0,
+	wnd = XCreateWindow(dsp, wnd1, dW / 2 - 150 , dH / 2 - 100, 300, 200, 0,
 			CopyFromParent, CopyFromParent,
 			CopyFromParent, CWBackPixmap, &attr2);
 	//wnd = XCreateSimpleWindow(dsp, wnd1, x, y, 200, 200, 1, 0, 400);
