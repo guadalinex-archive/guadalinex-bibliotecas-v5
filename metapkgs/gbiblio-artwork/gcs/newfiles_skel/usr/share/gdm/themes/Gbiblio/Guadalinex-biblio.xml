@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE greeter SYSTEM "greeter.dtd">
+<greeter>
+
+  <!-- background -->
+  <item type="pixmap">
+    <normal file="background.jpg"/>
+    <pos y="0" x="0" width="100%" height="100%"/>
+  </item>
+
+  <!-- hostname and clock -->
+  <item type="label">
+    <pos anchor="ne" x="99,7%" y="45%"/>
+    <normal font="FrancophilSans 11" color="#000000"/>
+    <text>%h</text>
+  </item>
+  <item type="label" id="clock">
+    <pos anchor="ne" x="93%" y="11%"/>
+    <normal font="FrancophilSans 11" color="#000000"/>
+    <text>%c</text>
+  </item>
+
+  <!-- LOGIN -->  
+  <item type="label" id="pam-prompt">
+    <pos x="15%" y="48%"  expand="true" anchor="nw" />
+    <normal font="FrancophilSans 15" color="#ffffff" />
+    <stock type="username-label"/>
+  </item>
+ 
+  <item type="rect">
+    <pos width="17%" height="3%" x="23%" y="47%" anchor="nw"/>
+    <fixed>
+      <item type="entry" id="user-pw-entry">
+        <normal color="#000000" font="FrancophilSans 12"/>
+        <pos y="49%" x="22%" width="100%" height="100%" anchor="nw"/>
+      </item>
+    </fixed>
+  </item> 
+
+  <!-- LANGUAGE -->
+  <item type="rect" id="language_button" button="true" >
+    <pos width="20" height="20" x="60%" y="48%" />
+    <fixed>
+    <item type="label">
+      <normal font="FrancophilSans 15" color="#ffffff"/>
+      <prelight font="FrancophilSans Bold 15" color="#647fb8"/> 
+      <active font="FrancophilSans Bold 15" color="#ffffff"/>
+      <stock type="language"/>
+    </item>
+    </fixed>
+  </item>
+
+  <!-- SEPARATOR #1 -->
+  <item type="label">
+    <pos anchor="nw" x="68%" y="48%"/>
+    <normal font="FrancophilSans 17" color="#ffffff"/>
+    <text>|</text>
+  </item>
+
+  <!-- SESSION -->
+
+  <item type="rect" id="session_button" button="true">
+    <pos width="20" height="20" x="71%" y="48%" />
+    <fixed>
+    <item type="label">
+      <normal font="FrancophilSans 15" color="#ffffff"/>
+      <prelight font="FrancophilSans Bold 15" color="#647fb8"/>
+      <active font="FrancophilSans Bold 15" color="#ffffff"/>
+      <stock type="session"/>
+    </item>
+    </fixed>
+  </item>
+
+  <!-- SEPARATOR #2 --> 
+  <item type="label">
+    <show type="reboot" modes="console" />
+    <pos anchor="nw" x="78%" y="48%"/>
+    <normal font="FrancophilSans 17" color="#ffffff"/>
+    <text>|</text>
+  </item>
+  
+  <!-- REBOOT --> 
+  <item type="rect" id="reboot_button" button="true">
+    <show type="reboot" modes="console" />
+    <pos width="20" heigth="20" x="81%" y="48%"/>
+    <fixed>
+    <item type="label">
+      <normal font="FrancophilSans 15" color="#ffffff"  />
+      <prelight font="FrancophilSans Bold 15" color="#647fb8"/>
+      <active font="FrancophilSans Bold 15" color="#ffffff"/>
+      <stock type="reboot"/>
+    </item>
+    </fixed>
+  </item>
+
+  <!-- SEPARATOR #3 -->
+  <item type="label">
+    <show type="halt" modes="console" />
+    <pos anchor="nw" x="90%" y="48%"/>
+    <normal font="FrancophilSans 17" color="#ffffff"/>
+    <text>|</text>
+  </item>
+
+  <!-- SHUTDOWN -->
+  <item type="rect" id="halt_button" button="true">
+    <show type="halt" modes="console" />
+    <pos width="20" heigth="20" x="93%" y="48%" />
+    <fixed>
+    <item type="label">
+      <normal font="FrancophilSans 15" color="#ffffff"  />
+      <prelight font="FrancophilSans Bold 15" color="#647fb8"/>
+      <active font="FrancophilSans Bold 15" color="#ffffff"/>
+      <stock type="halt" />
+    </item>
+    </fixed>
+  </item>
+
+  <!-- caps lock warning -->
+  <item type="label" id="caps-lock-warning">
+    <pos x="50%" y="70%" anchor="c"/>
+    <normal font="FrancophilSans Bold 11" color="#dc292b"/>
+    <stock type="caps-lock-warning"/>
+  </item>
+
+
+  <!-- pam error -->
+  <item type="label" id="pam-error">
+    <pos x="50%" y="75%" anchor="c" />
+    <normal font="FrancophilSans Bold 11" color="#dc292b"/>
+    <text></text>
+  </item>
+
+</greeter>

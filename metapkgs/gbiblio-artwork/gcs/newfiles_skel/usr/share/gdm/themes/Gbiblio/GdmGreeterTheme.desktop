@@ -1,0 +1,8 @@
+[GdmGreeterTheme]
+Greeter=Guadalinex-biblio.xml
+Name=Guadalinex Bibliotecas v5
+Description=Tema de bienvenida de Guadalinex Bibliotecas v5
+Author=Javier Hernández Antúnez
+Copyright=(c) 2007 Junta de Andalucía
+Screenshot=screenshot.png
+X-Ubuntu-Gettext-Domain=guadalinex-artwork
