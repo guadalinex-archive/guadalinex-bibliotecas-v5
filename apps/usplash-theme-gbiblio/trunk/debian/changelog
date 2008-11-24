@@ -1,3 +1,9 @@
+usplash-theme-gbiblio (0.2) stable; urgency=low
+  [jhernandez]
+  * Final artwork
+
+ -- David Teyssiere <dteyssiere@emergya.es>  Mon, 24 Nov 2008 18:10:40 +0100
+
 usplash-theme-gbiblio (0.1) stable; urgency=low
 
   * Initial release.
