@@ -18,11 +18,14 @@ STATS_FILE=/tmp/estadisticas_${ID_PROVINCIA}_${ID_LOCALIDAD}_`date +%d_%m_%y`.tx
 
 # Envío de los e-mails
 touch /tmp/vacio
-mutt -e "my_hdr from: $FROM_ADDR" -e "set realname=$REAL_NAME" -s "estadísticas de biblioteca $ID_PROVINCIA-$ID_LOCALIDAD" -a $STATS_FILE "$TO_ADDR" < /tmp/vacio
+mutt -e "my_hdr from: $FROM_ADDR" -e "set realname=$REAL_NAME" -s "estadisticas de biblioteca $ID_PROVINCIA-$ID_LOCALIDAD" -a $STATS_FILE "$TO_ADDR" < /tmp/vacio
 
-# Se borran los ficheros enviados
-#rm -f $STATS_FILE
-echo -n $STATS_FILE
+# Se copia el fichero enviado el correspondiente directorio
+[ -d $COPY_DIR ] || mkdir $COPY_DIR
+mv $STATS_FILE $COPY_DIR
+chown -R biblio.biblio $COPY_DIR
+
+rm -f $STATS_FILE
 
 # Se rota el fichero de logs
 # Eliminada la rotaciÃn
