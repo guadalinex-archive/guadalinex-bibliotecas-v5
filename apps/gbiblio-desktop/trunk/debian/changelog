@@ -1,3 +1,9 @@
+gbiblio-desktop (0.21) unstable; urgency=low
+
+  [dteyssiere]
+  * Added sun-java6-plugin as dependence
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 25 Nov 2008 13:54:41 +0100
 gbiblio-desktop (0.20) unstable; urgency=low
 
   * Added firefox-3.0-gnome-support as dependence
