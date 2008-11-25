@@ -1,3 +1,9 @@
+gbiblio-server (1.31) unstable; urgency=low
+
+  [dteyssiere]
+  * Added gnome-cups-manager dependencie
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 25 Nov 2008 17:40:26 +0100
 gbiblio-server (1.30) unstable; urgency=low
 
   [dteyssiere]
