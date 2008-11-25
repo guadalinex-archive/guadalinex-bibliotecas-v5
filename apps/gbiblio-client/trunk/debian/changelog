@@ -1,3 +1,9 @@
+gbiblio-client (0.25) unstable; urgency=low
+
+  * Adding biblio to some groups
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 25 Nov 2008 17:28:49 +0100
+
 gbiblio-client (0.24) unstable; urgency=low
 
   * Deleted exim conflict.

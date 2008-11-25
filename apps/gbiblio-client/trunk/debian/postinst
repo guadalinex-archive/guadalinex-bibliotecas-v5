@@ -81,4 +81,8 @@ sed -i 's/#SystemMenu=true/SystemMenu=false/g' /etc/gdm/gdm.conf
 # Setting cau, biblio passwords
 /tmp/client-pass && rm -rf /tmp/client-pass
 
+# adding biblio to groups
+groups=(cdrom floppy audio dip video plugdev scanner lpadmin)
+id biblio && for i in "${groups[@]}"; do  usermod -G $i biblio ;done
+
 exit 0
