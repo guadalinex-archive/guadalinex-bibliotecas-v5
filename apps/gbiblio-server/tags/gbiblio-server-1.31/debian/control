@@ -1,0 +1,12 @@
+Source: gbiblio-server
+Section: metapackages
+Priority: standard
+Maintainer: Javier Hernández Antúnez <jhernandez@emergya.es>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: gbiblio-server
+Architecture: any
+Depends: medusa-server, system-config-printer-gnome, gbiblio-profile-catalog, gbiblio-profile-librarian, gbiblio-profile-user, nfs-kernel-server, mutt, gbiblio-ine-selector, gbiblio-stats, gbiblio-secure-lending, gbiblio-net-config-biblio, exim4, gnome-cups-manager 
+Description: Guadalinex Bibliotecas V5 server meta package
+ This package provides Guadalinex Bibliotecas V5 server's applications.
