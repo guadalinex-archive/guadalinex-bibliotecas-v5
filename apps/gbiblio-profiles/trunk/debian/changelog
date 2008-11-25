@@ -1,3 +1,9 @@
+gbiblio-profiles (0.17) unstable; urgency=low
+
+  * Adding biblio & user to some groups
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 25 Nov 2008 17:19:55 +0100
+
 gbiblio-profiles (0.16) unstable; urgency=low
 
   [dteyssiere]

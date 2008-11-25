@@ -5,6 +5,9 @@
 
 set -e
 
+# adding usuario to groups
+groups=(cdrom floppy audio dip video plugdev)
+id usuario && for i in "${groups[@]}"; do  usermod -G $i usuario ;done
 
 exit 0
 
