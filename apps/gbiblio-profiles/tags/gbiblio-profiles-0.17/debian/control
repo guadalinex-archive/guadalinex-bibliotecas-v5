@@ -1,0 +1,24 @@
+Source: gbiblio-profiles
+Section: misc
+Priority: standard
+Maintainer: Javier Hernández Antúnez <jhernandez@emergya.es>
+Build-Depends: debhelper (>= 5)
+Standards-Version: 3.7.2
+
+Package: gbiblio-profile-catalog
+Architecture: all
+Depends: 
+Description: Perfil del usuario catalogo
+ Configuracion del perfil para el usuario catalogo
+
+Package: gbiblio-profile-librarian
+Architecture: all
+Depends: thunderbird, seamonkey-browser, liferea 
+Description: Perfil del usuario bibliotecario
+ Configuracion del perfil para el usuario bibliotecario
+
+Package: gbiblio-profile-user
+Architecture: all
+Depends: 
+Description: Perfil del usuario usuario
+ Configuracion del perfil para el usuario usuario
