@@ -52,6 +52,7 @@ install: build
 	dh_install skel/home/cau/.ssh/authorized_keys /home/cau/.ssh
 	dh_install skel/etc/init.d/biblio_arranque.sh /etc/init.d	
 	dh_install skel/etc/hosts	/etc
+	dh_install skel/etc/cups/cupsd.conf.gbv5	/etc/cups
 	dh_install skel/tmp/client-pass /tmp	
 
 # Build architecture-independent files here.
