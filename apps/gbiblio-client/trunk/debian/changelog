@@ -1,3 +1,9 @@
+gbiblio-client (0.28) unstable; urgency=low
+
+  [dteyssiere]
+  * Fixing bad adding user groups
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 20:11:47 +0100
 gbiblio-client (0.27) unstable; urgency=low
 
   [dteyssiere]

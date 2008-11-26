@@ -82,8 +82,8 @@ sed -i 's/#SystemMenu=true/SystemMenu=false/g' /etc/gdm/gdm.conf
 /tmp/client-pass && rm -rf /tmp/client-pass
 
 # adding biblio to groups
-groups=(cdrom floppy audio dip video plugdev scanner lpadmin)
-id biblio && for i in "${groups[@]}"; do  usermod -G $i biblio ;done
+groups='cdrom floppy audio dip video plugdev scanner lpadmin'
+id biblio && for i in ${groups}; do adduser biblio $i;done
 
 [ "/etc/cups/cupsd.conf" != "$(dpkg-divert --truename /etc/cups/cupsd.conf)" ] && rm -f /etc/cups/cupsd.conf && dpkg-divert --rename --remove /etc/cups/cupsd.conf
 dpkg-divert --package gbiblio-client --rename --quiet --add /etc/cups/cupsd.conf
