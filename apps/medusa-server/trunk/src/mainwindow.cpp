@@ -72,6 +72,7 @@ MainWindow::MainWindow(QWidget * parent, const char *name)
 	configDialog = 0;
 	controlPort = 10000;
 	notifyPort = 10001;
+   initialSessionSeconds = 3600;
 	//listFont.fromString( "" );
 	
 	askClosing = true;

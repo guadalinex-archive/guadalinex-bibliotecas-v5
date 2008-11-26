@@ -50,7 +50,12 @@ public:
 		UserCommand,
 		EndSessionCommand,
                 ShutdownCommand,
-                SendMessageCommand
+                SendMessageCommand,
+      timeCommand,
+      halfTimeCommand,
+      quarterTimeCommand,
+      twoMinutesCommand,
+      oneMinuteCommand,
 	};
 	
 	QString getCommand(int cmd);
@@ -66,6 +71,11 @@ public:
 	QString endSession;
         QString shutdown;
         QString sendmessage;
+   QString halfTime;
+   QString quarterTime;
+   QString twoMinutes;
+   QString oneMinute;
+   QString time;
 	
 };
 
