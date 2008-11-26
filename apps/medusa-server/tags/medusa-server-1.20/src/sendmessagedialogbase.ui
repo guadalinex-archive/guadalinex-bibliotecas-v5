@@ -1,0 +1,216 @@
+<!DOCTYPE UI><UI version="3.3" stdsetdef="1">
+<class>SendMessageDialogBase</class>
+<widget class="QDialog">
+    <property name="name">
+        <cstring>SendMessageDialogBase</cstring>
+    </property>
+    <property name="geometry">
+        <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>290</width>
+            <height>196</height>
+        </rect>
+    </property>
+    <property name="sizePolicy">
+        <sizepolicy>
+            <hsizetype>5</hsizetype>
+            <vsizetype>5</vsizetype>
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+        </sizepolicy>
+    </property>
+    <property name="minimumSize">
+        <size>
+            <width>0</width>
+            <height>0</height>
+        </size>
+    </property>
+    <property name="maximumSize">
+        <size>
+            <width>32767</width>
+            <height>32767</height>
+        </size>
+    </property>
+    <property name="caption">
+        <string>Enviar Mensaje</string>
+    </property>
+    <property name="icon">
+        <pixmap>image0</pixmap>
+    </property>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>cancelButton</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>150</y>
+                <width>110</width>
+                <height>24</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Cancelar</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>textLabel1</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>10</y>
+                <width>120</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Máximo caracteres:</string>
+        </property>
+    </widget>
+    <widget class="QTextEdit">
+        <property name="name">
+            <cstring>textMessage</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>20</x>
+                <y>30</y>
+                <width>250</width>
+                <height>100</height>
+            </rect>
+        </property>
+        <property name="sizePolicy">
+            <sizepolicy>
+                <hsizetype>0</hsizetype>
+                <vsizetype>0</vsizetype>
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+            </sizepolicy>
+        </property>
+        <property name="minimumSize">
+            <size>
+                <width>250</width>
+                <height>100</height>
+            </size>
+        </property>
+        <property name="maximumSize">
+            <size>
+                <width>250</width>
+                <height>100</height>
+            </size>
+        </property>
+        <property name="lineWidth">
+            <number>2</number>
+        </property>
+        <property name="midLineWidth">
+            <number>4</number>
+        </property>
+        <property name="resizePolicy">
+            <enum>AutoOne</enum>
+        </property>
+        <property name="vScrollBarMode">
+            <enum>AlwaysOff</enum>
+        </property>
+        <property name="hScrollBarMode">
+            <enum>AlwaysOff</enum>
+        </property>
+        <property name="dragAutoScroll">
+            <bool>false</bool>
+        </property>
+        <property name="textFormat">
+            <enum>PlainText</enum>
+        </property>
+        <property name="text">
+            <string></string>
+        </property>
+        <property name="wordWrap">
+            <enum>FixedColumnWidth</enum>
+        </property>
+        <property name="wrapColumnOrWidth">
+            <number>30</number>
+        </property>
+        <property name="wrapPolicy">
+            <enum>Anywhere</enum>
+        </property>
+        <property name="autoFormatting">
+            <set>AutoAll</set>
+        </property>
+    </widget>
+    <widget class="QLabel">
+        <property name="name">
+            <cstring>charsLabel</cstring>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>150</x>
+                <y>10</y>
+                <width>30</width>
+                <height>20</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>120</string>
+        </property>
+        <property name="textFormat">
+            <enum>PlainText</enum>
+        </property>
+    </widget>
+    <widget class="QPushButton">
+        <property name="name">
+            <cstring>sendButton</cstring>
+        </property>
+        <property name="enabled">
+            <bool>false</bool>
+        </property>
+        <property name="geometry">
+            <rect>
+                <x>150</x>
+                <y>150</y>
+                <width>113</width>
+                <height>26</height>
+            </rect>
+        </property>
+        <property name="text">
+            <string>Enviar</string>
+        </property>
+        <property name="accel">
+            <string></string>
+        </property>
+    </widget>
+</widget>
+<images>
+    <image name="image0">
+        <data format="PNG" length="427">89504e470d0a1a0a0000000d494844520000001200000012080600000056ce8e570000017249444154388ddd944b4e02411086bf0264068c333a188418e3c244c30934265e43afe17df4269ec0c7c6981813573ec017e0e0a80ce0502e18615a8c6e5c182bf9d3d5d59dafbaaa3b2daaca6f58ea57287f1294f9700e0e7777ca6577ddcc91543a1e65e857abf5bdb5d5cd6d03b4b434bd55f0aa5323be15cb8ec774c21fc8b67273c0b6515aa3917a0ec309a017ebed93a284fab4db973cfab741f2fc008828223d5aadc2379d183c15dfaf934e9f0ee70608c0b214f06934cac6a69109f57a9b54ea846cd65c1fbb35d71582e08aebeb15a008e4801caa1e171736617884e3c8588acce740bf0ff9fc22998933cecf6db2d9699036ddce0d73a52eaf2f8ba8d610f901e4fb058ac57ba08b37d3015a4699ce5444b3e9e179cdaf41aac8533089ebb688a288c17b19f56604ebe2381141300989730d41770fd1e35b34eba8ea780306a98c9988e8fd5de8af2c8ba5aa9d4c1c944aa5b2b1b0bc902fcd973a5f834cab5dd6ece3fde3de4706f9bfdfc83baa8b8842aec2f03d0000000049454e44ae426082</data>
+    </image>
+</images>
+<connections>
+    <connection>
+        <sender>cancelButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SendMessageDialogBase</receiver>
+        <slot>reject()</slot>
+    </connection>
+    <connection>
+        <sender>textMessage</sender>
+        <signal>textChanged()</signal>
+        <receiver>SendMessageDialogBase</receiver>
+        <slot>enableSendButton()</slot>
+    </connection>
+    <connection>
+        <sender>sendButton</sender>
+        <signal>clicked()</signal>
+        <receiver>SendMessageDialogBase</receiver>
+        <slot>accept()</slot>
+    </connection>
+</connections>
+<slots>
+    <slot access="private">enableSendButton()</slot>
+</slots>
+<layoutdefaults spacing="6" margin="11"/>
+</UI>
