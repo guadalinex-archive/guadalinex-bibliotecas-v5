@@ -37,6 +37,11 @@ Protocol::Protocol()
 	endSession = "<MD><ENDSESSION/></MD>";
         shutdown = "<MD><SHUTDOWN/></MD>";
         sendmessage = "<MD><MESSAGE lengh=";
+   halfTime= "<MD><HALFTIME/></MD>";
+   quarterTime= "<MD><QUARTERTIME/></MD>";
+   twoMinutes= "<MD><TWOMINUTES/></MD>";
+   oneMinute= "<MD><ONEMINUTE/></MD>";
+   time="<MD><TIME/></MD>";
 	
 }
 
@@ -65,6 +70,21 @@ QString Protocol::getCommand(int cmd)
                 case Protocol::SendMessageCommand:
                         return sendmessage;
                         break;
+      case Protocol::halfTimeCommand:
+         return halfTime;
+         break;
+      case Protocol::quarterTimeCommand:
+         return quarterTime;
+         break;
+      case Protocol::twoMinutesCommand:
+         return twoMinutes;
+         break;
+      case Protocol::oneMinuteCommand:
+         return oneMinute;
+         break;
+      case Protocol::timeCommand:
+         return time;
+         break;
 		default:
 			return stop;
 			

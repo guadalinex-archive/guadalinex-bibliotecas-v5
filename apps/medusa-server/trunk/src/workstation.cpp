@@ -51,6 +51,7 @@ WorkStation::WorkStation(QObject * parent, const char * name, QString host, int 
 	hostIP(host)
 {
 	socket = new QSocket(this);
+   socketsec=new QSocket(this);
 	connectionTimer = new QTimer();
 	timeoutTimer = new QTimer();	
 	statusTimer = new QTimer();
@@ -65,6 +66,8 @@ WorkStation::WorkStation(QObject * parent, const char * name, QString host, int 
 	// connections
 	connect(socket, SIGNAL(connected()),
 		 SLOT(sendCommand()) );	
+   connect(socketsec, SIGNAL(connected()),
+       SLOT(sendCommandTime()) );
 	connect(socket, SIGNAL(connectionClosed()),
 		 SLOT(connectionClosedByClient()) );
 	connect(socket, SIGNAL(readyRead()),
@@ -82,6 +85,8 @@ WorkStation::WorkStation(QObject * parent, const char * name, QString host, int 
 		this, SLOT(user()) );
 		
 	remainingSecs = 0;
+   sessionSecs=0; //adrian
+   count=1;
 	
 	messageNum = 0;
 	blocked = false;
@@ -190,6 +195,24 @@ void WorkStation::sendMessage()
 	}	
 }
 
+void WorkStation::sendMessageTime()
+{
+   Q_UINT16 lport=0;
+   MainWindow *main = static_cast<MainWindow *>(qApp->mainWidget());
+
+   if (main != NULL)
+      lport = main->getControlPort();
+   
+   if ( hostIP != 0 && lport != 0 ){
+      
+      socketsec->connectToHost(hostIP, lport);
+      // In case it doesn't connect, abort after 
+      // 10 seconds
+      //state = WorkStation::CONNECTING ;
+      connectionTimer->start(2 * 1000, true); 
+   }  
+}
+
 QString WorkStation::getHost()
 {
 	return hostIP;
@@ -229,6 +252,16 @@ void WorkStation::sendCommand()
 
 }
 
+void WorkStation::sendCommandTime()
+{
+   QTextStream os(socketsec); 
+   
+   
+   os << "<MD><TIME" <<remainingSecs << "/></MD>\n";
+
+
+
+}
 
 /// close the socket when the remote machine closes the connection
 void WorkStation::connectionClosedByClient()
@@ -483,6 +516,57 @@ void WorkStation::updateTimer()
 				emit wsTimeChanged(hostIP, -1);
 				
 			}
+         if (remainingSecs <= sessionSecs/2 && count == 1){
+            //halfTimeNotify(); 
+            timeNotify(); //adrian
+            status();
+            count=2; 
+            remainingSecs -= 1;
+            // emit workstation changed
+            emit wsTimeChanged(hostIP, remainingSecs);
+            if ((remainingSecs % 30 ) == 0 ){
+               delayUser();      
+            }
+         }
+         if (remainingSecs <= sessionSecs/4 && count ==2){
+            //quarterTimeNotify(); 
+            timeNotify();//adrian
+            status();
+            count=3;
+            remainingSecs -= 1;
+            // emit workstation changed
+            emit wsTimeChanged(hostIP, remainingSecs);
+            if ((remainingSecs % 30 ) == 0 ){
+               delayUser();   
+             }
+         }
+         if (remainingSecs<=120 && remainingSecs>60 && count != 4){
+            //twoMinutesNotify(); 
+            timeNotify();
+            status();
+            count=4; 
+            remainingSecs -= 1;
+            //printf("(<2m)Segundos que quedan: %d \n",remainingSecs);
+            // emit workstation changed
+            emit wsTimeChanged(hostIP, remainingSecs);
+            if ((remainingSecs % 30 ) == 0 ){
+               delayUser();   
+            }
+         }
+         if (remainingSecs<=60 && remainingSecs >0 && count != 5){
+            //oneMinuteNotify();
+            timeNotify();
+            status();
+            count=5; 
+            remainingSecs -= 1;
+            //printf("(<1m)Segundos que quedan: %d \n",remainingSecs);
+            // emit workstation changed
+            emit wsTimeChanged(hostIP, remainingSecs);
+            if ((remainingSecs % 30 ) == 0 ){ 
+               delayUser();   
+            
+              }
+         }
 			else{
 				remainingSecs -= 1;
 				// emit workstation changed
@@ -535,6 +619,9 @@ void WorkStation::startSession(long nsecs)
 	unblock();
 	delayStatus();
 	remainingSecs = nsecs;
+   sessionSecs=nsecs;
+   timeNotify();
+   unblock();
 	
 }
 
@@ -608,6 +695,35 @@ void WorkStation::shutdown()
 {
    messageNum = Protocol::ShutdownCommand;
    sendMessage();
+}
+
+void WorkStation::timeNotify()
+{
+
+   messageNum=Protocol::timeCommand;
+   sendMessageTime();
+}
+void WorkStation::halfTimeNotify()
+{
+   messageNum=Protocol::halfTimeCommand;
+   sendMessageTime();
+}
+void WorkStation::quarterTimeNotify()
+{
+   messageNum=Protocol::quarterTimeCommand;
+   sendMessageTime();
+}
+void WorkStation::twoMinutesNotify()
+{
+   messageNum=Protocol::twoMinutesCommand;
+   sendMessageTime();
+}
+void WorkStation::oneMinuteNotify()
+{
+   messageNum=Protocol::oneMinuteCommand;
+   sendMessage();
+
+
 }
 
 void WorkStation::sendmessage(QString message)

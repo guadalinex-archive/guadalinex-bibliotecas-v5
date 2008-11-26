@@ -1,3 +1,10 @@
+medusa-server (1.20) hardy; urgency=low
+
+  [dteyssiere]
+  * Anadido envio de tiempo al cliente para que informe al usuario
+  * .desktop modificado para que se muestre como "Medusa"
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 17:32:42 +0200
 medusa-server (1.19) hardy; urgency=low
 
   [dteyssiere]

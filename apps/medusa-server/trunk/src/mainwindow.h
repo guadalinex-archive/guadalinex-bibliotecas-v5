@@ -164,6 +164,7 @@ private:
 	
 	
 	WorkStationGroup wsGroup;
+   long initialSessionSeconds;
 	// Holds the list
 	StationList *stationlist;
 	

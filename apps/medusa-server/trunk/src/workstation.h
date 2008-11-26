@@ -63,6 +63,7 @@ public:
 	mlog::LogItem ws_log;
 
 	void sendMessage();
+   void sendMessageTime();
 	void block();
 	void unblock();
 	
@@ -86,6 +87,11 @@ public:
 	// higher level functions
 	void blockStation();
 	void unblockStation();
+   void halfTimeNotify();
+   void quarterTimeNotify();
+   void twoMinutesNotify();
+   void oneMinuteNotify();
+   void timeNotify();
 	void endSession();
         void shutdownStation();	
         void sendmessageStation(QString host, QString message);
@@ -115,6 +121,7 @@ private slots:
 	void readFromClient();
 	void socketError(int errorno);
 	void sendCommand();
+   void sendCommandTime();
 	void blockSlot();
 	void delayBlocked();
 	void wakeUp();
@@ -137,6 +144,7 @@ private:
         QString info;
 	
 	QSocket *socket;
+   QSocket *socketsec;
 	
 	QTimer *connectionTimer;
 	QTimer *timeoutTimer;
@@ -162,6 +170,8 @@ private:
 	
 	int statusTimeout;
 	int timeout;
+   int sessionSecs; //adrian: Tiempo en segundos para el total de la sesion, para calcular cuando falta la mitad
+   int count; //adrian: aqui tambien
 	
 	// we count the errors
 	int errorCount;
