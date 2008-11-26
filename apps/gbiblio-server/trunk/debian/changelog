@@ -1,3 +1,9 @@
+gbiblio-server (1.33) unstable; urgency=low
+
+  [dteyssiere]
+  * Added cupsd configuration and printers
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 16:05:26 +0100
 gbiblio-server (1.32) unstable; urgency=low
 
   [dteyssiere]

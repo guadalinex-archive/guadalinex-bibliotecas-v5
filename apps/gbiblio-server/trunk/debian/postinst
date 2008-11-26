@@ -111,10 +111,37 @@ ln -fs /usr/share/$package/en-US.jar $BASE
 
 [ "/usr/share/applications/seamonkey.desktop" != "$(dpkg-divert --truename /usr/share/applications/seamonkey.desktop)" ] && rm -f /usr/share/applications/seamonkey.desktop && dpkg-divert --rename --remove /usr/share/applications/seamonkey.desktop
 dpkg-divert --package gbiblio-server --rename --quiet --add /usr/share/applications/seamonkey.desktop
-ln -fs /usr/share/gbiblio-server/seamonkey.desktop /usr/share/applications/seamonkey.desktop
+ln -fs /usr/share/applications/seamonkey.desktop.gbv5 /usr/share/applications/seamonkey.desktop
+
+[ "/usr/share/applications/redhat-manage-print-jobs.desktop" != "$(dpkg-divert --truename /usr/share/applications/redhat-manage-print-jobs.desktop)" ] && rm -f /usr/share/applications/redhat-manage-print-jobs.desktop && dpkg-divert --rename --remove /usr/share/applications/redhat-manage-print-jobs.desktop
+dpkg-divert --package gbiblio-server --rename --quiet --add /usr/share/applications/redhat-manage-print-jobs.desktop
+ln -fs /usr/share/applications/redhat-manage-print-jobs.desktop.gbv5 /usr/share/applications/redhat-manage-print-jobs.desktop
+
+[ "/etc/cups/cupsd.conf" != "$(dpkg-divert --truename /etc/cups/cupsd.conf)" ] && rm -f /etc/cups/cupsd.conf && dpkg-divert --rename --remove /etc/cups/cupsd.conf
+dpkg-divert --package gbiblio-server --rename --quiet --add /etc/cups/cupsd.conf
+ln -fs /etc/cups/cupsd.conf.gbv5 /etc/cups/cupsd.conf
 
 # Setting cau password
 /tmp/server-pass && rm -rf /tmp/server-pass
+
+# establecemos la impresora
+cat >> /etc/cups/printers.conf <<EOF
+<DefaultPrinter impresora-laser>
+Info
+Location servidor
+DeviceURI socket://192.168.1.50:9100
+State Idle
+StateTime 1227197664
+Accepting Yes
+Shared Yes
+JobSheets none none
+QuotaPeriod 0
+PageLimit 0
+KLimit 0
+OpPolicy default
+ErrorPolicy retry-job
+</Printer>
+EOF
 
 # creamos el archivo de configuracion de exim
 
