@@ -92,7 +92,7 @@ COPY_DIR="'''
 
         mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
                                  type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
-        mesg.set_markup (u"<big><b>Estadísticas enviadas</b></big>")
+        mesg.set_markup (u"<big><b>Estadísticas generadas en la carpeta seleccionada</b></big>")
         if (mesg.run() != None):
             mesg.destroy()
             self.quit()
