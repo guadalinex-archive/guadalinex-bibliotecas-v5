@@ -1,3 +1,9 @@
+medusa-client (1.22) hardy; urgency=low
+
+  [dteyssiere]
+  * Ahora se muestran los segundos en el cartel de tiempo restante
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 17:26:25 +0100
 medusa-client (1.21) hardy; urgency=low
 
   * Cambio de imagen de 'Estacion Bloqueada'
