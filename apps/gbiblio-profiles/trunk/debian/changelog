@@ -1,3 +1,9 @@
+gbiblio-profiles (0.19) unstable; urgency=low
+
+  [dteyssiere]
+  * Fixing bad group adding
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 20:03:02 +0100
 gbiblio-profiles (0.18) unstable; urgency=low
 
   * Fixing group adding
