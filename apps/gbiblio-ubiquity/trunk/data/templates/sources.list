@@ -1,10 +1,11 @@
 # Paquetes de Guadalinex:
 
+deb http://bibliotecas.guadalinex.org/ubuntu hardy main restricted universe multiverse
 deb http://bibliotecas.guadalinex.org/guadalinex-lobo lobo main restricted universe multiverse
 deb http://bibliotecas.guadalinex.org/guadalinex-lobo lobo-updates main restricted universe multiverse
 deb http://bibliotecas.guadalinex.org/guadalinex-lobo lobo-security main restricted universe multiverse
 deb http://bibliotecas.guadalinex.org/guadalinex-lobo lobo-backports main restricted universe multiverse
-#deb http://bibliotecas.guadalinex.org/guadalinex-lobo lobo-test main restricted universe multiverse
+deb http://bibliotecas.guadalinex.org/guadalinex-lobo lobo-test main restricted universe multiverse
 
 # Paquetes de Bibliotecas:
 
@@ -12,4 +13,4 @@ deb http://bibliotecas.guadalinex.org/guadalinex-bib lobo-bib main restricted un
 deb http://bibliotecas.guadalinex.org/guadalinex-bib lobo-bib-updates main restricted universe  multiverse
 deb http://bibliotecas.guadalinex.org/guadalinex-bib lobo-bib-security main restricted universe multiverse
 deb http://bibliotecas.guadalinex.org/guadalinex-bib lobo-bib-backports main restricted universe multiverse
-#deb http://bibliotecas.guadalinex.org/guadalinex-bib lobo-bib-test main restricted universe multiverse
+deb http://bibliotecas.guadalinex.org/guadalinex-bib lobo-bib-test main restricted universe multiverse
