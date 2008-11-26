@@ -1,3 +1,9 @@
+gbiblio-client (0.26) unstable; urgency=low
+
+  * Fixed group adding
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 10:01:47 +0100
+
 gbiblio-client (0.25) unstable; urgency=low
 
   * Adding biblio to some groups
