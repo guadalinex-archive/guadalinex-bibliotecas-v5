@@ -1,3 +1,8 @@
+gbiblio-ubiquity (0.9guada3gbiblio25) stable; urgency=low
+
+  * Added one line to sources.list
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Wed, 26 Nov 2008 18:31:30 +0100
 gbiblio-ubiquity (0.9guada3gbiblio24) stable; urgency=low
 
   * Fixed client IP. The addition of 10 to the client number
