@@ -1,0 +1,50 @@
+gbiblio-stats (0.9) unstable; urgency=low
+
+  * Fixed success message on gbiblio-stats-sender
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Wed, 26 Nov 2008 18:56:17 +0200
+gbiblio-stats (0.8) unstable; urgency=low
+
+  * Fixed share directory (unified gbiblio-stats-sender)
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Mon, 24 Nov 2008 18:33:17 +0200
+gbiblio-stats (0.7) unstable; urgency=low
+
+  * Added directory to copy on email_estadisticas.conf
+  * Added paralel file for creation of stats when manual
+  * Added copy to directory in automatic send
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Mon, 24 Nov 2008 18:17:17 +0200
+gbiblio-stats (0.6) unstable; urgency=low
+
+  * Added folder selection instead of mail selection
+  * Stats file will be moved to that folder
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Wed, 19 Nov 2008 12:59:17 +0200
+gbiblio-stats (0.5) unstable; urgency=low
+
+  * Adding only root execution for gbiblio-stats-sender
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Wed, 05 Nov 2008 15:24:17 +0200
+gbiblio-stats (0.4) unstable; urgency=low
+
+  * Fixing perms on some files
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Wed, 05 Nov 2008 13:00:17 +0200
+gbiblio-stats (0.3) unstable; urgency=low
+
+  * Added send button action
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Mon, 3 Nov 2008 18:11:17 +0200
+gbiblio-stats (0.2) unstable; urgency=low
+
+  * Added pygtk based frontend for biblio user
+  * Added desktop entrie
+  * Added icon
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Fri, 31 Oct 2008 12:05:17 +0200
+gbiblio-stats (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Thu, 30 Oct 2008 20:30:17 +0200
