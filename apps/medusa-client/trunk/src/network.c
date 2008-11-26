@@ -321,7 +321,7 @@ int read_from_client(int filedes)
 					system(cadena);
 				}
 				else{			
-					snprintf(cadena,sizeof(cadena),"guadalinfo-notify-send 60000 Le quedan  %d Minutos \n",minutosRes);
+					snprintf(cadena,sizeof(cadena),"guadalinfo-notify-send 60000 Le quedan  %d Minutos %d segundos\n",minutosRes, segRes);
 					system(cadena);
 				}
 			}
