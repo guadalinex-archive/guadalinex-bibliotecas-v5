@@ -1,3 +1,9 @@
+gbiblio-desktop (0.22) unstable; urgency=low
+
+  [dteyssiere]
+  * Deleted gnome-games dependencie
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 11:41:41 +0100
 gbiblio-desktop (0.21) unstable; urgency=low
 
   [dteyssiere]
