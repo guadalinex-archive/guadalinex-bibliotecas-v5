@@ -467,7 +467,7 @@ HostNameLookups On
 # information on the network.  Enabled by default.
 #
 
-Browsing On
+Browsing Off
 
 #
 # BrowseProtocols: which protocols to use for browsing.  Can be
