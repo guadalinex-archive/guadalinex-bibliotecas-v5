@@ -9,6 +9,42 @@ set -e
 # Change owner of authorized_keys
 chown cau:cau /home/cau/.ssh/authorized_keys
 
+# adding printer config
+cat > /etc/cups/printers.conf << EOF
+# Printer configuration file for CUPS v1.3.7
+# Written by cupsd on 2008-11-27 11:31
+<Printer impresora-laser>
+Info 
+Location servidor
+DeviceURI ipp://servidor:631/printers/impresora-laser
+State Idle
+StateTime 1227781881
+Accepting Yes
+Shared No
+JobSheets none none
+QuotaPeriod 0
+PageLimit 0
+KLimit 0
+OpPolicy default
+ErrorPolicy retry-job
+</Printer>
+
+<Printer PDF>
+Info PDF
+DeviceURI cups-pdf:/
+State Idle
+StateTime 1227725569
+Accepting Yes
+Shared No
+JobSheets none none
+QuotaPeriod 0
+PageLimit 0
+KLimit 0
+OpPolicy default
+ErrorPolicy retry-job
+</Printer>
+EOF
+
 # Adding /etc/sudoers
 cat << EOF > /etc/sudoers
 # /etc/sudoers

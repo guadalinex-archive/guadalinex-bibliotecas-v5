@@ -1,3 +1,9 @@
+gbiblio-client (0.29) unstable; urgency=low
+
+  [dteyssiere]
+  * Adding printer config
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 28 Nov 2008 13:59:47 +0100
 gbiblio-client (0.28) unstable; urgency=low
 
   [dteyssiere]
