@@ -1,3 +1,9 @@
+gbiblio-desktop (0.23) unstable; urgency=low
+
+  * Added liferea as dependence
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 28 Nov 2008 11:02:27 +0100
+
 gbiblio-desktop (0.22) unstable; urgency=low
 
   [dteyssiere]
