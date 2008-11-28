@@ -8,9 +8,5 @@ set -e
 # Setting biblio password
 /tmp/librarian-pass && rm -rf /tmp/librarian-pass
 
-# adding biblio to groups
-groups='cdrom floppy audio dip video plugdev scanner lpadmin'
-id biblio && for i in ${groups}; do  adduser biblio $i;done
-
 exit 0
 
