@@ -1,3 +1,9 @@
+gbiblio-server (1.34) unstable; urgency=low
+
+  * Added thunderbird's divert
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 28 Nov 2008 11:04:40 +0100
+
 gbiblio-server (1.33) unstable; urgency=low
 
   [dteyssiere]
