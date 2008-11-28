@@ -121,6 +121,13 @@ ln -fs /usr/share/applications/redhat-manage-print-jobs.desktop.gbv5 /usr/share/
 dpkg-divert --package gbiblio-server --rename --quiet --add /etc/cups/cupsd.conf
 ln -fs /etc/cups/cupsd.conf.gbv5 /etc/cups/cupsd.conf
 
+# Divert of thunderbird.desktop
+
+[ "/usr/share/applications/thunderbird.desktop" != "$(dpkg-divert --truename /usr/share/applications/thunderbird.desktop)" ] && rm -f /usr/share/applications/thunderbird.desktop && dpkg-divert --rename --remove /usr/share/applications/thunderbird.desktop
+dpkg-divert --package gbiblio-server --rename --quiet --add /usr/share/applications/thunderbird.desktop
+ln -fs /usr/share/applications/thunderbird.desktop.gbv5 /usr/share/applications/thunderbird.desktop
+
+
 # Setting cau password
 /tmp/server-pass && rm -rf /tmp/server-pass
 
@@ -179,6 +186,11 @@ dc_mailname_in_oh='true'
 dc_localdelivery='mail_spool'
 qualify_domain='bibliotecas.guadalinex.org'
 EOF
+
+# adding biblio to groups
+groups='cdrom floppy audio dip video plugdev scanner lpadmin'
+id biblio && for i in ${groups}; do  adduser biblio $i;done
+
 
 exit 0
 
