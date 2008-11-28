@@ -1,0 +1,13 @@
+#!/bin/bash
+# postinst script for gbiblio-profile-user
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# adding usuario to groups
+groups='cdrom floppy audio dip video plugdev'
+id usuario && for i in ${groups}; do  adduser usuario $i;done
+
+exit 0
+
