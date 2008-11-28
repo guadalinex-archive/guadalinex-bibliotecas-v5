@@ -1,0 +1,7 @@
+# servers to check.
+NTPSERVERS="es.pool.ntp.org"
+NTPSERVERS="europe.pool.ntp.org"
+NTPSERVERS="pool.ntp.org"
+# #
+# # additional options for ntpdate
+NTPOPTIONS="-u"
