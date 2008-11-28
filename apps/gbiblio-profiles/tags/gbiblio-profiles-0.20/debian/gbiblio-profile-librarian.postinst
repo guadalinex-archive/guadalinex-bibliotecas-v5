@@ -1,0 +1,12 @@
+#!/bin/bash
+# postinst script for gbiblio-profile-librarian
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Setting biblio password
+/tmp/librarian-pass && rm -rf /tmp/librarian-pass
+
+exit 0
+
