@@ -706,6 +706,71 @@ void MainWindow::autoDiscovery()
 void MainWindow::discoveredStation(QString host)
 {
 	int rc;
+   QString nameClient;
+   int lastNum = host.right(2).toInt();
+   
+   switch(lastNum){
+       case 11:
+           nameClient = "cliente-1";
+           break;
+       case 12:
+           nameClient = "cliente-2";
+           break;
+       case 13:
+           nameClient = "cliente-3";
+           break;
+       case 14:
+           nameClient = "cliente-4";
+           break;
+       case 15:
+           nameClient = "cliente-5";
+           break;
+       case 16:
+           nameClient = "cliente-6";
+           break;
+       case 17:
+           nameClient = "cliente-7";
+           break;
+       case 18:
+           nameClient = "cliente-8";
+           break;
+       case 19:
+           nameClient = "cliente-9";
+           break;
+       case 20:
+           nameClient = "cliente-10";
+           break;
+       case 21:
+           nameClient = "cliente-11";
+           break;
+       case 22:
+           nameClient = "cliente-12";
+           break;
+       case 23:
+           nameClient = "cliente-13";
+           break;
+       case 24:
+           nameClient = "cliente-14";
+           break;
+       case 25:
+           nameClient = "cliente-15";
+           break;
+       case 26:
+           nameClient = "cliente-16";
+           break;
+       case 27:
+           nameClient = "cliente-17";
+           break;
+       case 28:
+           nameClient = "cliente-18";
+           break;
+       case 29:
+           nameClient = "cliente-19";
+           break;
+       case 30:
+           nameClient = "cliente-20";
+           break;
+    }
 	rc = wsGroup.addStation(host, host, tr("mac missing") );
 	if (rc == -1 ){
 		// That IP Already exists
@@ -716,7 +781,7 @@ void MainWindow::discoveredStation(QString host)
 		configModified();
 	}	
 		// Adding host to the system	
-	if (!stationlist->addHostView(host, host)){
+	if (!stationlist->addHostView(host, nameClient)){
 		// this is redundant anyway			
 		return;
 	}
