@@ -1,0 +1,21 @@
+#!/bin/sh
+# preinst script for gbiblio-client
+#
+# see: dh_installdeb(1)
+
+set -e
+
+
+# Adding user cau:
+id cau ||  adduser cau --disabled-password --gecos cau
+
+# Adding group admin:
+if [ "`cat /etc/group|awk 'BEGIN{FS=":"};{print $1}'| grep -v lpadmin|grep admin`" != "admin" ]; then
+  echo "adding group admin ..."
+  addgroup admin
+fi
+
+
+exit 0
+
+
