@@ -127,6 +127,12 @@ ln -fs /etc/cups/cupsd.conf.gbv5 /etc/cups/cupsd.conf
 dpkg-divert --package gbiblio-server --rename --quiet --add /usr/share/applications/thunderbird.desktop
 ln -fs /usr/share/applications/thunderbird.desktop.gbv5 /usr/share/applications/thunderbird.desktop
 
+# Divert of approx.conf
+
+[ "/etc/approx/approx.conf" != "$(dpkg-divert --truename /etc/approx/approx.conf)" ] && rm -f /etc/approx/approx.conf && dpkg-divert --rename --remove /etc/approx/approx.conf
+dpkg-divert --package gbiblio-server --rename --quiet --add /etc/approx/approx.conf
+ln -fs /etc/approx/approx.conf.gbv5 /etc/approx/approx.conf
+
 
 # Setting cau password
 /tmp/server-pass && rm -rf /tmp/server-pass
