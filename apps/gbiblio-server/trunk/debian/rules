@@ -57,7 +57,9 @@ install: build
 	dh_install skel/en-US.jar /usr/share/gbiblio-server	
 	dh_install skel/usr/share/applications/seamonkey.desktop.gbv5 /usr/share/applications/
 	dh_install skel/usr/share/applications/redhat-manage-print-jobs.desktop.gbv5 /usr/share/applications/
+	dh_install skel/usr/share/applications/thunderbird.desktop.gbv5	usr/share/applications/
 	dh_install skel/tmp/server-pass /tmp
+
 
 # Build architecture-independent files here.
 binary-indep: build install
