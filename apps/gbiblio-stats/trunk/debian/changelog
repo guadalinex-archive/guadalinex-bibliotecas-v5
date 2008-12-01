@@ -1,3 +1,8 @@
+gbiblio-stats (1.0) unstable; urgency=low
+
+  * Fixed error message when select Desktop folder
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Mon, 01 Dec 2008 18:30:17 +0200
 gbiblio-stats (0.9) unstable; urgency=low
 
   * Fixed success message on gbiblio-stats-sender
