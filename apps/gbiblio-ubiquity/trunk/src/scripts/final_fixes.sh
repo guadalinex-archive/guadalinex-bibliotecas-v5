@@ -10,9 +10,30 @@ function error() {
 
 cp -v /usr/share/gbiblio-ubiquity/templates/hosts /target/etc/hosts || error "copying hosts"
 
+for x in $(cat /proc/cmdline); do
+	case $x in
+	gbiblio=*)
+		profile=${x#gbiblio=}
+		echo "profile: $profile"
+		;;
+	*)
+		;;
+	esac
+done
+
+case $profile in
+	server)
+       cp -v /usr/share/gbiblio-ubiquity/templates/sources.list.server /target/etc/apt/sources.list || error "copying sources.list"
+		;;
+	client)
+       cp -v /usr/share/gbiblio-ubiquity/templates/sources.list.client /target/etc/apt/sources.list || error "copying sources.list"
+		;;
+	*)
+		echo "No profile selected"
+		exit 0
+esac
 cp -v /usr/share/gbiblio-ubiquity/templates/resolv.conf /target/etc/resolv.conf || error "copying resolv.conf"
 
-cp -v /usr/share/gbiblio-ubiquity/templates/sources.list /target/etc/apt/sources.list || error "copying sources.list"
 
 cp -v /tmp/interfaces /target/etc/network/interfaces  || error "copying interfaces"
 
