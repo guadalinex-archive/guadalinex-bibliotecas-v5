@@ -51,6 +51,7 @@ install: build
 	#$(MAKE) DESTDIR=$(CURDIR)/debian/gbiblio-server install
 	dh_install logs /etc/cron.monthly
 	dh_install logs_manual /usr/share/gbiblio-stats-sender
+	dh_install modifyconfig.sh /usr/share/gbiblio-stats-sender
 	dh_install parse_medusa_log.py /usr/local/bin
 	dh_install email_estadisticas.conf /etc
 	dh_install gbiblio-stats-sender /usr/sbin
