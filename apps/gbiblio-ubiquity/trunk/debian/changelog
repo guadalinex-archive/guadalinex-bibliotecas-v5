@@ -1,3 +1,9 @@
+gbiblio-ubiquity (0.9guada3gbiblio26) stable; urgency=low
+
+  [dteyssiere]
+  * Added different souces.list for client or server (approx)
+
+ -- Juanje Ojeda Croissier <jojeda@emergya.es>  Mon, 01 Dec 2008 11:46:30 +0100
 gbiblio-ubiquity (0.9guada3gbiblio25) stable; urgency=low
 
   * Added one line to sources.list
