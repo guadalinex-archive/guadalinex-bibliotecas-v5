@@ -1,0 +1,125 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+"""
+Este pequeño programa sirve para generar estadísticas de forma manual y guardarlas en la carpeta
+seleccionada por el usuario
+
+Author: David Teyssiere Rubio <dteyssiere@emergya.es>
+"""
+
+import pygtk
+pygtk.require('2.0')
+import gtk
+import gtk.glade
+import gobject
+import sys
+from subprocess import Popen, PIPE
+import os
+import shutil
+
+def get_sudo(command='/bin/true'):
+    """
+    Return true if user has login as sudoer. False in other way.
+    """
+    #Try for password. Three times.
+    res = 768 
+    attemps = 0
+
+    # Errno 768: Bad password
+    while res == 768 and attemps < 3:
+   # FIXME: i18n
+        res = os.system('gksudo -m "%s" %s' % ('Escriba contraseña',command))
+        # Errno 512: User press cancel
+        if res == 512:
+            return False
+        attemps += 1
+
+    if res == 768:
+        return False
+
+    return True
+
+class GbiblioStatsSender (object):
+
+    def __init__(self):
+        self.widgets = {}
+        self.mainloop = gobject.MainLoop()
+        self.dataConfFile = '''TO_ADDR="estadisticas.bibliotecas.ccul@juntadeandalucia.es"\\nCOPY_DIR="'''
+        self.statsfileDir = ""
+        self.uid = None
+    
+
+    def initgui(self):
+        self.ui = gtk.glade.XML('/usr/share/gbiblio-stats-sender/gbiblio-stats-dialog.glade')
+
+        # cargamos todos los widgets
+        for widget in self.ui.get_widget_prefix(""):
+            self.widgets[widget.get_name()]=widget
+        
+        # conectamos las señales
+        self.ui.signal_autoconnect(self)
+
+
+        conffile = open("/etc/email_estadisticas.conf","r")
+        vars = conffile.readlines()
+        conffile.close()
+
+        self.statsfileDir = vars[1].strip("\n").split("=")[1].strip('"')
+        p = Popen('id -u biblio', shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
+        self.uid = p.stdout.readline()
+        
+        if not os.path.isdir(self.statsfileDir):
+            os.mkdir(self.statsfileDir)
+            os.chown(self.statsfileDir,int(self.uid), int(self.uid))
+        
+        self.widgets['filechooserbutton1'].set_current_folder(self.statsfileDir)
+
+        self.widgets['dialog1'].show_all()
+    
+    def run (self):
+        try:
+            self.mainloop.run()
+        except KeyboardInterrupt:
+            self.quit()
+        
+    def quit(self, *args):
+        self.mainloop.quit()
+        sys.exit(0)
+
+    def on_checkbutton1_toggled(self, *args):
+
+        if self.widgets['checkbutton1'].get_active():
+            self.widgets['entry1'].set_sensitive(True)
+            self.widgets['entry1'].set_editable(True)
+            self.widgets['entry1'].grab_focus()
+        else:
+            self.widgets['entry1'].set_editable(False)
+            self.widgets['entry1'].set_sensitive(False)
+
+    def send_stats(self, *args):
+        dest = self.widgets['filechooserbutton1'].get_current_folder()
+        cmd = '/usr/share/gbiblio-stats-sender/logs_manual'
+        if get_sudo():
+            p = Popen(cmd, shell=True, bufsize=0, stdout=PIPE, stderr=None, close_fds=True)
+        stats_file = p.stdout.readline()
+       
+        if os.path.isfile(stats_file):
+            shutil.move(stats_file, dest)
+            os.chown(dest+os.sep+stats_file.split('/')[-1],int(self.uid), int(self.uid))
+        
+        cmd = '/usr/share/gbiblio-stats-sender/modifyconfig.sh '+"'"+self.dataConfFile+dest+os.sep+'"'+"'"
+        get_sudo(command=cmd)
+
+        mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
+                                 type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
+        mesg.set_markup (u"<big><b>Estadísticas generadas en la carpeta seleccionada</b></big>")
+        if (mesg.run() != None):
+            mesg.destroy()
+            self.quit()
+
+
+if __name__ == '__main__':
+    app = GbiblioStatsSender()
+    app.initgui()
+    app.run()
+    
