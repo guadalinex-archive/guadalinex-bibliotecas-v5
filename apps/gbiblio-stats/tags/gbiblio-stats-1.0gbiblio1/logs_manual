@@ -1,0 +1,19 @@
+#! /bin/sh
+
+. /etc/gbiblio_id.conf
+. /etc/email_estadisticas.conf
+
+# copiamos el fichero para no interferir con el envio automatico
+[ -f /var/log/medusa.log ] && cp /var/log/medusa.log /tmp/
+
+# Fichero de logs de medusa
+MEDUSA_LOG_FILE=/tmp/medusa.log
+
+# Fichero de estadísticas
+STATS_FILE=/tmp/estadisticas_${ID_PROVINCIA}_${ID_LOCALIDAD}_`date +%d_%m_%y`.txt
+
+# Ejecución de los scripts de parseo
+/usr/local/bin/parse_medusa_log.py $MEDUSA_LOG_FILE $STATS_FILE
+
+echo -n $STATS_FILE
+
