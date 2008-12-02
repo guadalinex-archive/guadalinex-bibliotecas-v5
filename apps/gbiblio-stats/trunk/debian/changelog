@@ -1,3 +1,9 @@
+gbiblio-stats (1.0gbiblio1) unstable; urgency=low
+
+  * Fixed path to modifyconfig
+  * Fixed exec field in .desktop. Deleted gksudo
+
+ -- David Teyssiere Rubio <dteyssiere@emergya.es>  Tue, 02 Dec 2008 11:59:17 +0100
 gbiblio-stats (1.0) unstable; urgency=low
 
   * Fixed error message when select Desktop folder

@@ -107,8 +107,8 @@ class GbiblioStatsSender (object):
             shutil.move(stats_file, dest)
             os.chown(dest+os.sep+stats_file.split('/')[-1],int(self.uid), int(self.uid))
         
-        cmd = 'sudo /tmp/modifyconfig.sh '+"'"+self.dataConfFile+dest+os.sep+'"'+"'"
-        os.system(cmd)
+        cmd = '/usr/share/gbiblio-stats-sender/modifyconfig.sh '+"'"+self.dataConfFile+dest+os.sep+'"'+"'"
+        get_sudo(command=cmd)
 
         mesg = gtk.MessageDialog(self.widgets['dialog1'], flags=gtk.DIALOG_MODAL,
                                  type=gtk.MESSAGE_INFO, buttons=gtk.BUTTONS_CLOSE)
