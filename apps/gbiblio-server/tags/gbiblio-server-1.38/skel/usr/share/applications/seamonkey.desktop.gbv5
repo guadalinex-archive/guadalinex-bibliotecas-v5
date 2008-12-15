@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=AbsysNET
+GenericName=AbsysNET
+Exec=seamonkey http://www.juntadeandalucia.es/cultura/absys/abnet/inicio.htm 
+Terminal=false
+Type=Application
+Categories=Application;System;Settings
+Icon=/usr/share/pixmaps/absys_icon.png
