@@ -1,3 +1,9 @@
+gbiblio-server (1.38) unstable; urgency=low
+
+  * Changed absysnet's URL to http://www.juntadeandalucia.es/cultura/absys/abnet/inicio.htm
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Mon, 15 Dec 2008 18:20:49 +0100
+
 gbiblio-server (1.37) unstable; urgency=low
 
   * Adding permissions to user biblio
