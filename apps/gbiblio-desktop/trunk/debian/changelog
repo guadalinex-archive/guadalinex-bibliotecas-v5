@@ -1,3 +1,9 @@
+gbiblio-desktop (0.24) unstable; urgency=low
+
+  * flashplugin-nonfree has been replaced by adobe-flashplugin.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 17 Dec 2008 13:43:16 +0100
+
 gbiblio-desktop (0.23) unstable; urgency=low
 
   * Added liferea as dependence
