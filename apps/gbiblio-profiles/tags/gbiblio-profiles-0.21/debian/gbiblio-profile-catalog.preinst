@@ -1,0 +1,16 @@
+#!/bin/sh
+# preinst script for gbiblio-profile-catalog
+#
+# see: dh_installdeb(1)
+
+set -e
+
+# Adding user catalogo
+id catalogo || adduser catalogo --disabled-password --gecos catalogo
+chpasswd -m <<EOF
+catalogo:catalogo
+EOF
+
+
+exit 0
+
