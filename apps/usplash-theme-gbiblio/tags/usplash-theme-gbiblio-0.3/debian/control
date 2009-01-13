@@ -1,0 +1,12 @@
+Source: usplash-theme-gbiblio
+Priority: optional
+Section: misc
+Maintainer: David Teyssiere <dteyssiere@emergya.es>
+Standards-Version: 3.7.3
+Build-Depends: debhelper (>= 5.0.0), libusplash-dev (>= 0.5.16), libc6-dev (>= 2.7-9ubuntu2)
+
+Package: usplash-theme-gbiblio
+Architecture: i386 powerpc amd64
+Depends: ${shlibs:Depends}, initramfs-tools (>= 0.85eubuntu33), usplash (>= 0.5.16)
+Description: Usplash theme for Guadalinex Bibliotecas
+ Usplash theme based on the Ubuntu one and adapted for Guadalinex Bibliotecas.
