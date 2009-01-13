@@ -1,3 +1,9 @@
+gbiblio-profiles (0.21) unstable; urgency=low
+
+  * Corrected catalog's URL
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 13 Jan 2009 11:31:45 +0100
+
 gbiblio-profiles (0.20) unstable; urgency=low
 
   * Moving biblio's group adding to gbiblio-server's postinst
