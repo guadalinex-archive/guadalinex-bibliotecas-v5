@@ -1,0 +1,23 @@
+usplash-theme-gbiblio (0.4) stable; urgency=low
+
+  * Fixed 1024x768 image
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 16 Jan 2009 14:26:39 +0100
+
+usplash-theme-gbiblio (0.3) stable; urgency=low
+
+  * Updated final artwork
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Tue, 13 Jan 2009 11:46:37 +0100
+
+usplash-theme-gbiblio (0.2) stable; urgency=low
+  [jhernandez]
+  * Final artwork
+
+ -- David Teyssiere <dteyssiere@emergya.es>  Mon, 24 Nov 2008 18:10:40 +0100
+
+usplash-theme-gbiblio (0.1) stable; urgency=low
+
+  * Initial release.
+
+ -- David Teyssiere <dteyssiere@emergya.es>  Tue, 29 Nov 2006 11:02:00 +0100
