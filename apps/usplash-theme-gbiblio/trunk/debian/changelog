@@ -1,3 +1,9 @@
+usplash-theme-gbiblio (0.4) stable; urgency=low
+
+  * Fixed 1024x768 image
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 16 Jan 2009 14:26:39 +0100
+
 usplash-theme-gbiblio (0.3) stable; urgency=low
 
   * Updated final artwork
