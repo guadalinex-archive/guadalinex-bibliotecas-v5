@@ -6,4 +6,3 @@ Terminal=false
 Type=Application
 Categories=Application;System;Settings
 Icon=/usr/share/pixmaps/absys_icon.png
-NoDisplay=true
