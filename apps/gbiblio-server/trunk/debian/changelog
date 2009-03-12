@@ -1,3 +1,9 @@
+gbiblio-server (1.39) unstable; urgency=low
+
+  * Removed seamonkey's absysnet launcher
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 12 Mar 2009 10:56:41 +0100
+
 gbiblio-server (1.38) unstable; urgency=low
 
   * Changed absysnet's URL to http://www.juntadeandalucia.es/cultura/absys/abnet/inicio.htm
