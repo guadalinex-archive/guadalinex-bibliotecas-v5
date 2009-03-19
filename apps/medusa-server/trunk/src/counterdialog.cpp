@@ -28,6 +28,9 @@
 #include <qtooltip.h>
 
 #include "counterdialog.h"
+#include "mainwindow.h"
+
+extern Q_UINT16 SecsByDefault;
 
 CounterDialog::CounterDialog(QWidget *parent, const char *name )
 	: CounterDialogBase(parent, name)
@@ -43,8 +46,25 @@ CounterDialog::CounterDialog(QWidget *parent, const char *name )
 	this->setCaption(tr("Start new session"));
 
 	/* Setting default 30 minutes */
-	QTime time = QTime(0,30,0);
+
+//	QTime time = QTime(0,30,0);
 	
+//	QTime time = QTime(0,0,0);
+//	time.addSecs( SecsByDefault );
+
+	Q_UINT16 stime=SecsByDefault;
+	
+//	qDebug("SecsByDefault: %d ",SecsByDefault);
+	
+	Q_UINT16 hour=stime/3600;
+	stime=stime%3600;
+	Q_UINT16 min=stime/60;
+	stime=stime%60;
+	Q_UINT16 sec=stime;
+	qDebug("h: %d ",stime);
+	QTime time = QTime (hour, min, sec);
+//	time.setHMS(hour,min,sec);
+//	time.addSecs(stime);
 	timeEdit->setTime(time);
 	
 	QToolTip::add(timeEdit, tr("Minimum: 10 seconds"));

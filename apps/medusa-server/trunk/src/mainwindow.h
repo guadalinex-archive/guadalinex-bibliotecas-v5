@@ -6,6 +6,8 @@
 
 #include "workstationgroup.h"
 
+
+
 class QAction;
 class QLabel;
 class QListViewItem;
@@ -164,7 +166,7 @@ private:
 	
 	
 	WorkStationGroup wsGroup;
-   long initialSessionSeconds;
+ // 	long initialSessionSeconds;
 	// Holds the list
 	StationList *stationlist;
 	
@@ -174,6 +176,7 @@ private:
 	bool askClosing;
 	Q_UINT16 notifyPort;
 	Q_UINT16 controlPort;
+	Q_UINT16 initialSessionSeconds;
 	QFont listFont;
 	QString logFileName;
 	bool askStatus;

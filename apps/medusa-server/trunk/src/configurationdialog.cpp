@@ -48,6 +48,7 @@ ConfigurationDialog::ConfigurationDialog(QWidget *parent, const char *name )
 	controlPortLabel->setText(tr("Control Port"));
 	// I need to set the whats this here
 	notifyPortLabel->setText(tr("Notification Port"));
+	defaultTimeLabel->setText(tr("Default Time (min)"));
 	
 	clientGroupBox->setTitle(tr("Client Configuration"));
 	
