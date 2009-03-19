@@ -1,0 +1,371 @@
+#!/bin/bash
+
+# Listado de funciones
+#  clean_dir
+#  prepare_dir
+#  generate_debian_dir
+#  generate_control
+#  generate_copyright
+#  generate_changelog
+#  generate_postinst
+#  generate_dirs
+#  generate_rules
+#  generate_compat
+#  list_files
+#  list_dirs
+#  copy_skel
+
+#DIRS="cliente servidor hibrido"
+DIRS="gbiblio-v5-servidor-actualizacion gbiblio-v5-cliente-actualizacion"
+DEBDIR="debs"
+ARG="$1"
+ARG2="$2"
+
+clean_dir ()
+{
+	DIR=$1
+	echo -n "Limpiando directorios de $DIR... "
+	DIR_TO_CLEAN=$(find -name "$DIR-$VER")
+	[ "$DIR_TO_CLEAN" != "" ] && rm -rf $DIR_TO_CLEAN
+	echo "[OK]"
+}
+
+prepare_dir ()
+{
+	DIR=$1
+	echo -n "Preparando directorios de $DIR... "
+	mkdir -p $DEBDIR/$DIR-$VER/debian
+	echo  "[OK]"
+}
+
+generate_debian_dir ()
+{
+	DIR=$1
+
+	echo "Generando directorio debian/:"
+	generate_control $DIR
+	generate_copyright $DIR
+	generate_changelog $DIR
+	generate_dirs $DIR
+	generate_rules $DIR
+	generate_compat $DIR
+	generate_postinst $DIR
+	generate_preinst $DIR
+
+}
+
+generate_control ()
+{
+	DIR=$1
+	
+	echo -n "	Generando debian/control de $DIR... "
+	echo -e "Source: $DIR
+Section: admin
+Priority: optional
+Maintainer: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Build-Depends: debhelper (>= 4.2)
+Standards-Version: 3.8.0
+
+Package: $DIR
+Architecture: any" >> $DEBDIR/$DIR-$VER/debian/control
+
+	[ -n "$(ls $DIR | grep DEBDEPENDS)" ] && DEPENDS=$(cat $DIR/DEBDEPENDS | grep -v ^#)
+	[ -n "$DEPENDS" ] && echo "Depends: $DEPENDS" >> $DEBDIR/$DIR-$VER/debian/control
+
+	[ -n "$(ls $DIR | grep DEBCONFLICTS)" ] && CONFLICTS=$(cat $DIR/DEBCONFLICTS | grep -v ^#)
+	[ -n "$CONFLICTS" ] && echo "Conflicts: $CONFLICTS" >> $DEBDIR/$DIR-$VER/debian/control
+
+	[ -n "$(ls $DIR | grep DEBPROVIDES)" ] && PROVIDES=$(cat $DIR/DEBPROVIDES | grep -v ^#)
+	[ -n "$PROVIDES" ] && echo "Provides: $PROVIDES" >> $DEBDIR/$DIR-$VER/debian/control
+
+
+	echo -e "Description: Paquete de actualizacion de Guadalinex Bibliotecas v5
+ Mantiene actualizado los sistemas de tipo $DIR." >> $DEBDIR/$DIR-$VER/debian/control
+
+	echo "[OK]"
+}
+
+generate_copyright ()
+{
+	DIR=$1
+	echo -n "	Generando debian/copyright... "
+	echo -e 'Copyright 2009 by CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es> under the terms of the GNU GPL V2.
+
+   This program is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License as published by
+   the Free Software Foundation; version 2 dated June, 1991.
+
+   This program is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+   GNU General Public License for more details.
+
+   You should have received a copy of the GNU General Public License
+   along with this program; if not, write to the Free Software 
+   Foundation, Inc., 51 Franklin St, Fifth Floor, Boston,
+   MA 02110-1301, USA.
+
+On Debian systems, the complete text of the GNU General
+Public License can be found in /usr/share/common-licenses/GPL.' > $DEBDIR/$DIR-$VER/debian/copyright
+	echo "[OK]"
+}
+
+generate_changelog ()
+{
+	DIR=$1
+	echo -n "	Generando debian/changelog... "
+	
+	if [ -f changelog-$DIR ]; then
+		cp changelog-$DIR $DEBDIR/$DIR-$VER/debian/changelog
+	else
+		echo -e "$DIR ($VER) unstable; urgency=low
+		
+		  * First revision
+		
+		 -- CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>  `822-date` " >> $DEBDIR/$DIR-$VER/debian/changelog
+	fi
+
+	echo "[OK]"
+}
+
+generate_preinst ()
+{
+	DIR=$1
+	echo -n "	Generando debian/preinst... "
+
+	echo '#!/bin/sh' > $DEBDIR/$DIR-$VER/debian/preinst
+	echo 'set -e' >> $DEBDIR/$DIR-$VER/debian/preinst
+
+	SCRIPTS=$(ls $DIR | grep preinst)
+	if [ -n "$SCRIPTS" ]; then
+		echo '#DEBHELPER#' >> $DEBDIR/$DIR-$VER/debian/preinst
+		for script in $(ls $DIR/$SCRIPTS)
+		do
+			cat $DIR/bin_preinst/$script >> $DEBDIR/$DIR-$VER/debian/preinst
+		done	
+	fi
+
+	echo "[OK]"
+}
+
+generate_postinst ()
+{
+	DIR=$1
+	echo -n "	Generando debian/postinst... "
+
+	echo '#!/bin/sh' > $DEBDIR/$DIR-$VER/debian/postinst
+	echo 'set -e' >> $DEBDIR/$DIR-$VER/debian/postinst
+
+	if [ -d $DIR/skel ]; then
+		if [ -n "$(ls $DIR/skel)" ]; then
+			echo "cp -a /usr/share/$DIR/skel/* /" >> $DEBDIR/$DIR-$VER/debian/postinst
+		fi
+	fi
+
+	SCRIPTS=$(ls $DIR | grep postinst)
+	if [ -n "$SCRIPTS" ]; then
+		echo '#DEBHELPER#' >> $DEBDIR/$DIR-$VER/debian/postinst
+		for script in $(ls $DIR/$SCRIPTS)
+		do
+			cat $DIR/bin_postinst/$script >> $DEBDIR/$DIR-$VER/debian/postinst
+		done	
+	fi
+
+	echo "[OK]"
+}
+
+generate_dirs ()
+{
+	DIR=$1
+	echo -n "	Generando debian/dirs... "
+#	list_files $DIR
+#	for file in $RET
+#	do
+#		echo "$(dirname $file)" >> $DEBDIR/$DIR-$VER/debian/dirs
+#	done
+	list_dirs $DIR
+	for directory in $RET
+	do
+		echo $directory >> $DEBDIR/$DIR-$VER/debian/dirs
+	done
+	echo "[OK]"
+}
+
+generate_rules ()
+{
+	DIR=$1
+	echo -n "	Generando debian/rules... "
+echo -e "#!/usr/bin/make -f
+
+build:
+#       debconf-updatepo
+clean:
+	dh_testdir
+	dh_testroot
+	dh_clean
+
+install: build
+	dh_testdir
+	dh_testroot
+	dh_clean -k" >> $DEBDIR/$DIR-$VER/debian/rules
+
+	list_files $DIR
+	for file in $RET
+	do
+		echo "	dh_install skel/$file $(dirname $file)" >> $DEBDIR/$DIR-$VER/debian/rules
+	done
+
+echo -e "
+binary-indep: build install
+
+binary-arch: build install
+	dh_testdir
+	dh_testroot
+	dh_installdebconf
+	dh_installdocs
+	dh_installchangelogs
+	dh_installdirs
+	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_shlibdeps
+	dh_gencontrol
+	dh_builddeb
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary install" >> $DEBDIR/$DIR-$VER/debian/rules
+
+	chmod +x $DEBDIR/$DIR-$VER/debian/rules
+	echo "[OK]"
+}
+
+generate_compat ()
+{
+	echo -n "	Generando debian/compat... "
+	echo "4" > $DEBDIR/$DIR-$VER/debian/compat
+	echo "[OK]"
+}
+
+build_passwd_binary ()
+{
+	if [ $1 != "-k" ]; then return; fi
+
+	echo "Generando binario de rotacion de claves:"
+	python claves.py chpwd
+	ret_code=$?
+
+	if [ $ret_code = "0" ]; then
+		for dir in $DIRS; do
+			cp chpwd $dir/skel/usr/share/$dir/skel/usr/share/$dir/bin
+			svn add -q $dir/skel/usr/share/$dir/skel/usr/share/$dir/bin/chpwd
+			svn commit -q -m "" --non-interactive $dir/skel/usr/share/$dir/skel/usr/share/$dir/bin/chpwd
+		done
+		echo -n "Compilacion completada"
+		echo "	[OK]"
+		rm chpwd
+	elif [ $ret_code = "1" ]; then
+	        echo -n "	Fallo en generacion de claves"
+	elif [ $ret_code = "2" ]; then
+	        echo -n "	Fallo escribiendo ficheros fuente"
+	elif [ $ret_code = "3" ]; then
+	        echo -n "	Fallo compilando"
+	else 
+	        echo -n "	Error desconocido"
+	fi
+}
+
+list_files ()
+{
+	DIR=$1
+	FILES=""
+
+	if [ -n "$(ls $DIR | grep skel)" ]; then
+		SKEL=$(find $DIR/skel | grep -v .svn | sed -e "s/$DIR\/skel\///")
+		for element in $SKEL
+		do
+			[ -f $DIR/skel/$element ] && FILES=$element" "$FILES
+		done
+	fi
+	RET=$FILES
+}
+
+list_dirs ()
+{
+	DIR=$1
+	DIRS_SKEL=""
+
+	if [ -n "$(ls $DIR | grep skel)" ]; then
+		SKEL=$(find $DIR/skel | grep -v .svn | sed -e "s/$DIR\/skel\///g")
+		for element in $SKEL
+		do
+			[ -d $DIR/skel/$element ] && DIRS_SKEL=$element" "$DIRS_SKEL
+		done
+	fi
+	RET=$DIRS_SKEL
+}
+
+copy_skel ()
+{
+	DIR=$1
+	echo -n "Copiando skel... "	
+	if [ -n "$(ls $DIR | grep skel)" ] && [ -n "$(ls $DIR/skel)" ]; then
+		cp -r $DIR/skel /tmp/$DIR-skel
+		mkdir $DEBDIR/$DIR-$VER/skel
+		cp -r /tmp/$DIR-skel/* $DEBDIR/$DIR-$VER/skel
+		rm -rf /tmp/$DIR-skel
+	else
+		echo "No hay skel en $DIR."
+	fi
+}
+
+# Generamos el binario de rotacion de claves
+if [ $# -eq 2 ]; then
+	build_passwd_binary $2
+	[ $? != "0" ] && "No se pudo compilar el binario de rotacion de claves" && exit
+fi
+
+# Generamos las fuentes
+for dir in $DIRS 
+do
+	if [ -f changelog-$dir ]; then
+	  VER=$(cat changelog-$dir | head -1 | sed -e 's/.*(//g' | sed -e 's/).*//g')
+	else
+	  VER=0.000000001
+  	fi
+	echo "$dir"
+	echo "==========="
+	clean_dir $dir
+	prepare_dir $dir
+	generate_debian_dir $dir
+	copy_skel $dir
+	
+	echo
+done
+
+[ ! -f /usr/bin/debuild ] && echo "Instale el paquete devscripts para poder compilar los paquetes" && exit
+
+case $1 in
+	-c)
+		for dir in $DIRS
+		do
+			if [ -f changelog-$dir ]; then
+			  VER=$(cat changelog-$dir | head -1 | sed -e 's/.*(//g' | sed -e 's/).*//g')
+			else
+			  VER=0.000000001
+			fi 
+			echo
+			echo "======================="
+			echo "Compilando $dir"
+			echo "======================="
+			echo
+			cd $DEBDIR/$dir-$VER
+			debuild -uc -us
+			cd - > /dev/null
+		done
+		echo "================================================="
+		echo "Los paquetes generados se encuentran en $DEBDIR/"
+		echo "================================================="
+		;;
+esac

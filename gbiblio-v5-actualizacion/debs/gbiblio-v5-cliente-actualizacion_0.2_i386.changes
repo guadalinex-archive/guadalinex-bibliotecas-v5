@@ -1,0 +1,21 @@
+Format: 1.7
+Date: Wed, 18 Feb 2009 12:30:39 +0100
+Source: gbiblio-v5-cliente-actualizacion
+Binary: gbiblio-v5-cliente-actualizacion
+Architecture: source i386
+Version: 0.2
+Distribution: unstable
+Urgency: low
+Maintainer: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Changed-By: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Description: 
+ gbiblio-v5-cliente-actualizacion - Paquete de actualizacion de Guadalinex Bibliotecas v5
+Changes: 
+ gbiblio-v5-cliente-actualizacion (0.2) unstable; urgency=low
+ .
+   * Se añaden herramientas de diagnóstico como dependencia: nmap, telnet,
+     slocate, strace, iptraf
+Files: 
+ be0f72834e90ef7f5ce2f0e43890eaa3 346 admin optional gbiblio-v5-cliente-actualizacion_0.2.dsc
+ 6095d0f82b6b8a87ca3f4b4f231b3807 1840 admin optional gbiblio-v5-cliente-actualizacion_0.2.tar.gz
+ e61dab64e66bc646c871bcd3da561b58 2074 admin optional gbiblio-v5-cliente-actualizacion_0.2_i386.deb
