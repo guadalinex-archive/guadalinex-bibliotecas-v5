@@ -57,7 +57,7 @@
 
 using namespace mlog;
 
-
+extern Q_UINT16 SecsByDefault=0;
 // Constructor
 //
 // 
@@ -72,7 +72,8 @@ MainWindow::MainWindow(QWidget * parent, const char *name)
 	configDialog = 0;
 	controlPort = 10000;
 	notifyPort = 10001;
-   initialSessionSeconds = 3600;
+   	initialSessionSeconds = 3600;
+	SecsByDefault=initialSessionSeconds;
 	//listFont.fromString( "" );
 	
 	askClosing = true;
@@ -85,6 +86,8 @@ MainWindow::MainWindow(QWidget * parent, const char *name)
 	logFileName = "" ;
 
 	readSettings();
+
+//	qDebug("SecsByDefault: %d ",SecsByDefault);
 
 	appTitle = tr("Medusa");
 
@@ -804,12 +807,16 @@ void MainWindow::editSettings()
 	dialog.setConfigFont(listFont);
 	dialog.askCloseCheckbox->setChecked(askClosing);
 	dialog.controlPortEdit->setText(QString::number(controlPort));
+	dialog.defaultTimeEdit->setText(QString::number(initialSessionSeconds/60));
+	SecsByDefault=initialSessionSeconds;
 	dialog.logFileEdit->setText(logFileName);
 	dialog.askStatusBox->setChecked(askStatus);
 	dialog.askStatusSlider->setValue(askStatusTime);
 	if (dialog.exec()){
 		askClosing = dialog.askCloseCheckbox->isChecked();
 		controlPort = dialog.controlPortEdit->text().toUInt();
+		initialSessionSeconds = dialog.defaultTimeEdit->text().toUInt()*60;
+		SecsByDefault=dialog.defaultTimeEdit->text().toUInt()*60;
 		//qDebug("setting font font: " + dialog.configFont );	
 		listFont = dialog.getConfigFont();		
 		stationlist->setFont(dialog.getConfigFont());
@@ -1086,11 +1093,11 @@ void MainWindow::about()
 	QMessageBox::about(this, tr("About Medusa"),
 			tr("<h2>Medusa</h2>"
 			"<p>Copyright &copy; 2004 Emergya, S.C.A."
-			"<p> Jesús Roncero Franco <br>"
-			" Daniel Carrión Reinoso"
+			"<p> Jesï¿½s Roncero Franco <br>"
+			" Daniel Carriï¿½n Reinoso"
 			"<p>Medusa is a small application to remotely block/unblock computers. "
 			"Its primary use is in a library or a internet cafe. "
-			"Medusa is based on Zeiberbude by Christian Töpp<br> " 
+			"Medusa is based on Zeiberbude by Christian Tï¿½pp<br> " 
  			"                            "
 			"<p>Icons by <a href=\"http://phoenity.com\">http://phoenity.com</a> - License Creative Commons. "));
 }
@@ -1107,6 +1114,7 @@ void MainWindow::writeSettings()
 	settings.writeEntry("/askClosing", askClosing);
 	settings.writeEntry("/controlPort", controlPort);
 	settings.writeEntry("/notifyPort", notifyPort);
+	settings.writeEntry("/initialSessionSeconds", initialSessionSeconds);
 	settings.writeEntry("/recentFiles", recentFiles);
 	settings.writeEntry("/listFont", listFont.toString());	
 	settings.writeEntry("/logFile", logFileName);
@@ -1131,11 +1139,11 @@ void MainWindow::readSettings()
 	askClosing = settings.readBoolEntry("/askClosing", true);
 	controlPort = settings.readNumEntry("/controlPort", 10000);
 	notifyPort = settings.readNumEntry("/notifyPort", 10001);
+	initialSessionSeconds=settings.readNumEntry("/initialSessionSeconds",3600);
 	logFileName  = settings.readEntry("/logFile", "/var/log/medusa.log");
 	askStatus = settings.readBoolEntry("/askStatus", true);
 	askStatusTime = settings.readNumEntry("/askStatusTime", 13);
-
-	
+	SecsByDefault=initialSessionSeconds;	
 	if (logFileName != "" ){		
 		station_log.close();
 		station_log.assignFile(logFileName);
