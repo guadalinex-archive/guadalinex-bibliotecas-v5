@@ -1,0 +1,12 @@
+Source: gbiblio-v5-cliente-actualizacion
+Section: admin
+Priority: optional
+Maintainer: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Build-Depends: debhelper (>= 4.2)
+Standards-Version: 3.8.0
+
+Package: gbiblio-v5-cliente-actualizacion
+Architecture: any
+Depends: nmap, telnet, slocate, strace, iptraf, language-support-es, gstreamer0.10-plugins-bad-multiverse, gstreamer0.10-plugins-bad, gstreamer0.10-ffmpeg, gbiblio-rt2400-legacy
+Description: Paquete de actualizacion de Guadalinex Bibliotecas v5
+ Mantiene actualizado los sistemas de tipo gbiblio-v5-cliente-actualizacion.
