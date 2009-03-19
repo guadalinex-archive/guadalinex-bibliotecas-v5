@@ -1,0 +1,20 @@
+Format: 1.7
+Date: Thu, 12 Mar 2009 12:37:13 +0100
+Source: gbiblio-v5-cliente-actualizacion
+Binary: gbiblio-v5-cliente-actualizacion
+Architecture: source i386
+Version: 0.4
+Distribution: unstable
+Urgency: low
+Maintainer: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Changed-By: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Description: 
+ gbiblio-v5-cliente-actualizacion - Paquete de actualizacion de Guadalinex Bibliotecas v5
+Changes: 
+ gbiblio-v5-cliente-actualizacion (0.4) unstable; urgency=low
+ .
+   * Se incluye gbiblio-rt2400-legacy como dependencia
+Files: 
+ e4c3fcd7c5fe02eb81948d8dddc0e3f5 346 admin optional gbiblio-v5-cliente-actualizacion_0.4.dsc
+ 664feae2577a80e2f944454306d9302b 2852 admin optional gbiblio-v5-cliente-actualizacion_0.4.tar.gz
+ 3079c98a99296d38a89de9ea5315c1f0 3124 admin optional gbiblio-v5-cliente-actualizacion_0.4_i386.deb
