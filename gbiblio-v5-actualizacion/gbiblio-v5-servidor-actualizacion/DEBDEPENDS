@@ -1,0 +1,3 @@
+# Lista de paquetes que va a instalar el metapaquete de actualización
+# Ej: libc6, python2.3, libdvdcss2, alsa-base, alsa-utils, alsa-modules-2.4.23-ck1, gnome-alsamixer, anacron, sane-utils (>= 1.0.15-6), libsane (>= 1.0.15-6)
+brscan (>= 0.2.4), nmap, telnet, slocate, strace, iptraf, medusa-server (>= 1.22), firefox-2 (>= 1:2.0.0.14+2nobinonly-0ubuntu1biblio1), firefox-2-gnome-support (>= 1:2.0.0.14+2nobinonly-0ubuntu1biblio1), mozilla-firefox-locale-es-es, language-support-es, gstreamer0.10-plugins-bad-multiverse, gstreamer0.10-plugins-bad, gstreamer0.10-ffmpeg, gbiblio-rt2400-legacy
