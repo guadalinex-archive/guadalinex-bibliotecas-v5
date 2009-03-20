@@ -1,0 +1,8 @@
+#!/bin/sh
+
+[ -z "$1" ] && echo "Usage: $0 changelogfile" && exit 1
+
+export DEBFULLNAME="CAU Bibliotecas"
+export DEBEMAIL=cau.bibliotecas.ccul@juntadeandalucia.es
+
+dch -i --changelog $1
