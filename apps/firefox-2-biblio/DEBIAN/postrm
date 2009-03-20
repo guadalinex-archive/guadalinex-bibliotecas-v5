@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+# Automatically added by dh_makeshlibs
+if [ "$1" = "remove" ]; then
+	ldconfig
+fi
+
+# Completely deleting user dummy
+echo "Removing user prestamo..."
+if ( grep '^prestamo' /etc/passwd 2>&1 > /dev/null ); then
+	deluser --remove-home --quiet prestamo
+	echo "User removed!"
+else
+	echo "User already removed!"
+fi
+
+# Deleting the line added to /etc/sudoers
+echo "Removing lines added to /etc/sudoers..."
+sed '/^biblio..*ALL=(prestamo)  *NOPASSWD:ALL$/d' -i /etc/sudoers
+
+# End automatically added section

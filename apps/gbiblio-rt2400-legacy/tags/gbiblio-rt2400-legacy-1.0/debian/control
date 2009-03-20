@@ -1,0 +1,16 @@
+Source: gbiblio-rt2400-legacy
+Section: net
+Priority: optional
+Maintainer: Javier Hernández Antúnez <jhernandez@emergya.es>
+Build-Depends: debhelper (>= 7)
+Standards-Version: 3.7.3
+Homepage: http://rt2400.sourceforge.net/ 
+
+Package: gbiblio-rt2400-legacy
+Architecture: i386
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Source for the rt2400-cvs driver.
+ This package provides the source code for the rt2400-cvs kernel modules.
+ The rt2400-cvs package is also required in order to make use of these
+ modules. Kernel source or headers are required to compile these modules. 
+ Ralink's legacy driver. Workaround for bibliotecas. 

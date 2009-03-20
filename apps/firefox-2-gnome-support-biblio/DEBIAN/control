@@ -1,0 +1,15 @@
+Package: firefox-2-gnome-support
+Source: firefox
+Version: 1:2.0.0.14+2nobinonly-0ubuntu1biblio1
+Architecture: i386
+Maintainer: Luis Rivas Vañó <lrivas@emergya.es>
+XSBC-Original-Maintainer: Alexander Sack <asac@ubuntu.com>
+Installed-Size: 212
+Depends: firefox-2 (= 1:2.0.0.14+2nobinonly-0ubuntu1biblio1), libart-2.0-2 (>= 2.3.18), libatk1.0-0 (>= 1.20.0), libbonobo2-0 (>= 2.15.0), libbonoboui2-0 (>= 2.15.1), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libgcc1, libgconf2-4 (>= 2.13.5), libglib2.0-0 (>= 2.12.0), libgnome2-0 (>= 2.17.3), libgnomecanvas2-0 (>= 2.11.1), libgnomeui-0 (>= 2.17.1), libgnomevfs2-0 (>= 1:2.17.90), libgtk2.0-0 (>= 2.12.0), libice6 (>= 1:1.0.0), libnspr4-0d (>= 1.8.0.10), liborbit2 (>= 1:2.14.10), libpango1.0-0 (>= 1.20.1), libpopt0 (>= 1.10), libsm6, libstdc++6 (>= 4.1.1-21)
+Provides: gnome-www-browser
+Section: gnome
+Priority: optional
+Description: Support for Gnome in Mozilla Firefox
+ This is an extension to Firefox that allows it to use protocol
+ handlers from Gnome-VFS, such as smb or sftp, and other Gnome
+ integration features.

@@ -1,0 +1,29 @@
+#!/bin/sh
+# postrm script for gbiblio-rt2400-legacy
+#
+# see: dh_installdeb(1)
+
+set -e
+
+case "$1" in
+    purge|remove|upgrade|failed-upgrade|abort-install|abort-upgrade|disappear)
+
+
+  invoke-rc.d networking restart
+
+  echo "rt2400 was completely removed!"
+
+    ;;
+
+    *)
+        echo "postrm called with unknown argument \`$1'" >&2
+        exit 1
+    ;;
+esac
+
+
+#DEBHELPER#
+
+exit 0
+
+

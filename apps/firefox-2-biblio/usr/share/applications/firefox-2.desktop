@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=AbsysNET
+GenericName=AbsysNET
+Exec=firefox-2 %u
+Terminal=false
+Type=Application
+Categories=Application;System;Settings
+Icon=/usr/share/pixmaps/absys_icon.png

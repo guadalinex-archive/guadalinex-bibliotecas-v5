@@ -1,0 +1,25 @@
+#!/bin/sh
+# prerm script for gbiblio-rt2400-legacy
+#
+# see: dh_installdeb(1)
+
+set -e
+
+package="gbiblio-rt2400-legacy"
+
+# Removing diverts
+
+rm -rf /etc/modprobe.d/blacklist
+dpkg-divert --package $package --rename --quiet --remove /etc/modprobe.d/blacklist
+
+rm -rf /etc/modprobe.d/options
+dpkg-divert --package $package --rename --quiet --remove /etc/modprobe.d/options
+
+[ "$(lsmod | grep 'rt2400')" ] && modprobe -r rt2400
+modprobe rt2400pci && depmod -a
+
+#DEBHELPER#
+
+exit 0
+
+

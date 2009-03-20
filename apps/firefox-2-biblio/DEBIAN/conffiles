@@ -1,0 +1,9 @@
+/etc/firefox/profile/bookmarks.html
+/etc/firefox/profile/localstore.rdf
+/etc/firefox/profile/search.rdf
+/etc/firefox/profile/mimeTypes.rdf
+/etc/firefox/profile/chrome/userChrome-example.css
+/etc/firefox/profile/chrome/userContent-example.css
+/etc/firefox/profile/prefs.js
+/etc/firefox/firefoxrc
+/etc/firefox/pref/firefox-2.js

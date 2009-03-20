@@ -1,0 +1,59 @@
+#!/bin/sh -e
+
+if [ "$1" = "configure" ] || [ "$1" = "abort-upgrade" ] ; then
+    update-alternatives --install /usr/bin/x-www-browser \
+        x-www-browser /usr/bin/firefox-2 30 \
+        --slave /usr/share/man/man1/x-www-browser.1.gz \
+        x-www-browser.1.gz /usr/share/man/man1/firefox-2.1.gz
+    touch /usr/lib/firefox/.autoreg
+fi
+
+if [ -x /usr/bin/update-desktop-database ]; then
+    /usr/bin/update-desktop-database
+fi
+
+# Automatically added by dh_makeshlibs
+if [ "$1" = "configure" ]; then
+	ldconfig
+fi
+# End automatically added section
+
+
+echo "Please restart any running Firefoxes, or you will experience problems."
+
+unud=/var/lib/update-notifier/user.d
+
+if pgrep firefox-2-bin >/dev/null 2>&1 && test -d $unud; then
+    cp -f /usr/share/firefox-2/firefox-2-restart-required.update-notifier \
+        "$unud/firefox-2-restart-required"
+fi
+
+# Adding a dummy user to be able to run two different versions of firefox at the same time
+echo "Adding user prestamo..."
+if ( grep '^prestamo' /etc/passwd 2>&1 > /dev/null ); then
+	echo "Already exists!"
+else
+	adduser --system --group --quiet --uid 10000 prestamo
+	echo "Added!"
+fi
+
+# Adding a new rule to sudoers file
+
+if ( cp -f /etc/sudoers /etc/sudoers.bkp ); then
+        if ( grep -e '^biblio..*ALL=(prestamo)  *NOPASSWD:ALL$' /etc/sudoers 2>&1 > /dev/null ); then
+                echo "Line already added to /etc/sudoers";
+        else
+                echo "biblio ALL=(prestamo) NOPASSWD:ALL" >> /etc/sudoers;
+                echo "Line successfully added to /etc/sudoers";
+        fi
+fi
+
+crd=/usr/lib/firefox-2/components/compreg.dat
+if test -f $crd; then
+    cat >&2 <<'END'
+Warning: something created compreg.dat!
+Your system was affected by this bug: https://launchpad.net/bugs/30791
+compreg.dat has now been removed again, which should fix the symptoms.
+END
+    rm $crd
+fi

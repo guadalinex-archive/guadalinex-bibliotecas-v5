@@ -1,0 +1,4 @@
+#!/bin/sh
+
+xhost +local:prestamo
+sudo -H -u prestamo /usr/lib/firefox/firefox-2 $*
