@@ -1,0 +1,138 @@
+medusa-server (1.22) hardy; urgency=low
+
+  [abelmonte]
+  * Asignación de tiempo por defecto de sesión
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 18 Feb 2009 16:56:01 +0200
+
+medusa-server (1.21) hardy; urgency=low
+
+  [dteyssiere]
+  * Anadido nombre y numero de cliente cuando se usa autodiscover
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 28 Nov 2008 12:34:42 +0200
+
+medusa-server (1.20) hardy; urgency=low
+
+  [dteyssiere]
+  * Anadido envio de tiempo al cliente para que informe al usuario
+  * .desktop modificado para que se muestre como "Medusa"
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 26 Nov 2008 17:32:42 +0200
+
+medusa-server (1.19) hardy; urgency=low
+
+  [dteyssiere]
+  * Anadida parada de tiempo cuando cliente cierra su session.
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Fri, 21 Nov 2008 10:58:42 +0200
+
+medusa-server (1.18) hardy; urgency=low
+
+  [dteyssiere]
+  * Anadida la capacidad de enviar mensajes a varios cliente
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 19 Nov 2008 17:10:42 +0200
+
+medusa-server (1.17) hardy; urgency=low
+
+  * Anadida la capacidad de enviar mensajes a un cliente
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 19 Nov 2008 15:47:42 +0200
+
+medusa-server (1.16) hardy; urgency=low
+
+  * Anadida la capacidad de apagar clientes
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 06 Nov 2008 18:53:42 +0200
+
+medusa-server (1.15) hardy; urgency=low
+
+  * Version de medusa adaptada correctamente a bibliotecas
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 06 Nov 2008 17:01:42 +0200
+
+medusa-server (1.14) hardy; urgency=low
+
+  * Version de medusa adaptada correctamente a bibliotecas
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Thu, 30 Oct 2008 16:34:42 +0200
+
+medusa-server (1.13) hardy; urgency=low
+
+  * Arreglado problema Makefile
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 18:34:42 +0200
+
+medusa-server (1.12) hardy; urgency=low
+
+  * Descomentando codigo para añadir todas las funcionalidades
+
+ -- Javier Hernández Antúnez <jhernandez@emergya.es>  Wed, 22 Oct 2008 18:07:56 +0200
+
+medusa-server (1.11) feisty; urgency=low
+
+  * Nueva versión
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Wed, 30 May 2007 19:43:34 +0200
+
+medusa-server (1.10) feisty; urgency=low
+
+  * Nueva versión
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Thu, 24 May 2007 22:46:57 +0200
+
+medusa-server (1.9) feisty; urgency=low
+
+  * Nueva version 
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Wed, 23 May 2007 20:31:49 +0200
+
+medusa-server (1.8) feisty; urgency=low
+
+  * Notificación de tiempos implementada
+
+ -- Adrian Belmonte Martin <abelmonte@emergya.es>  Tue, 22 May 2007 18:57:31 +0100
+
+medusa-server (1.7) feisty; urgency=low
+
+  * Improved generate-medusa-conf
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Tue, 22 May 2007 14:05:23 +0200
+
+medusa-server (1.6) feisty; urgency=low
+
+  * Corregidas las cadenas de traducción para "Shutdown..."
+
+ --  <rmartin@emergya.es>  Mon, 21 May 2007 21:35:39 +0200
+
+medusa-server (1.5) feisty; urgency=low
+
+  * UI adaptada
+  * Cambios para el control de tiempo de sesión
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon, 21 May 2007 20:55:27 +0200
+
+medusa-server (1.4) unstable; urgency=low
+
+  * control port por defecto 7010 
+
+ -- Carlos Parra Camargo <carlospc@localdomain>  Tue,  8 May 2007 21:21:47 +0200
+
+medusa-server (1.3) unstable; urgency=low
+
+  * Botones escondidos 
+
+ -- Carlos Parra Camargo <carlospc@localdomain>  Tue,  8 May 2007 20:37:43 +0200
+
+medusa-server (1.2) unstable; urgency=low
+
+  * guadalinfo config enabled 
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Mon,  7 May 2007 13:24:52 +0200
+
+medusa-server (1.1) unstable; urgency=low
+
+  *  Initial ggv4 release
+
+ -- Carlos Parra Camargo <cparra@emergya.es>  Tue, 24 Apr 2007 17:01:35 +0200
