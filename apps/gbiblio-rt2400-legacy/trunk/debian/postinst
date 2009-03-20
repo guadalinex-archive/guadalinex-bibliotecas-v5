@@ -1,0 +1,33 @@
+#!/bin/sh
+# postinst script for gbiblio-rt2400-legacy
+#
+# see: dh_installdeb(1)
+
+set -e
+
+
+# Divert /etc/modprobe.d/blacklist
+
+BASE="/etc/modprobe.d/blacklist"
+package="gbiblio-rt2400-legacy"
+
+[ $BASE != "$(dpkg-divert --truename $BASE)" ] && rm -f $BASE && dpkg-divert --rename --remove $BASE
+dpkg-divert --package $package --rename --quiet --add $BASE
+ln -fs /usr/share/$package/blacklist.gbv5 $BASE
+
+# Divert /etc/modprobe.d/options 
+BASE="/etc/modprobe.d/options"
+
+[ $BASE != "$(dpkg-divert --truename $BASE)" ] && rm -f $BASE && dpkg-divert --rename --remove $BASE
+dpkg-divert --package $package --rename --quiet --add $BASE
+ln -fs /usr/share/$package/options.gbv5 $BASE
+
+[ "$(lsmod | grep rt2400pci)" ] && modprobe -r rt2400pci && insmod /lib/modules/2.6.24-19-generic/updates/net/wireless/rt2400/rt2400.ko && depmod -a
+
+invoke-rc.d networking restart
+
+echo "Blacklisted rt2400pci and its dependences!"
+
+#DEBHELPER#
+
+exit 0

@@ -1,0 +1,21 @@
+Package: firefox-2
+Source: firefox
+Version: 1:2.0.0.14+2nobinonly-0ubuntu1biblio1
+Architecture: i386
+Maintainer: Luis Rivas Vañó <lrivas@emergya.es>
+XSBC-Original-Maintainer: Alexander Sack <asac@ubuntu.com>
+Installed-Size: 26044
+Depends: debianutils (>= 1.16), fontconfig, libatk1.0-0 (>= 1.20.0), libc6 (>= 2.4), libcairo2 (>= 1.6.0), libfontconfig1 (>= 2.4.0), libfreetype6 (>= 2.3.5), libgcc1 (>= 1:4.1.1-21), libglib2.0-0 (>= 2.16.0), libgtk2.0-0 (>= 2.12.0), libhunspell-1.1-0 (>= 1.1.6-1), libjpeg62, libnspr4-0d (>= 1.8.0.10), libnss3-1d (>= 3.12.0~beta3), libpango1.0-0 (>= 1.20.1), libstdc++6 (>= 4.1.1-21), libx11-6, libxft2 (>> 2.1.1), libxinerama1, libxrender1, libxt6, psmisc, zlib1g (>= 1:1.2.3.3.dfsg-1)
+Recommends: ubufox
+Suggests: firefox-2-gnome-support (= 1:2.0.0.14+2nobinonly-0ubuntu1biblio1), latex-xft-fonts
+Conflicts: firefox (<= 2.0.0.12+2nobinonly+2-0ubuntu2), libnss3
+Replaces: firefox (<= 2.0.0.12+2nobinonly+2-0ubuntu2), libnss3
+Provides: www-browser
+Section: web
+Priority: optional
+Description: lightweight web browser based on Mozilla
+ Firefox is a redesign of the Mozilla browser component, similar to
+ Galeon, K-Meleon and Camino, but written using the XUL user interface
+ language and designed to be lightweight and cross-platform.
+ .
+ This browser was previously known as Firebird and Phoenix.

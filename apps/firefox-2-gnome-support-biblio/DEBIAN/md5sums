@@ -1,0 +1,7 @@
+5f56b680e33bded2b69af84d89653cdf  usr/share/doc/firefox-2-gnome-support/copyright
+c868cf6274f5bdd586469381377a73b1  usr/share/doc/firefox-2-gnome-support/changelog.Debian.gz
+85dea110dfa1a13f479ad0082279eb8e  usr/lib/firefox/components/libmozgnome.so
+c236b9306b25a5b6f1954d3542ccb21f  usr/lib/firefox/components/mozgnome.xpt
+24efb3ae5c3d2f02001a29917d008e97  usr/lib/firefox/components/libnkgnomevfs.so
+ee1a90a70bb56696923fdd52421a3d6b  usr/lib/firefox/components/libimgicon.so
+f7d0c5d4f29004c423764a3e427076ac  usr/lib/firefox/components/imgicon.xpt

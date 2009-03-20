@@ -1,0 +1,25 @@
+#!/bin/sh -e
+
+if [ "$1" = "remove" ] || [ "$1" = "deconfigure" ] ; then
+    update-alternatives --remove x-www-browser /usr/bin/firefox-2
+    update-alternatives --remove mozilla /usr/bin/firefox-2
+    rm -f /var/lib/update-notifier/user.d/firefox-2-restart-required
+fi
+
+if [ "$1" = "remove" ]; then
+    rm -rf /var/lib/firefox/chrome/overlayinfo
+    rm -f /var/lib/firefox-2/chrome/chrome.rdf
+    rm -f /var/lib/firefox-2/defaults.ini
+    rm -f /var/lib/firefox-2/components.ini
+    rm -f /var/lib/firefox-2/components/xpti.dat
+    rm -f /var/lib/firefox-2/components/compreg.dat
+    rm -f /usr/lib/firefox-2/.autoreg
+    rm -f /var/lib/firefox-2/extensions/installed-extensions.txt
+    rm -f /var/lib/firefox-2/extensions/Extensions.rdf
+    rm -f /usr/lib/firefox-2/defaults/profile/extensions/Extensions.rdf
+    if [ -d /var/lib/firefox-2/ ]; then
+        find /var/lib/firefox-2/ -depth -type d -empty -exec rmdir {} \;
+    fi
+fi
+
+
