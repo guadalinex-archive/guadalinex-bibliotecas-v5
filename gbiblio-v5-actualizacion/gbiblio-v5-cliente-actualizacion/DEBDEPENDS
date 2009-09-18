@@ -1,3 +1,0 @@
-# Lista de paquetes que va a instalar el metapaquete de actualización
-# Ej: libc6, python2.3, libdvdcss2, alsa-base, alsa-utils, alsa-modules-2.4.23-ck1, gnome-alsamixer, anacron, sane-utils (>= 1.0.15-6), libsane (>= 1.0.15-6)
-nmap, telnet, slocate, strace, iptraf, language-support-es, gstreamer0.10-plugins-bad-multiverse, gstreamer0.10-plugins-bad, gstreamer0.10-ffmpeg, gbiblio-rt2400-legacy
