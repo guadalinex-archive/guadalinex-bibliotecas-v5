@@ -1,0 +1,37 @@
+gbiblio-v5-servidor-actualizacion (0.5) unstable; urgency=low
+
+  * Añadiendo dependencias a dansguardian y squid.
+
+ -- Luis Rivas Vañó <lrivas@emergya.es>  Tue, 18 Aug 2009 10:49:44 +0200
+
+gbiblio-v5-servidor-actualizacion (0.4) unstable; urgency=low
+
+  * Se sustituye seamonkey.desktop.gbv5 para ocultar lanzador de absysnet 
+  * Se incluye gbiblio-rt2400-legacy como dependencia
+
+ -- CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>  Thu, 12 Mar 2009 12:33:41 +0100
+
+gbiblio-v5-servidor-actualizacion (0.3) unstable; urgency=low
+
+  * Se sustituye seamonkey por firefox-2 como navegador de absysnet
+  * Se añade language-support-es como dependencia para diccionario castellano
+    de OpenOffice
+  * Se añade sources.list con las lineas test comentadas
+
+ -- CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>  Wed, 04 Mar 2009 13:40:21 +0100
+
+gbiblio-v5-servidor-actualizacion (0.2) unstable; urgency=low
+
+  * Añadido driver para scanner de impresora multifunción como dependencia
+  * Se añaden herramientas de diagnóstico como dependencia: nmap, telnet,
+    slocate, strace, iptraf
+  * Añadido medusa con funcionalidad de definir tiempo por defecto de sesión
+
+ -- CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>  Wed, 18 Feb 2009 10:30:39 +0100
+
+gbiblio-v5-servidor-actualizacion (0.1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- jhernandez <jhernandez@emergya.es>  Wed, 29 Oct 2008 13:34:39 +0100
+
