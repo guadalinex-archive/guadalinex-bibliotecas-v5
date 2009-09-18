@@ -1,0 +1,10 @@
+Package: gbiblio-v5-cliente-actualizacion
+Version: 0.5
+Architecture: i386
+Maintainer: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Installed-Size: 112
+Depends: nmap, telnet, slocate, strace, iptraf, language-support-es, gstreamer0.10-plugins-bad-multiverse, gstreamer0.10-plugins-bad, gstreamer0.10-ffmpeg, gbiblio-rt2400-legacy
+Section: admin
+Priority: optional
+Description: Paquete de actualizacion de Guadalinex Bibliotecas v5
+ Mantiene actualizado los sistemas de tipo gbiblio-v5-cliente-actualizacion.

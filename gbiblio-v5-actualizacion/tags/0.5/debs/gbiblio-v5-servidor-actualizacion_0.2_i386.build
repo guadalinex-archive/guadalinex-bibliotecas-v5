@@ -1,0 +1,46 @@
+ dpkg-buildpackage -rfakeroot -D -us -uc
+dpkg-buildpackage: set CPPFLAGS to default value: 
+dpkg-buildpackage: set CFLAGS to default value: -g -O2
+dpkg-buildpackage: set CXXFLAGS to default value: -g -O2
+dpkg-buildpackage: set FFLAGS to default value: -g -O2
+dpkg-buildpackage: set LDFLAGS to default value: -Wl,-Bsymbolic-functions
+dpkg-buildpackage: Paquete fuente gbiblio-v5-servidor-actualizacion
+dpkg-buildpackage: Versión fuente 0.2
+dpkg-buildpackage: Fuente cambiadas por CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+dpkg-buildpackage: arquitectura de anfitrión i386
+ fakeroot debian/rules clean
+dh_testdir
+dh_testroot
+dh_clean
+ dpkg-source -b gbiblio-v5-servidor-actualizacion-0.2
+dpkg-source: construyendo gbiblio-v5-servidor-actualizacion en gbiblio-v5-servidor-actualizacion_0.2.tar.gz
+dpkg-source: construyendo gbiblio-v5-servidor-actualizacion en gbiblio-v5-servidor-actualizacion_0.2.dsc
+ debian/rules build
+make: No se hace nada para `build'.
+ fakeroot debian/rules binary
+dh_testdir
+dh_testroot
+dh_clean -k
+dh_install skel/usr/share/gbiblio-v5-servidor-actualizacion/skel/usr/share/gbiblio-v5-servidor-actualizacion/bin/vacio usr/share/gbiblio-v5-servidor-actualizacion/skel/usr/share/gbiblio-v5-servidor-actualizacion/bin
+dh_testdir
+dh_testroot
+dh_installdebconf
+dh_installdocs
+dh_installchangelogs
+dh_installdirs
+dh_link
+dh_strip
+dh_compress
+dh_fixperms
+dh_installdeb
+dh_shlibdeps
+dh_gencontrol
+dh_builddeb
+dpkg-deb: construyendo el paquete `gbiblio-v5-servidor-actualizacion' en `../gbiblio-v5-servidor-actualizacion_0.2_i386.deb'.
+ dpkg-genchanges  >../gbiblio-v5-servidor-actualizacion_0.2_i386.changes
+dpkg-genchanges: incluyendo código fuente completo en subida
+dpkg-buildpackage: Subida completa; Paquete nativo Debian (se incluye toda la fuente)
+Now running lintian...
+W: gbiblio-v5-servidor-actualizacion source: debhelper-but-no-misc-depends gbiblio-v5-servidor-actualizacion
+E: gbiblio-v5-servidor-actualizacion: debian-changelog-file-contains-debmake-default-email-address jhernandez@unknown
+Finished running lintian.

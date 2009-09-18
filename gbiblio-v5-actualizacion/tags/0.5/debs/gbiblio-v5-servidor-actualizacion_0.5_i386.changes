@@ -1,0 +1,28 @@
+Format: 1.8
+Date: Tue, 18 Aug 2009 10:49:44 +0200
+Source: gbiblio-v5-servidor-actualizacion
+Binary: gbiblio-v5-servidor-actualizacion
+Architecture: source i386
+Version: 0.5
+Distribution: unstable
+Urgency: low
+Maintainer: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Changed-By: Luis Rivas Vañó <lrivas@emergya.es>
+Description: 
+ gbiblio-v5-servidor-actualizacion - Paquete de actualizacion de Guadalinex Bibliotecas v5
+Changes: 
+ gbiblio-v5-servidor-actualizacion (0.5) unstable; urgency=low
+ .
+   * Añadiendo dependencias a dansguardian y squid.
+Checksums-Sha1: 
+ a4f233c5e153ccfd8c2c5c789abd56b0382eb3d8 599 gbiblio-v5-servidor-actualizacion_0.5.dsc
+ 0fb00c046e1433f8c8b78444996ec8b0c5269ece 126423 gbiblio-v5-servidor-actualizacion_0.5.tar.gz
+ 0a250fc156cd387cd40e4ec1afbd735bc881a516 64230 gbiblio-v5-servidor-actualizacion_0.5_i386.deb
+Checksums-Sha256: 
+ 80b0dee70dfc6dd857937661825c297d40864b79b2b0f180da66046a825944f4 599 gbiblio-v5-servidor-actualizacion_0.5.dsc
+ 3a1a94d9323bff80e2d8ceb096a0045de83f69b610f36c63156b56d2ac63d3e7 126423 gbiblio-v5-servidor-actualizacion_0.5.tar.gz
+ 880b6f12c34407f880284c4bef411f9b2c3913bed0689a895bc76a686168a21e 64230 gbiblio-v5-servidor-actualizacion_0.5_i386.deb
+Files: 
+ af0237f6005a75d8e80aa92d953acdb0 599 admin optional gbiblio-v5-servidor-actualizacion_0.5.dsc
+ 324eb1783eff39b7862f4ee90fcdf672 126423 admin optional gbiblio-v5-servidor-actualizacion_0.5.tar.gz
+ 6a275a6bbcc7c71d8186efc264fb1d50 64230 admin optional gbiblio-v5-servidor-actualizacion_0.5_i386.deb

@@ -1,0 +1,21 @@
+Format: 1.7
+Date: Thu, 12 Mar 2009 12:33:41 +0100
+Source: gbiblio-v5-servidor-actualizacion
+Binary: gbiblio-v5-servidor-actualizacion
+Architecture: source i386
+Version: 0.4
+Distribution: unstable
+Urgency: low
+Maintainer: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Changed-By: CAU Bibliotecas <cau.bibliotecas.ccul@juntadeandalucia.es>
+Description: 
+ gbiblio-v5-servidor-actualizacion - Paquete de actualizacion de Guadalinex Bibliotecas v5
+Changes: 
+ gbiblio-v5-servidor-actualizacion (0.4) unstable; urgency=low
+ .
+   * Se sustituye seamonkey.desktop.gbv5 para ocultar lanzador de absysnet
+   * Se incluye gbiblio-rt2400-legacy como dependencia
+Files: 
+ d81becd01bee6abb8e6f8a6b98305886 349 admin optional gbiblio-v5-servidor-actualizacion_0.4.dsc
+ 449e57bf767bb8f718c57a9b7576d7d7 4018 admin optional gbiblio-v5-servidor-actualizacion_0.4.tar.gz
+ 7294ecf0287ad31d09fc9e2b230ab2a9 4314 admin optional gbiblio-v5-servidor-actualizacion_0.4_i386.deb
